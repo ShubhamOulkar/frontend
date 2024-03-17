@@ -1,0 +1,222 @@
+/* colors */
+:root {
+  /* primary colors */
+  --red: hsl(1, 90%, 64%);
+  --blue: hsl(219, 85%, 26%);
+
+  /* other colors */
+  --white: hsl(0, 0%, 100%);
+  --very-light-grayish-blue: hsl(210, 60%, 98%);
+  --light-grayish-blue-1: hsl(211, 68%, 94%);
+  --light-grayish-blue-2: hsl(205, 33%, 90%);
+  --grayish-blue: hsl(219, 14%, 63%);
+  --dark-grayish-blue: hsl(219, 12%, 42%);
+  --very-dark-blue: hsl(224, 21%, 14%);
+
+  /* screen sizes */
+  --mobile: 375px;
+  --desktop: 1440px;
+}
+
+/* defaults setting */
+* {
+  margin: 0;
+  box-sizing: border-box;
+  word-spacing: 0.1em;
+}
+
+/* Set up Plus Jakarta Sans for modern browsers, weights range from 500 to 800 */
+@supports (font-variation-settings: normal) {
+  @font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url("/notifications-page-main/assets/fonts/PlusJakartaSans-VariableFont_wght.ttf")
+      format("truetype");
+    font-weight: 500 800;
+    font-stretch: 25% 151%;
+  }
+
+  body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: var(--grayish-blue);
+    font-size: 16px;
+    font-weight: 500;
+    background-color: var(--very-light-grayish-blue);
+  }
+
+  [data-linkType="group"],
+  [data-linkType="reacted"] {
+    font-weight: 800;
+  }
+}
+
+/* Set up Plus Jakarta Sans for old browsers, weights range from 500 to 800 */
+@supports not (font-variation-settings: normal) {
+  @font-face {
+    font-family: "static bold plus jakarta sans";
+    src: url("/notifications-page-main/assets/fonts/static/PlusJakartaSans-Medium.ttf")
+      format("truetype");
+    font-weight: 500;
+  }
+
+  @font-face {
+    font-family: "static extra bold plus jakarta sans";
+    src: url("/notifications-page-main/assets/fonts/static/PlusJakartaSans-ExtraBold.ttf")
+      format("truetype");
+    font-weight: 800;
+  }
+
+  body {
+    font-family: "static bold plus jakarta sans", fallback, sans-serif;
+    background-color: var(--very-light-grayish-blue);
+  }
+
+  [data-linkType="group"],
+  [data-linkType="reacted"] {
+    font-family: "static extra bold plus jakarta sans";
+  }
+}
+
+/* centering notification container */
+.notification-container {
+  margin-block: 5rem;
+  margin-inline: auto;
+  width: 48%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 10px 10px 0 var(--light-grayish-blue-1),
+    0 6px 20px 0 var(--light-grayish-blue-1);
+
+  @media (width < 375px) {
+    width: 100%;
+    padding: 0.5rem;
+    margin-block: 0;
+  }
+}
+
+/* it looks like images have fixed size in challange */
+img {
+  width: 50px;
+  height: 50px;
+}
+
+/* mark all as read button style */
+.mark-all {
+  text-decoration: none;
+  color: var(--dark-grayish-blue);
+  transition: all 0.8s;
+
+  &:hover {
+    color: var(--blue);
+  }
+}
+
+/* notification status panel */
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0.5rem;
+
+  @media (width < 375px) {
+    padding: 0.5rem;
+    font-size: 4vw;
+  }
+}
+
+/* notification count */
+.counter {
+  background-color: var(--blue);
+  border-radius: 5px;
+  color: var(--white);
+  padding: 2px 10px;
+  font-size: 1rem;
+
+  @media (width < 375px) {
+    padding: 0.2rem 0.6rem;
+    font-size: 4vw;
+  }
+}
+
+/* unread notification marker */
+.unread-dot {
+  font-size: 0.5rem;
+}
+
+/* notifications styling */
+.notification {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+
+  & a.post-image {
+    margin-inline-start: auto;
+    height: fit-content;
+    &:hover {
+      border-radius: 10px;
+      border: 3px solid var(--light-grayish-blue-2);
+    }
+  }
+
+  a.message {
+    text-decoration: none;
+    padding: 1rem;
+    color: var(--dark-grayish-blue);
+    border: 2px solid var(--light-grayish-blue-1);
+    border-radius: 3px;
+    margin-top: 5px;
+    transition: all 0.8s;
+
+    &:hover {
+      background-color: var(--light-grayish-blue-1);
+    }
+  }
+}
+
+/* inner notification content */
+.notification-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* coloring fonts in notification content */
+.notification-type strong,
+h2 {
+  color: black;
+}
+
+[data-linkType="group"] {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+[data-linkType="reacted"] {
+  color: var(--dark-grayish-blue);
+  text-decoration: none;
+  transition: all 0.8s;
+
+  &:hover {
+    color: var(--blue);
+  }
+}
+
+.notification-type a {
+  text-decoration: none;
+
+  & strong:hover {
+    color: var(--blue);
+  }
+}
+
+/* background color for unread notifications */
+[data-remark="unread"] {
+  background-color: var(--very-light-grayish-blue);
+}

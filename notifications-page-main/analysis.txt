@@ -1,0 +1,19 @@
+The different types of notifications used in notification design are: user-generated notifications, push notifications, context-generated notifications, system-generated notifications, notifications requiring action from the user, passive notifications, and smart notifications.
+
+# resource
+https://www.toptal.com/designers/ux/notification-design
+https://web.dev/articles/variable-fonts
+https://wakamaifondue.com/
+
+What is notification page? :- allowing user to know Recent activity/new activity 
+what are Types of notification in notification page.
+1) if someone reacted to our post then notify user
+2) if someone followed to your post then notify user
+3) if someone send you message then notify user
+4) if someone commented on your post/picture then notify user
+(following are application specific, not all social media has create group option)
+5) if someone joined your group then notify user 
+6) if someone left your group then notify user 
+
+What are sections of notification message?
+Each notification message should contain user image, name, type of notification, timestamp.

@@ -96,6 +96,7 @@
     width: 100%;
     padding: 0.5rem;
     margin-block: 0;
+    border-radius: 0;
   }
 }
 
@@ -219,4 +220,8 @@ h2 {
 /* background color for unread notifications */
 [data-remark="unread"] {
   background-color: var(--very-light-grayish-blue);
+}
+
+.attribution {
+  display: none;
 }

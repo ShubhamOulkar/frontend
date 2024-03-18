@@ -195,7 +195,7 @@ img {
 
 /* coloring fonts in notification content */
 .notification-type strong,
-h2 {
+h1 {
   color: black;
 }
 

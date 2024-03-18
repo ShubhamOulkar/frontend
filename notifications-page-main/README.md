@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Notifications page](/design/solutionpage.png)
+![Notifications page](/notifications-page-main/design/solutionpage.png)
 
 ### Links
 

@@ -29,7 +29,7 @@
 @supports (font-variation-settings: normal) {
   @font-face {
     font-family: "Plus Jakarta Sans";
-    src: url("/notifications-page-main/assets/fonts/PlusJakartaSans-VariableFont_wght.ttf")
+    src: url("/assets/fonts/PlusJakartaSans-VariableFont_wght.ttf")
       format("truetype");
     font-weight: 500 800;
     font-stretch: 25% 151%;
@@ -53,14 +53,14 @@
 @supports not (font-variation-settings: normal) {
   @font-face {
     font-family: "static bold plus jakarta sans";
-    src: url("/notifications-page-main/assets/fonts/static/PlusJakartaSans-Medium.ttf")
+    src: url("/assets/fonts/static/PlusJakartaSans-Medium.ttf")
       format("truetype");
     font-weight: 500;
   }
 
   @font-face {
     font-family: "static extra bold plus jakarta sans";
-    src: url("/notifications-page-main/assets/fonts/static/PlusJakartaSans-ExtraBold.ttf")
+    src: url("/assets/fonts/static/PlusJakartaSans-ExtraBold.ttf")
       format("truetype");
     font-weight: 800;
   }

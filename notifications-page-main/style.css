@@ -78,7 +78,7 @@
 
 /* centering notification container */
 .notification-container {
-  margin-block: 5rem;
+  margin-block: 3rem;
   margin-inline: auto;
   width: 48%;
 
@@ -170,7 +170,7 @@ img {
     }
   }
 
-  a.message {
+  p.message {
     text-decoration: none;
     padding: 1rem;
     color: var(--dark-grayish-blue);
@@ -178,6 +178,7 @@ img {
     border-radius: 3px;
     margin-top: 5px;
     transition: all 0.8s;
+    cursor: pointer;
 
     &:hover {
       background-color: var(--light-grayish-blue-1);

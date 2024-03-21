@@ -1,0 +1,21 @@
+.card-container {
+  display: grid;
+  place-items: center;
+
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+.card {
+  width: clamp(23ch, 60%, 46ch);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  background-color: aquamarine;
+}
+
+.visual {
+  height: 125px;
+  width: 100%;
+  background-color: aliceblue;
+}

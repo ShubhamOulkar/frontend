@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+}
+
+.container div {
+  background-color: gray;
+  border: 2px solid;
+  border-radius: 5px;
+  font-size: large;
+  padding: 10px;
+  margin: 10px;
+
+  @media screen and (width<500px) {
+    padding: 2px;
+    margin: 2px;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, auto));
+  grid-template-rows: repeat(3, minmax(100px, auto));
+
+  > :nth-last-child(1) {
+    grid-column: 2/4;
+    grid-row: 2/4;
+
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+  }
+
+  > :nth-child(4) {
+    grid-row: 2/4;
+  }
+}

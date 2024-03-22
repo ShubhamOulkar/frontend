@@ -1,4 +1,35 @@
+/* defaults setting */
+html {
+  font-size: 18px; /*SETTING ROOT FONT SIZE*/
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  word-spacing: 0.1em;
+}
+
+/* Set up Inter variable font for modern browsers*/
+@supports (font-variation-settings: normal) {
+  @font-face {
+    font-family: "Inter";
+    src: url("/BMI-calculator/assets/fonts/Inter-VariableFont_slnt\,wght.ttf")
+      format("truetype");
+  }
+}
+
+/* fallback for variable font*/
+@supports not (font-variation-settings: normal) {
+  @font-face {
+    font-family: "inter";
+    src: url("/BMI-calculator/assets/fonts/static/Inter-Black.ttf")
+      format("truetype");
+  }
+}
+
+/* css variables */
 :root {
+  /* color palet */
   --heading: hsla(215, 31%, 21%, 1);
   --body: hsla(215, 17%, 44%, 1);
   --gradient-start: hsla(216, 95%, 92%, 1);
@@ -12,7 +43,8 @@
   --meaning-gradient-start: hsla(216, 95%, 92%, 0.5);
   --meaning-gradient-end: hsla(184, 95%, 92%, 0);
 
-  --breakpoint-small: 320px;
-  --breakpoint-medium: 768px;
-  --breakpoint-large: 1440px;
+  /* break points for responsive web */
+  --breakpoint-small: 20rem; /* 320px */
+  --breakpoint-medium: 48rem; /* 768px */
+  --breakpoint-large: 90rem; /* 1440px*/
 }

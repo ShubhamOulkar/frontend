@@ -1,0 +1,18 @@
+:root {
+  --heading: hsla(215, 31%, 21%, 1);
+  --body: hsla(215, 17%, 44%, 1);
+  --gradient-start: hsla(216, 95%, 92%, 1);
+  --gradient-end: hsla(184, 95%, 92%, 0);
+
+  --deep-blue: hsla(227, 92%, 58%, 1);
+  --deep-blue-gradient: hsla(227, 100%, 67%, 1);
+  --deep-blue-transparent: hsla(227, 92%, 58%, 0.15);
+  --very-light-gray: hsla(200, 24%, 88%, 1);
+
+  --meaning-gradient-start: hsla(216, 95%, 92%, 0.5);
+  --meaning-gradient-end: hsla(184, 95%, 92%, 0);
+
+  --breakpoint-small: 320px;
+  --breakpoint-medium: 768px;
+  --breakpoint-large: 1440px;
+}

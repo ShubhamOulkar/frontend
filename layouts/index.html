@@ -4,18 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Layout Index</title>
+    <style>
+      div {
+        margin: auto;
+        width: 30%;
+        border: 2px solid black;
+        border-radius: 10px;
+        background-color: aliceblue;
+        color: cornflowerblue;
+        font-size: larger;
+        padding: 1rem;
+
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        @media screen and (width<500px) {
+          width: 90%;
+        }
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
   </head>
+
   <body>
-    <a href="/layouts/redefine-grid-template-using-media-query/index.html"
-      >Using grid with media query</a
-    >
-    <a href="/layouts/layering-items/index.html">Layering grid items</a>
-    <a href="/layouts/no-implicit-grid-in-subgrid/index.html"
-      >No implicit grid in subgrid</a
-    >
-    <a href="/layouts/clamping-card/index.html">Clamping cards</a>
-    <a href="/layouts/aspect-ratio-image-card/index.html"
-      >Aspect ratio image card</a
-    >
+    <div>
+      <a href="/layouts/redefine-grid-template-using-media-query/index.html"
+        >Using grid with media query</a
+      >
+      <a href="/layouts/layering-items/index.html">Layering grid items</a>
+      <a href="/layouts/no-implicit-grid-in-subgrid/index.html"
+        >No implicit grid in subgrid</a
+      >
+      <a href="/layouts/clamping-card/index.html">Clamping cards</a>
+      <a href="/layouts/aspect-ratio-image-card/index.html"
+        >Aspect ratio image card</a
+      >
+    </div>
   </body>
 </html>

@@ -1,9 +1,365 @@
 body {
   font-family: "Inter", "sans-sarif";
   font-size: inherit;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 p {
-  font-size: 1.5rem;
+  font-size: clamp(0.7rem, 2vw, 0.9rem);
+  color: var(--body);
+}
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading);
+}
+
+input[type="radio"] {
+  appearance: none;
+
+  border-radius: 50%;
+  width: 1.3rem;
+  height: 1.3rem;
+
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+
+  position: relative;
+  top: 5px;
+
+  &:checked {
+    border: 6px solid var(--very-light-gray);
+    background-color: var(--deep-blue);
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type="number"] {
+  width: 11rem;
+  height: 2rem;
+  border: 2px solid var(--body);
+  border-radius: 5px;
+
+  &::placeholder {
+    font-size: 1.4rem;
+    color: var(--body);
+    opacity: 0.2;
+    vertical-align: middle;
+  }
+
+  @media screen and (width<1440px) {
+    width: 9rem;
+  }
+}
+
+/* background rectangle styling */
+.background-rect {
+  height: 650px;
+  width: 1100px;
+  background-image: linear-gradient(
+    to left top,
+    var(--gradient-start),
+    var(--gradient-end)
+  );
+  position: relative;
+  margin-left: 10px;
+  border-end-end-radius: 25px;
+  border-end-start-radius: 25px;
+
+  @media screen and (width < 1440px) {
+    width: 97vw;
+  }
+}
+
+/* creating grid layout: 12 column and 6 rows */
+.grid-container {
+  /* position on top of background rectangle */
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: grid;
+  grid-template-columns: 100px repeat(11, 1fr); /* 100px column is used to set left alignment of page as shown in design */
+  grid-template-rows: repeat(6, auto);
+}
+
+header {
+  grid-column: 2/13;
+  grid-row: 1 / span 1;
+  padding-top: 64px;
+
+  @media screen and (width < 950px) {
+    margin: auto;
+  }
+}
+
+footer {
+  grid-column: 2/13;
+  grid-row: 6 / span 1;
+  margin: 10px;
+  text-align: center;
+}
+
+/* section 1 */
+.bmi-calculator-container {
+  grid-column: 2/13;
+  grid-row: 2 / span 1;
+  height: 600px;
+
+  display: grid;
+  grid-template-columns: subgrid;
+
+  @media screen and (width<1120px) {
+    height: 900px;
+  }
+}
+
+.bmi-description {
+  grid-column: 1/5;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 6rem;
+
+  @media screen and (width<1120px) {
+    grid-column: 3/9;
+    padding-top: 0;
+    align-self: center;
+  }
+}
+
+.bmi-calculator {
+  grid-column: 6/11;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 15px;
+  padding: 1.5rem 3rem;
+  height: 70%;
+  background-color: white;
+  box-shadow: 1rem 1rem 2rem 1rem var(--meaning-gradient-start);
+
+  @media screen and (width<1120px) {
+    grid-column: 3/9;
+  }
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+
+  > :nth-child(2) {
+    margin-left: 4rem;
+
+    @media screen and (width<1440px) {
+      margin-left: 1rem;
+    }
+  }
+}
+
+.input {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+
+  > :nth-child(1) {
+    font-size: 1rem;
+
+    label {
+      padding-left: 25px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--heading);
+    }
+  }
+}
+
+.bmi-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+
+  label {
+    font-size: 0.8rem;
+    color: var(--body);
+  }
+}
+
+.results {
+  height: 200px;
+  background-color: var(--deep-blue);
+  padding: 1rem;
+  border-radius: 10px;
+
+  border-start-end-radius: 100px;
+  border-end-end-radius: 100px;
+
+  display: flex;
+  flex-direction: column;
+
+  p {
+    color: white;
+    margin: auto;
+    line-height: 1.5;
+
+    strong {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.what {
+  grid-column: 2/12;
+  grid-row: 3 / span 1;
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: subgrid;
+  align-items: center;
+}
+
+img[alt="man eating healty food"] {
+  width: 40vw;
+  height: 40vw;
+}
+
+.what-img {
+  grid-column: 1/6;
+}
+
+.what-container {
+  grid-column: 7/11;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  h2,
+  p {
+    padding-left: 20px;
+  }
+}
+
+.background-image-right {
+  display: flex;
+  justify-content: end;
+  height: 100px;
+  @media screen and (width < 1440px) {
+    display: none;
+  }
+}
+
+.how {
+  grid-column: 1/13;
+  grid-row: 4 / span 1;
+  height: 400px;
+  display: grid;
+  grid-template-columns: subgrid;
+  place-content: center;
+  column-gap: 1.5rem;
+  margin-top: 100px;
+  border: 2px solid;
+  margin-right: 20px;
+}
+
+.eating {
+  grid-column: 2/5;
+}
+
+.exercise {
+  grid-column: 5/8;
+}
+
+.sleep {
+  grid-column: 8/11;
+}
+
+.eating,
+.exercise,
+.sleep {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.banner-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: start;
+}
+
+.limitations {
+  grid-column: 2/12;
+  grid-row: 5 / span 1;
+  padding-top: 10rem;
+  margin-bottom: 2rem;
+
+  display: grid;
+  grid-template-columns: subgrid;
+  gap: 2rem;
+  position: relative;
+}
+
+.limitations-heading {
+  grid-column: 1 / span 5;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.background-image-left {
+  margin: auto;
+  padding-top: 10px;
+  margin-left: 200px;
+}
+
+.gender {
+  grid-column: 7 / span 3;
+  border: 2px solid;
+  height: min-content;
+}
+
+.age {
+  grid-column: 5 / span 3;
+  position: absolute;
+  top: calc(10rem + 175px);
+  border: 2px solid;
+}
+
+.muscle {
+  grid-column: 8 / span 3;
+  position: absolute;
+  top: calc(10rem + 175px);
+  border: 2px solid;
+}
+
+.pregnancy {
+  grid-column: 3 / span 3;
+  border: 2px solid;
+}
+
+.race {
+  grid-column: 6 / span 3;
+  border: 2px solid;
 }

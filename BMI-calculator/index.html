@@ -29,7 +29,7 @@
     />
     <meta
       property="og:image"
-      content="https://frontend-shubhamoulkars-projects.vercel.app/BMI-calculator/assets/design/calculator_image.png"
+      content="https://frontend-shubhamoulkars-projects.vercel.app/BMI-calculator/assets/design/calculator.png"
     />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="100" />
@@ -43,7 +43,7 @@
     />
     <meta
       name="twitter:image:src"
-      content="https://frontend-shubhamoulkars-projects.vercel.app/BMI-calculator/assets/design/calculator_image.png"
+      content="https://frontend-shubhamoulkars-projects.vercel.app/BMI-calculator/assets/design/calculator.png"
     />
     <meta name="twitter:image:alt" content="BMI calculator image" />
     <meta name="twitter:creator" content="@shubhuoulkar" />
@@ -60,10 +60,253 @@
     />
     <!-- page style sheet -->
     <link rel="stylesheet" href="/BMI-calculator/static/css/style.css" />
-    <!-- postpont script loading untile html loaded -->
-    <script defer src="static/js/script.js"></script>
+    <!-- postpont script loading until html loaded -->
+    <script defer src="/BMI-calculator/static/js/script.js"></script>
   </head>
   <body>
-    <p>font family</p>
+    <div class="background-rect"></div>
+
+    <div class="grid-container">
+      <header>
+        <img src="/BMI-calculator/assets/images/logo.svg" alt="page logo" />
+      </header>
+
+      <!-- calculator section -->
+      <section class="bmi-calculator-container">
+        <div class="bmi-description">
+          <h1>
+            Body Mass<br />
+            Index Calculator
+          </h1>
+          <p>
+            Better understand your weight in relation to your height using our
+            body mass index (BM) calculator. While BMI is not the sole
+            determinant of a healthy weight, it offers a valuable starting point
+            to evaluate your overall health and well-being.
+          </p>
+        </div>
+
+        <div class="bmi-calculator">
+          <h3>Enter your details below</h3>
+          <div class="input-container">
+            <div class="input">
+              <div>
+                <input
+                  type="radio"
+                  name="metric"
+                  id="metric"
+                  autocomplete="off"
+                />
+                <label for="metric">Metric</label>
+              </div>
+              <div class="bmi-input">
+                <label for="height">Height</label>
+                <input
+                  type="number"
+                  name="height"
+                  id="height"
+                  min="0"
+                  autocomplete="off"
+                  placeholder="0"
+                />
+              </div>
+            </div>
+            <div class="input">
+              <div>
+                <input
+                  type="radio"
+                  name="imperial"
+                  id="imperial"
+                  autocomplete="off"
+                />
+                <label for="imperial">Imperial</label>
+              </div>
+              <div class="bmi-input">
+                <label for="weight">Weight</label>
+                <input
+                  type="number"
+                  name="weight"
+                  id="weight"
+                  min="0"
+                  autocomplete="off"
+                  placeholder="0"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="results">
+            <p>
+              <strong>Welcome!</strong><br />
+              Enter your height and weight, you'll see your BMI result here.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- what bmi section -->
+      <section class="what">
+        <div class="what-img">
+          <img
+            src="/BMI-calculator/assets/images/image-man-eating.webp"
+            alt="man eating healty food"
+          />
+        </div>
+        <div class="what-container">
+          <div class="background-image-right">
+            <img
+              src="/BMI-calculator/assets/images/pattern-curved-line-left.svg"
+              alt="background decoration image"
+            />
+          </div>
+
+          <h2>What your BMI results means</h2>
+          <p>
+            A BMI range of 18.5 to 24.9 is considered a 'healthy weight.'
+            Maintaining a healthy weight may lower your chances of experiencing
+            health issues later on, such as obesity and type 2 diabetes. Aim for
+            a nutritious diet with reduced fat and sugar content, incorporating
+            ample fruits and vegetables. Additionally, strive for regular
+            physical activity, ideally about 30 minutes daily for five days a
+            week.
+          </p>
+        </div>
+      </section>
+
+      <!-- How bmi section -->
+      <section class="how">
+        <div class="eating">
+          <div class="banner-container">
+            <img
+              src="/BMI-calculator/assets/images/icon-eating.svg"
+              alt="eating healty food"
+            />
+            <h3>Healthy eating</h3>
+          </div>
+          <p>
+            Healthy eating promotes weight control, disease prevention, better
+            digestion, immunity, mental clarity, and mood.
+          </p>
+        </div>
+
+        <div class="exercise">
+          <div class="banner-container">
+            <img
+              src="/BMI-calculator/assets/images/icon-exercise.svg"
+              alt="do exercise"
+            />
+            <h3>Regular exercise</h3>
+          </div>
+          <p>
+            Exercise improves fitness, aids weight control, elevates mood, and
+            reduces disease risk, fostering wellness and longevity.
+          </p>
+        </div>
+
+        <div class="sleep">
+          <div class="banner-container">
+            <img
+              src="/BMI-calculator/assets/images/icon-sleep.svg"
+              alt="sleep"
+            />
+            <h3>Adequate sleep</h3>
+          </div>
+          <p>
+            Sleep enhances mental clarity, emotional stability, and physical
+            wellness, promoting overall restoration and rejuvenation.
+          </p>
+        </div>
+      </section>
+
+      <!-- limitations of bmi section-->
+      <section class="limitations">
+        <div class="limitations-heading">
+          <h2>Limitations of BMI</h2>
+          <p>
+            Although BMI is often a practical indicator of healthy weight, it is
+            not suited for every person. Specific groups should carefully
+            consider their BMI outcomes, and in certain cases, the measurement
+            may not be beneficial to use.
+          </p>
+
+          <div class="background-image-left">
+            <img
+              src="/BMI-calculator/assets/images/pattern-curved-line-right.svg"
+              alt="background decoration image"
+            />
+          </div>
+        </div>
+
+        <div class="gender">
+          <img
+            src="/BMI-calculator/assets/images/icon-gender.svg"
+            alt="human genders symbol"
+          />
+          <h4>Gender</h4>
+          <p>
+            The development and body fat composition of girls and boys vary with
+            age. Consequently, a child's age and gender are considered when
+            evaluating their BMI.
+          </p>
+        </div>
+
+        <div class="age">
+          <img
+            src="/BMI-calculator/assets/images/icon-age.svg"
+            alt="human age symbol"
+          />
+          <h4>Age</h4>
+          <p>
+            In aging individuals, increased body fat and muscle loss may cause
+            BMI to underestimate body fat content.
+          </p>
+        </div>
+
+        <div class="muscle">
+          <img
+            src="/BMI-calculator/assets/images/icon-muscle.svg"
+            alt="human muscle symbol"
+          />
+          <h4>Muscle</h4>
+          <p>
+            BMI may misclassify muscular individuals as overweight or obese, as
+            it doesn't differentiate muscle from fat.
+          </p>
+        </div>
+
+        <div class="pregnancy">
+          <img
+            src="/BMI-calculator/assets/images/icon-pregnancy.svg"
+            alt="human baby symbol"
+          />
+          <h4>Pregnancy</h4>
+          <p>
+            Expectant mothers experience weight gain due to their growing baby.
+            Maintaining a healthy pre-pregnancy BMI is advisable to minimise
+            health risks for both mother and child.
+          </p>
+        </div>
+
+        <div class="race">
+          <img
+            src="/BMI-calculator/assets/images/icon-race.svg"
+            alt="human category symbol"
+          />
+          <h4>Race</h4>
+          <p>
+            Certain health concerns may affect individuals of some Black and
+            Asian origins at lower BMIs than others. To learn more, it is
+            advised to discuss this with your GP or practice nurse.
+          </p>
+        </div>
+      </section>
+
+      <footer class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://github.com/ShubhamOulkar">Shubham Oulkar</a>.
+      </footer>
+    </div>
   </body>
 </html>

@@ -90,11 +90,7 @@ input[type="number"] {
 .background-rect {
   height: 650px;
   width: 1000px;
-  background-image: linear-gradient(
-    to left top,
-    var(--gradient-start),
-    var(--gradient-end)
-  );
+  background-image: var(--to-left-top-gradient);
   position: relative;
   margin-left: 10px;
   border-end-end-radius: 25px;
@@ -369,6 +365,7 @@ footer {
   }
 }
 
+/* section 3 : How */
 .how {
   grid-column: 1/13;
   grid-row: 4 / span 1;
@@ -376,10 +373,20 @@ footer {
   display: grid;
   grid-template-columns: subgrid;
   place-content: center;
-  column-gap: 1.5rem;
+  column-gap: 2rem;
   margin-top: 100px;
-  border: 2px solid;
   margin-right: 20px;
+  background-image: var(--to-left-top-gradient);
+  border-radius: 25px;
+  padding: 20px;
+
+  @media screen and (width < 750px) {
+    height: 120vh;
+    row-gap: 1rem;
+    align-items: center;
+    border-radius: 0;
+    margin-right: 0;
+  }
 }
 
 .eating {
@@ -400,13 +407,26 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  & > p {
+    text-align: left;
+  }
+
+  @media screen and (width < 750px) {
+    grid-column: 2/12;
+  }
 }
 
 .banner-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  row-gap: 2rem;
   align-items: start;
+
+  > img {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 .limitations {

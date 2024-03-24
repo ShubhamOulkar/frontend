@@ -630,20 +630,19 @@ footer {
 
 @media screen and (width<500px) {
   .limitations {
-    height: 160vh;
     padding-top: 3rem;
   }
 }
 
 @media screen and (width<450px) {
   .limitations {
-    height: 170vh;
+    height: 165vh;
   }
 }
 
 @media screen and (width<400px) {
   .limitations {
-    height: 190vh;
+    height: 177vh;
   }
 }
 

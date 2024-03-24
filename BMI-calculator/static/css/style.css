@@ -7,9 +7,14 @@ body {
 p {
   font-size: clamp(0.9rem, 2vw, 1rem);
   color: var(--body);
+  text-align: justify;
 }
 h1 {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+h2 {
+  font-size: clamp(1rem, 3vw, 2rem);
 }
 
 h1,
@@ -146,7 +151,7 @@ footer {
   grid-template-columns: subgrid;
 
   @media screen and (width<1120px) {
-    height: 900px;
+    height: 800px;
   }
 
   @media screen and (width<990px) {
@@ -297,22 +302,40 @@ footer {
   }
 }
 
+/* section 2 : what */
 .what {
   grid-column: 2/12;
   grid-row: 3 / span 1;
-  gap: 1rem;
   display: grid;
   grid-template-columns: subgrid;
   align-items: center;
-}
 
-img[alt="man eating healty food"] {
-  width: 40vw;
-  height: 40vw;
+  @media screen and (width<750px) {
+    gap: 1.5rem;
+  }
+
+  @media screen and (width<450px) {
+    grid-column: 1/13;
+  }
 }
 
 .what-img {
   grid-column: 1/6;
+
+  > img {
+    width: 40vw;
+    height: 40vw;
+
+    @media screen and (width<750px) {
+      width: 50vw;
+      height: 50vw;
+    }
+  }
+
+  @media screen and (width<750px) {
+    grid-column: 1/12;
+    justify-self: center;
+  }
 }
 
 .what-container {
@@ -324,7 +347,15 @@ img[alt="man eating healty food"] {
 
   h2,
   p {
-    padding-left: 20px;
+    padding-left: 40px;
+  }
+
+  @media screen and (width<950px) {
+    grid-column: 6/11;
+  }
+
+  @media screen and (width<750px) {
+    grid-column: 1/11;
   }
 }
 
@@ -332,6 +363,7 @@ img[alt="man eating healty food"] {
   display: flex;
   justify-content: end;
   height: 100px;
+
   @media screen and (width < 1440px) {
     display: none;
   }

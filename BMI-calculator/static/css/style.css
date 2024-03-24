@@ -14,7 +14,11 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1rem, 3vw, 1.1rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 5vw, 2rem);
 }
 
 h1,
@@ -68,12 +72,6 @@ input[type="number"] {
   border: 2px solid var(--body);
   border-radius: 5px;
 
-  &::placeholder {
-    font-size: 1.4rem;
-    color: var(--body);
-    opacity: 0.2;
-  }
-
   @media screen and (width<1440px) {
     width: 9rem;
   }
@@ -86,7 +84,7 @@ input[type="number"] {
     width: 10rem;
   }
 
-  @media screen and (width<750px) {
+  @media screen and (width<450px) {
     width: 8rem;
   }
 }
@@ -116,7 +114,7 @@ input[type="number"] {
 
   display: grid;
   grid-template-columns: 100px repeat(11, 1fr); /* 100px column is used to set left alignment of page as shown in design */
-  grid-template-rows: repeat(6, auto);
+  grid-template-rows: repeat(7, auto);
 
   @media screen and (width<750px) {
     grid-template-columns: repeat(12, 1fr);
@@ -137,7 +135,7 @@ header {
 
 footer {
   grid-column: 1/13;
-  grid-row: 6 / span 1;
+  grid-row: 7 / span 1;
   margin: 3rem;
 
   > p {
@@ -269,6 +267,7 @@ footer {
   flex-direction: column;
   gap: 0.5rem;
   justify-content: center;
+  position: relative;
 
   label {
     font-size: 0.8rem;
@@ -327,39 +326,35 @@ footer {
   grid-column: 1/6;
 
   > img {
-    width: 40vw;
-    height: 40vw;
+    width: 100%;
+    height: 100%;
 
     @media screen and (width<750px) {
-      width: 50vw;
-      height: 50vw;
+      width: 100%;
+      height: 100%;
     }
   }
 
   @media screen and (width<750px) {
-    grid-column: 1/12;
+    grid-column: 2/12;
     justify-self: center;
   }
 }
 
 .what-container {
-  grid-column: 7/11;
+  grid-column: 7/12;
 
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-
-  h2,
-  p {
-    padding-left: 40px;
-  }
+  justify-content: end;
 
   @media screen and (width<950px) {
-    grid-column: 6/11;
+    grid-column: 7/12;
   }
 
   @media screen and (width<750px) {
-    grid-column: 1/11;
+    grid-column: 2/12;
   }
 }
 
@@ -386,14 +381,22 @@ footer {
   margin-right: 20px;
   background-image: var(--to-left-top-gradient);
   border-radius: 25px;
-  padding: 20px;
 
   @media screen and (width < 750px) {
-    height: 120vh;
+    height: 90vh;
     row-gap: 1rem;
     align-items: center;
     border-radius: 0;
     margin-right: 0;
+  }
+
+  @media screen and (width<450px) {
+    height: 100vh;
+    margin-top: 80px;
+  }
+
+  @media screen and (width<350px) {
+    height: 120vh;
   }
 }
 
@@ -507,10 +510,16 @@ footer {
     align-items: center;
   }
 }
+@media screen and (width<1120px) {
+  .limitations {
+    padding-top: 8rem;
+  }
+}
 
 @media screen and (width<1120px) {
   .limitations {
-    height: 150vh;
+    height: 135vh;
+    padding-top: 7rem;
   }
 
   .background-image-left {
@@ -525,30 +534,30 @@ footer {
   .muscle {
     grid-column: 1/6;
     position: absolute;
-    top: 33rem;
+    top: 30rem;
   }
 
   .pregnancy {
     grid-column: 6/11;
     position: absolute;
-    top: 33rem;
+    top: 30rem;
   }
   .gender {
     grid-column: 1/6;
     position: absolute;
-    top: 20rem;
+    top: 17rem;
   }
 
   .age {
     grid-column: 6/11;
     position: absolute;
-    top: 20rem;
+    top: 17rem;
   }
 
   .race {
     grid-column: 3/9;
     position: absolute;
-    top: 45rem;
+    top: 43rem;
   }
 
   .limitations div + div {
@@ -558,7 +567,7 @@ footer {
 
 @media screen and (width<900px) {
   .limitations {
-    height: 160vh;
+    height: 135vh;
   }
 
   .limitations div + div {
@@ -566,13 +575,14 @@ footer {
   }
 
   .race {
-    top: 47rem;
+    top: 44rem;
   }
 }
 
 @media screen and (width<800px) {
   .limitations {
-    height: 170vh;
+    height: 150vh;
+    padding-top: 5rem;
   }
 
   .limitations div + div {
@@ -581,11 +591,11 @@ footer {
 
   .muscle,
   .pregnancy {
-    top: 35rem;
+    top: 32rem;
   }
 
   .race {
-    top: 50rem;
+    top: 48rem;
   }
 }
 
@@ -606,26 +616,71 @@ footer {
   }
 
   .limitations {
-    height: 180vh;
+    height: 142vh;
     row-gap: 1.5rem;
     align-content: start;
   }
 }
 
-@media screen and (width<460px) {
+@media screen and (width<590px) {
   .limitations {
-    height: 195vh;
+    height: 155vh;
+  }
+}
+
+@media screen and (width<500px) {
+  .limitations {
+    height: 160vh;
+    padding-top: 3rem;
+  }
+}
+
+@media screen and (width<450px) {
+  .limitations {
+    height: 170vh;
   }
 }
 
 @media screen and (width<400px) {
   .limitations {
-    height: 205vh;
+    height: 190vh;
   }
 }
 
-@media screen and (width<350px) {
-  .limitations {
-    height: 215vh;
+/* styling units  */
+.unit {
+  position: absolute;
+  top: 32px;
+  left: 170px;
+  color: var(--deep-blue);
+  font-size: large;
+  font-weight: 800;
+}
+
+@media screen and (width<1440px) {
+  .unit {
+    left: 135px;
   }
+}
+
+@media screen and (width<990px) {
+  .unit {
+    left: 230px;
+  }
+}
+
+@media screen and (width<750px) {
+  .unit {
+    left: 150px;
+  }
+}
+
+@media screen and (width<450px) {
+  .unit {
+    left: 115px;
+  }
+}
+
+.imperial {
+  display: none;
 }

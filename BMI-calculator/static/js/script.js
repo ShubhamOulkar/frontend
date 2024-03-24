@@ -3,6 +3,8 @@
 const radioButtons = document.querySelectorAll("input[type='radio']");
 const numberButtons = document.querySelectorAll("input[type='number']");
 const result = document.querySelector(".results p");
+const unitElements = document.querySelectorAll(".unit");
+const imperialElements = document.querySelectorAll(".imperial");
 
 // check selected standard inputs
 
@@ -13,6 +15,26 @@ radioButtons.forEach((radio) => radio.addEventListener("change", setStandard));
 
 function setStandard(e) {
   standard = e.target.id;
+
+  if (e.target.id === "imperial") {
+    // hide metric units
+    unitElements.forEach((unit) => {
+      unit.style.display = "none";
+    });
+    // show imperial units
+    imperialElements.forEach((imperial) => {
+      imperial.style.display = "inline";
+    });
+  } else {
+    // show metric units
+    unitElements.forEach((unit) => {
+      unit.style.display = "inline";
+    });
+    // hide imperial units
+    imperialElements.forEach((imperial) => {
+      imperial.style.display = "none";
+    });
+  }
 }
 
 //calculate bmi

@@ -5,7 +5,7 @@ body {
 }
 
 p {
-  font-size: clamp(0.7rem, 2vw, 0.9rem);
+  font-size: clamp(0.9rem, 2vw, 1rem);
   color: var(--body);
 }
 h1 {
@@ -153,6 +153,7 @@ footer {
     justify-items: center;
     align-content: start;
     row-gap: 2rem;
+    height: 700px;
   }
 
   @media screen and (width<450px) {

@@ -15,6 +15,7 @@ html {
     font-family: "Inter";
     src: url("/BMI-calculator/assets/fonts/Inter-VariableFont_slnt\,wght.ttf")
       format("truetype");
+    font-display: swap;
   }
 }
 
@@ -24,6 +25,7 @@ html {
     font-family: "inter";
     src: url("/BMI-calculator/assets/fonts/static/Inter-Black.ttf")
       format("truetype");
+    font-display: swap;
   }
 }
 

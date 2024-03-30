@@ -55,20 +55,12 @@
     <meta name="application-name" content="BMI-calculator" />
 
     <!-- global setting style sheet -->
-
-    <link
-      href="/BMI-calculator/static/css/global_settings.css"
-      rel="preload"
-      as="style"
-      onload="this.rel='stylesheet'"
-    />
-    <!-- page style sheet -->
     <link
       rel="stylesheet"
-      href="/BMI-calculator/static/css/style.css"
-      media="print"
-      onload="this.media='all'"
+      href="/BMI-calculator/static/css/global_settings.css"
     />
+    <!-- page style sheet -->
+    <link rel="stylesheet" href="/BMI-calculator/static/css/style.css" />
     <!-- postpont script loading until html loaded -->
     <script defer src="/BMI-calculator/static/js/script.js"></script>
   </head>
@@ -80,6 +72,7 @@
         <img
           src="/BMI-calculator/assets/images/logo.svg"
           alt="page logo"
+          loading="lazy"
           width="64"
           height="64"
         />

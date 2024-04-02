@@ -3,10 +3,14 @@
 - [Table of contents](#table-of-contents)
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
+  - [Screenshots](#screenshots)
+    - [Destop view](#destop-view)
+    - [Tablet View](#tablet-view)
+    - [Mobile View](#mobile-view)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
+  - [What is next?](#what-is-next)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
@@ -22,19 +26,25 @@ Users should be able to:
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
 
-### Screenshot
+### Screenshots
 
-![](./public/Desktop.jpg)  
-![](./public/Tablet-1.png)
-![](./public/Tablet-2.png)  
-![](./public/Mobile-1.png)
-![](./public/Mobile-2.png)
+#### Destop view
+
+![](./assets/design/calculator.png)
+
+#### Tablet View
+
+![](./assets/design/Tablet.jpg)
+
+#### Mobile View
+
+![](./assets/design/mobile.jpg)
 
 ### Links
 
-- Solution URL: [github.com/Zacharycampanelli/BMI-Calculator](https://github.com/ShubhamOulkar/BMI-calculator)
+- Solution URL: [github BMI-calculator](https://github.com/ShubhamOulkar/BMI-calculator)
 
-- Live Site URL: [zacharycampanelli.github.io/BMI-Calculator](https://zacharycampanelli.github.io/BMI-Calculator/)
+- Live Site URL: [BMI-calculator](https://frontend-shubhamoulkars-projects.vercel.app/BMI-calculator/)
 
 ## My process
 
@@ -46,10 +56,15 @@ Users should be able to:
 - CSS Grid
 - Desktop-first workflow
 
+### What is next?
+
+- [ ] Performance improvement
+- [ ] Progressive Web App
+
 ## Author
 
 - GitHub: [ShubhamOulkar](https://github.com/ShubhamOulkar)
-- Frontend Mentor - [@Zacharycampanelli](https://www.frontendmentor.io/profile/ShubhamOulkar)
+- Frontend Mentor - [@shubhamoulkar]](https://www.frontendmentor.io/profile/ShubhamOulkar)
 - Email: [oulkarshubhu@gmail.com](mailto:oulkarshubhu@gmail.com)
 
 ## Acknowledgments

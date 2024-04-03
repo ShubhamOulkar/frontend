@@ -14,6 +14,7 @@ This is a solution to the [Notifications page challenge on Frontend Mentor](http
     - [Built with](#built-with)
     - [What I learned](#what-i-learned)
     - [Continued development](#continued-development)
+    - [What is next?](#what-is-next)
     - [Useful resources](#useful-resources)
   - [Author](#author)
 
@@ -35,7 +36,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Notifications page on github](https://github.com/ShubhamOulkar/frontend/tree/main/notifications-page-main)
-- Live Site URL: [Notifications page live](https://frontend-shubhamoulkars-projects.vercel.app/)
+- Live Site URL: [Notifications page live](https://frontend-shubhamoulkars-projects.vercel.app/notifications-page-main)
 
 ## My process
 
@@ -82,6 +83,14 @@ In short, I have learned some advanced CSS techniques that can help me create mo
 ### Continued development
 
 I want to focus on SEO and web accessibility while development. Also I want use oklch() colors for better human visibility.
+
+### What is next?
+
+- [ ] Performance improvement
+- [ ] Progressive Web App
+- [ ] SEO
+- [ ] Accessibility
+- [ ] color oklch()
 
 ### Useful resources
 

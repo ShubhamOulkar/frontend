@@ -66,7 +66,7 @@
   }
 
   body {
-    font-family: "static bold plus jakarta sans", fallback, sans-serif;
+    font-family: "static bold plus jakarta sans", sans-serif;
     background-color: var(--very-light-grayish-blue);
   }
 

@@ -1,0 +1,341 @@
+/* colors */
+:root {
+  /* primary colors */
+  --Marine-blue: hsl(213, 96%, 18%);
+  --Purplish-blue: hsl(243, 100%, 62%);
+  --Pastel-blue: hsl(228, 100%, 84%);
+  --Light-blue: hsl(206, 94%, 87%);
+  --Strawberry-red: hsl(354, 84%, 57%);
+  --color-checker: hsl(206, 91%, 87%);
+
+  /* neutral colors */
+  --Cool-gray: hsl(231, 11%, 63%);
+  --Light-gray: hsl(229, 24%, 87%);
+  --Magnolia: hsl(217, 100%, 97%);
+  --Alabaster: hsl(231, 100%, 99%);
+  --White: hsl(0, 0%, 100%);
+
+  /* screen sizes */
+  --mobile: 375px;
+  --desktop: 1440px;
+}
+
+/* Set up ubuntu variable font for modern browsers*/
+@supports (font-variation-settings: normal) {
+  @font-face {
+    font-family: "ubuntu-bold";
+    src: url("../fonts/Ubuntu-Bold.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 700;
+  }
+
+  @font-face {
+    font-family: "ubuntu-medium";
+    src: url("../fonts/Ubuntu-Medium.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 500;
+  }
+
+  @font-face {
+    font-family: "ubuntu-regular";
+    src: url("../fonts/Ubuntu-Regular.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 400;
+  }
+}
+
+/* defaults setting */
+* {
+  margin: 0;
+  box-sizing: border-box;
+  word-spacing: 0.1em;
+  line-height: 1.1;
+}
+
+body {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--Magnolia);
+  border-radius: 1rem;
+  transition: all 0.8s;
+
+  @media screen and (width<500px) {
+    align-content: stretch;
+    justify-content: stretch;
+    gap: 4rem;
+  }
+}
+
+p {
+  font-family: "ubuntu-regular", sans-serif;
+  font-size: 16px;
+  color: var(--Cool-gray);
+}
+
+h1 {
+  font-family: "ubuntu-bold", sans-serif;
+  color: var(--Marine-blue);
+
+  @media screen and (width<400px) {
+    font-size: 1.5rem;
+  }
+}
+
+label {
+  font-family: "ubuntu-regular", sans-serif;
+  color: var(--Marine-blue);
+  cursor: pointer;
+}
+
+input {
+  border-color: var(--Cool-gray);
+  border-radius: 5px;
+  height: 3rem;
+  outline: none;
+  font-size: 1.1rem;
+  color: hsl(215, 28%, 27%);
+  font-family: "ubuntu-medium", sans-serif;
+  padding-left: 1rem;
+  caret-color: currentColor;
+  transition: all 1s;
+
+  &::placeholder {
+    color: var(--Cool-gray);
+    font-size: 0.9rem;
+  }
+
+  @media screen and (max-width: 1100px) {
+    height: 2.5rem;
+    font-size: 1rem;
+    padding-left: 0.5rem;
+  }
+}
+
+input:is(:hover, :active, :focus) {
+  border-color: var(--Purplish-blue);
+  cursor: pointer;
+  background-color: var(--white);
+}
+
+span.error {
+  color: red;
+}
+
+/* layout styling */
+
+.form-container {
+  width: 60%;
+  height: 80%;
+  background-color: var(--White);
+
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+
+  @media screen and (max-width: 1000px) {
+    width: 70%;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 80%;
+    height: 80%;
+  }
+
+  @media screen and (max-width: 745px) {
+    flex-direction: column;
+    position: relative;
+    height: 85%;
+  }
+
+  @media screen and (width<500px) {
+    background-color: var(--Magnolia);
+    border-radius: 0;
+    padding: 0;
+    width: 100%;
+  }
+}
+
+.form-sidebar {
+  position: relative;
+}
+
+picture {
+  img {
+    display: inline-block;
+    height: 100%;
+    width: auto;
+
+    @media screen and (max-width: 745px) {
+      width: 100%;
+      border-radius: 1rem;
+    }
+
+    @media screen and (width<500px) {
+      border-radius: 0;
+    }
+  }
+}
+
+.step-btns {
+  position: absolute;
+  top: 2.5rem;
+  left: 2.2rem;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+
+  color: var(--White);
+  text-transform: uppercase;
+  font-family: "ubuntu-regular", sans-serif;
+
+  > div {
+    display: flex;
+    gap: 1.5rem;
+
+    > :nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+
+      > p {
+        font-size: 0.9rem;
+      }
+    }
+
+    > :nth-child(1) {
+      width: 2.2rem;
+      height: 2.2rem;
+      border: 1px solid var(--White);
+      border-radius: 10rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @media screen and (max-width: 745px) {
+    flex-direction: row;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 1rem;
+    > div {
+      > :nth-child(2) {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    gap: 0.5rem;
+
+    > div {
+      > :nth-child(1) {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+}
+
+.form-steps {
+  min-width: 274px;
+  padding-inline: 5rem;
+  padding-block-start: 2.5rem;
+
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+
+  @media screen and (max-width: 1440px) {
+    padding-inline: 4rem;
+  }
+
+  @media screen and (max-width: 1200px) {
+    padding-inline: 3rem;
+  }
+
+  @media screen and (max-width: 1000px) {
+    padding-inline: 2rem;
+  }
+
+  @media screen and (max-width: 900px) {
+    padding-inline: 1rem;
+  }
+
+  @media screen and (max-width: 745px) {
+    background-color: white;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    right: 10%;
+    border-radius: 10px;
+  }
+
+  @media screen and (width<500px) {
+    top: 15%;
+    left: 5%;
+    right: 5%;
+  }
+
+  @media screen and (width<310px) {
+    left: 2%;
+    right: 2%;
+  }
+}
+
+.heading-container {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.input-container {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+
+  > div {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.nav-btn-container {
+  margin-block: auto;
+  display: flex;
+
+  justify-content: space-between;
+
+  @media screen and (width<500px) {
+    position: relative;
+    top: 50px;
+  }
+}
+
+/* active status classes */
+.inactive {
+  display: none;
+}
+
+.sidebar-status {
+  color: black;
+  border: 1px solid currentColor !important;
+  background-color: var(--Light-blue);
+}

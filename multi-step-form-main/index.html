@@ -30,8 +30,20 @@
 
     <!-- custome script -->
     <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/createTemplate.js" defer></script>
   </head>
   <body>
+    <template id="step-heading">
+      <div part="heading">
+        <slot name="heading">
+          <h1>Put heading here</h1>
+        </slot>
+        <slot name="description">
+          <p>Put description here.</p>
+        </slot>
+      </div>
+    </template>
+
     <div class="form-container">
       <!-- Sidebar start -->
       <div class="form-sidebar">
@@ -85,11 +97,12 @@
 
       <!-- Step 1 start -->
       <div id="step" class="form-steps" data-step="0">
-        <div class="heading-container">
-          <h1>Personal info</h1>
-
-          <p>Please provide your name, email address, and phone number.</p>
-        </div>
+        <step-heading>
+          <h1 slot="heading">Personal info</h1>
+          <p slot="description">
+            Please provide your name, email address, and phone number.
+          </p>
+        </step-heading>
 
         <form id="form-0" class="input-container">
           <div>
@@ -103,6 +116,7 @@
               placeholder="e.g. Stephen King"
               required
               autocomplete="off"
+              autofocus
             />
           </div>
           <div>
@@ -141,7 +155,15 @@
 
       <!-- Step 2 start -->
       <div id="step" class="form-steps inactive" data-step="1">
-        <form id="form-1"></form>
+        <step-heading>
+          <h1 slot="heading">Select your plan</h1>
+          <p slot="description">
+            You have the option of monthly or yearly billing.
+          </p>
+        </step-heading>
+
+        <form id="form-1" class="input-container"></form>
+
         <div class="nav-btn-container">
           <button type="button" data-back="0">Go Back</button>
           <button type="button" form="form-1" data-next="2">Next Step</button>
@@ -151,7 +173,13 @@
 
       <!-- Step 3 start -->
       <div id="step" class="form-steps inactive" data-step="2">
-        <form id="form-2"></form>
+        <step-heading>
+          <h1 slot="heading">Pick add-ons</h1>
+          <p slot="description">Add-ons help enhance your gaming experience.</p>
+        </step-heading>
+
+        <form id="form-2" class="input-container"></form>
+
         <div class="nav-btn-container">
           <button type="button" data-back="1">Go Back</button>
           <button type="button" form="form-2" data-next="3">Next Step</button>
@@ -161,7 +189,15 @@
 
       <!-- Step 4 start -->
       <div id="step" class="form-steps inactive" data-step="3">
-        <form id="form-3"></form>
+        <step-heading>
+          <h1 slot="heading">Finishing up</h1>
+          <p slot="description">
+            Double-check everything looks OK before confirming.
+          </p>
+        </step-heading>
+
+        <form id="form-3" class="input-container"></form>
+
         <div class="nav-btn-container">
           <button type="button" data-back="2">Go Back</button>
           <button type="submit" form="form-3">Submit</button>

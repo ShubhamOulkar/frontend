@@ -63,7 +63,6 @@ body {
   width: 100vw;
   background-color: var(--Magnolia);
   border-radius: 1rem;
-  transition: all 0.8s;
 
   @media screen and (width<500px) {
     align-content: stretch;
@@ -293,7 +292,7 @@ picture {
   }
 }
 
-.heading-container {
+step-heading::part(heading) {
   display: flex;
   gap: 1rem;
   flex-direction: column;
@@ -320,8 +319,12 @@ picture {
 .nav-btn-container {
   margin-block: auto;
   display: flex;
+  justify-content: space-between; /* this line is create space if any type two children in container */
 
-  justify-content: space-between;
+  > button[data-next] {
+    /* this is hard coded to position at end of flex if only one child in container*/
+    margin-left: auto;
+  }
 
   @media screen and (width<500px) {
     position: relative;

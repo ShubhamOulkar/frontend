@@ -6,10 +6,10 @@
   --Pastel-blue: hsl(228, 100%, 84%);
   --Light-blue: hsl(206, 94%, 87%);
   --Strawberry-red: hsl(354, 84%, 57%);
-  --color-checker: hsl(206, 91%, 87%);
+  --color-checker: hsl(213, 73%, 31%);
 
   /* neutral colors */
-  --Cool-gray: hsl(231, 11%, 63%);
+  --Cool-gray: hsl(231, 6%, 48%);
   --Light-gray: hsl(229, 24%, 87%);
   --Magnolia: hsl(217, 100%, 97%);
   --Alabaster: hsl(231, 100%, 99%);
@@ -18,6 +18,9 @@
   /* screen sizes */
   --mobile: 375px;
   --desktop: 1440px;
+
+  --generic-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3),
+    0px 2px 6px 2px rgba(60, 64, 67, 0.15);
 }
 
 /* Set up ubuntu variable font for modern browsers*/
@@ -90,6 +93,10 @@ label {
   font-family: "ubuntu-regular", sans-serif;
   color: var(--Marine-blue);
   cursor: pointer;
+
+  @media screen and (width<400px) {
+    font-size: 0.9rem;
+  }
 }
 
 input {
@@ -124,6 +131,10 @@ input:is(:hover, :active, :focus) {
 
 span.error {
   color: red;
+
+  @media screen and (width<400px) {
+    font-size: 0.9rem;
+  }
 }
 
 /* layout styling */
@@ -138,19 +149,19 @@ span.error {
   padding: 1rem;
   border-radius: 1rem;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1440px) {
+    height: 85%;
     width: 70%;
   }
 
   @media screen and (max-width: 900px) {
-    width: 80%;
-    height: 80%;
+    width: 85%;
   }
 
   @media screen and (max-width: 745px) {
     flex-direction: column;
     position: relative;
-    height: 85%;
+    height: 90%;
   }
 
   @media screen and (width<500px) {
@@ -158,6 +169,7 @@ span.error {
     border-radius: 0;
     padding: 0;
     width: 100%;
+    height: 80%;
   }
 }
 
@@ -226,7 +238,7 @@ picture {
     top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
-    gap: 1rem;
+    gap: 0.8rem;
     > div {
       > :nth-child(2) {
         display: none;
@@ -278,6 +290,7 @@ picture {
     left: 10%;
     right: 10%;
     border-radius: 10px;
+    padding-block-end: 0.5rem;
   }
 
   @media screen and (width<500px) {
@@ -314,6 +327,27 @@ step-heading::part(heading) {
       justify-content: space-between;
     }
   }
+
+  > .toggle-btn {
+    background-color: var(--Magnolia);
+    padding: 1.5rem;
+    width: 100%;
+    border-radius: 5px;
+    color: var(--Marine-blue);
+
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+
+    > span {
+      font-family: "ubuntu-medium", sans-serif;
+    }
+
+    @media screen and (max-width: 730px) {
+      padding: 1rem;
+    }
+  }
 }
 
 .nav-btn-container {
@@ -321,14 +355,9 @@ step-heading::part(heading) {
   display: flex;
   justify-content: space-between; /* this line is create space if any type two children in container */
 
-  > button[data-next] {
+  > step-button[data-form-0] {
     /* this is hard coded to position at end of flex if only one child in container*/
     margin-left: auto;
-  }
-
-  @media screen and (width<500px) {
-    position: relative;
-    top: 50px;
   }
 }
 
@@ -339,6 +368,84 @@ step-heading::part(heading) {
 
 .sidebar-status {
   color: black;
-  border: 1px solid currentColor !important;
+  border: 1px solid rgb(0, 0, 0, 0) !important;
   background-color: var(--Light-blue);
+}
+
+#cards-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* toggle button */
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--Marine-blue);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input[type="checkbox"]:checked + .slider {
+  background-color: var(--Marine-blue);
+}
+
+input[type="checkbox"]:focus + .slider {
+  box-shadow: 0 0 1px var(--Marine-blue);
+}
+
+input[type="checkbox"]:checked + .slider:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
+}
+
+/* Rounded sliders */
+.slider {
+  border-radius: 34px;
+}
+
+.slider:before {
+  border-radius: 50%;
+}
+
+/* plan-card */
+plan-card {
+  border-radius: 10px;
+  cursor: pointer;
 }

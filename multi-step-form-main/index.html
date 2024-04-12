@@ -17,6 +17,7 @@
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
       .attribution {
+        margin-top: 3rem;
         font-size: 11px;
         text-align: center;
       }
@@ -29,8 +30,9 @@
     <link rel="stylesheet" href="assets/css/style.css" />
 
     <!-- custome script -->
-    <script src="assets/js/script.js" defer></script>
-    <script src="assets/js/createTemplate.js" defer></script>
+    <script src="assets/js/userInfo.js" defer></script>
+    <script src="assets/js/createTemplates.js" defer></script>
+    <script src="assets/js/selectPlan.js" defer></script>
   </head>
   <body>
     <template id="step-heading">
@@ -41,6 +43,107 @@
         <slot name="description">
           <p>Put description here.</p>
         </slot>
+      </div>
+    </template>
+
+    <template id="step-button">
+      <style>
+        ::slotted(:is(button[data-next], button[type="submit"])) {
+          background-color: hsl(213, 96%, 18%);
+          color: hsl(206, 94%, 87%);
+          padding-block: 0.9rem;
+          padding-inline: 1.5rem;
+          border-radius: 10px;
+          font-family: "ubuntu-medium", sans-serif;
+          font-size: 1rem;
+          transition: all 0.7s;
+        }
+        ::slotted(:not(button[data-back]):is(:hover, :active, :focus)) {
+          background-color: hsl(213, 73%, 31%);
+          color: white;
+          cursor: pointer;
+          border: none;
+        }
+        ::slotted(button[data-back]) {
+          background-color: white;
+          border: none;
+          font-size: 1rem;
+          color: hsl(213, 96%, 18%);
+          padding: 1rem;
+          font-family: "ubuntu-bold", sans-serif;
+        }
+        ::slotted(button[data-back]:is(:hover, :focus)) {
+          border-color: hsl(213, 96%, 18%);
+          border-radius: 10px;
+          cursor: pointer;
+        }
+        @media screen and (max-width: 745px) {
+          ::slotted(
+              :is(button[data-back], button[data-next], button[type="submit"])
+            ) {
+            padding-block: 0.6rem;
+            padding-inline: 0.9rem;
+          }
+        }
+      </style>
+      <slot name="btn">
+        <button type="button">put button name here</button>
+      </slot>
+    </template>
+
+    <template id="plan-card">
+      <style>
+        .card {
+          display: flex;
+          flex-direction: column;
+          gap: 3rem;
+          border: 2px solid hsl(229, 24%, 87%);
+          padding-block: 1rem;
+          padding-inline: 1.2rem;
+          border-radius: 10px;
+          transition: all 0.9s;
+          min-width: 100px;
+
+          &:is(:hover, :focus, :active) {
+            border-color: hsl(243, 100%, 62%);
+            outline: none;
+          }
+
+          > div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+          }
+        }
+
+        ::slotted(h3) {
+          color: hsl(213, 96%, 18%);
+          font-family: "ubuntu-regular", sans-serif;
+          font-size: 1rem;
+        }
+
+        @media screen and (max-width: 1440px) {
+          .card {
+            flex-direction: row;
+            min-width: 200px;
+            align-items: center;
+            padding: 0.5rem;
+            gap: 1rem;
+
+            > div {
+              align-items: flex-start;
+            }
+          }
+        }
+      </style>
+      <div class="card" tabindex="0">
+        <slot name="icon">
+          <img src="assets\images\icon-arcade.svg" alt="card icon"
+        /></slot>
+        <div>
+          <slot name="heading"><h3>heading</h3></slot>
+          <slot name="price"><p>$0/mo</p></slot>
+        </div>
       </div>
     </template>
 
@@ -148,7 +251,12 @@
         </form>
 
         <div class="nav-btn-container">
-          <button type="button" form="form-0" data-next="1">Next Step</button>
+          <!-- data-form-0 attribute is used for css selector -->
+          <step-button data-form-0>
+            <button slot="btn" type="button" form="form-0" data-next="1">
+              Next Step
+            </button>
+          </step-button>
         </div>
       </div>
       <!-- Step 1 end -->
@@ -161,12 +269,66 @@
             You have the option of monthly or yearly billing.
           </p>
         </step-heading>
+        <span id="step1-error" class="error" style="display: none"></span>
+        <form id="form-1" class="input-container">
+          <!-- id card container to used to increase specificity of 1st child, in css style sheet input container 1st child is flex box with flex direction column but we want flex direction row, so id is helpful to increase specificity. -->
+          <div id="cards-container">
+            <plan-card>
+              <img
+                slot="icon"
+                src="assets\images\icon-arcade.svg"
+                alt="arcade icon"
+                width="40"
+                height="40"
+              />
+              <h3 slot="heading">Arcade</h3>
+              <p slot="price">$ 9/mo</p>
+            </plan-card>
 
-        <form id="form-1" class="input-container"></form>
+            <plan-card>
+              <img
+                slot="icon"
+                src="assets\images\icon-advanced.svg"
+                alt="advance icon"
+                width="40"
+                height="40"
+              />
+              <h3 slot="heading">Advanced</h3>
+              <p slot="price">$ 12/mo</p>
+            </plan-card>
+
+            <plan-card>
+              <img
+                slot="icon"
+                src="assets\images\icon-pro.svg"
+                alt="pro icon"
+                width="40"
+                height="40"
+              />
+              <h3 slot="heading">Pro</h3>
+              <p slot="price">$ 15/mo</p>
+            </plan-card>
+          </div>
+
+          <div class="toggle-btn">
+            <span>Monthly</span>
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider"></span>
+            </label>
+            <span>Yearly</span>
+          </div>
+        </form>
 
         <div class="nav-btn-container">
-          <button type="button" data-back="0">Go Back</button>
-          <button type="button" form="form-1" data-next="2">Next Step</button>
+          <step-button>
+            <button slot="btn" type="button" data-back="0">Go Back</button>
+          </step-button>
+          <step-button>
+            <button slot="btn" type="button" form="form-1" data-next="2">
+              Next Step
+            </button>
+          </step-button>
         </div>
       </div>
       <!-- Step 2 end -->
@@ -181,8 +343,14 @@
         <form id="form-2" class="input-container"></form>
 
         <div class="nav-btn-container">
-          <button type="button" data-back="1">Go Back</button>
-          <button type="button" form="form-2" data-next="3">Next Step</button>
+          <step-button>
+            <button slot="btn" type="button" data-back="1">Go Back</button>
+          </step-button>
+          <step-button>
+            <button slot="btn" type="button" form="form-2" data-next="3">
+              Next Step
+            </button>
+          </step-button>
         </div>
       </div>
       <!-- Step 3 end -->
@@ -199,8 +367,12 @@
         <form id="form-3" class="input-container"></form>
 
         <div class="nav-btn-container">
-          <button type="button" data-back="2">Go Back</button>
-          <button type="submit" form="form-3">Submit</button>
+          <step-button>
+            <button slot="btn" type="button" data-back="2">Go Back</button>
+          </step-button>
+          <step-button>
+            <button slot="btn" type="submit" form="form-3">Submit</button>
+          </step-button>
         </div>
       </div>
       <!-- Step 4 end -->

@@ -10,10 +10,11 @@ const submitObject = {
   email: "text",
   phone: "number",
   plan: "text",
-  planPrice: "number",
-  billing: "text month/text",
+  planPrice: "$ 12/mo",
+  billing: "text month/yearly",
   addOns: ["item1", "item2"],
-  addOnsPrice: [0, 0],
+  addOnsPrice: ["+$1/mo", "+$2/mo"],
+  total: "price text",
 };
 
 //  update object from step 1
@@ -89,7 +90,11 @@ function handleForm(e) {
 
 function handleBackForm(e) {
   let stepBack = e.target.dataset.back;
-  console.log("current step:", String(Number(stepBack) + 1));
+  console.log("user backed from step:", String(Number(stepBack) + 1));
+
+  // remove all add-ons  from summary list if back button is clicked at step 4
+  if (stepBack === "2")
+    document.querySelectorAll(".summary-addon").forEach((ele) => ele.remove());
 
   allSteps.forEach((s) => {
     // inactivate current step

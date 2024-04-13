@@ -163,8 +163,9 @@
             border-color: hsl(243, 100%, 62%);
             outline: none;
           }
-
-          @media screen and (max-width: 1000px) {
+        }
+        @media screen and (max-width: 1000px) {
+          .addon-card {
             padding: 0.7rem;
             gap: 0.7rem;
           }
@@ -451,18 +452,41 @@
           </p>
         </step-heading>
 
-        <form id="form-3" class="input-container"></form>
+        <form id="form-3" class="input-container" action="#">
+          <div class="summary">
+            <div>
+              <div class="summary-plan">
+                <p class="summary-plan-name">Plan <span>(monthly)</span></p>
+                <a class="change" href="#">Change</a>
+              </div>
+              <p class="summary-plan-price">$9/mo</p>
+            </div>
+            <hr />
+          </div>
+
+          <div class="total">
+            <p>Total <span class="totalBilling">(per month)</span></p>
+            <p class="summary-total">$0/mo</p>
+          </div>
+        </form>
 
         <div class="nav-btn-container">
           <step-button>
             <button slot="btn" type="button" data-back="2">Go Back</button>
           </step-button>
           <step-button>
-            <button slot="btn" type="submit" form="form-3">Submit</button>
+            <button slot="btn" type="submit" form="form-3" data-next="4">
+              Submit
+            </button>
           </step-button>
         </div>
       </div>
       <!-- Step 4 end -->
+
+      <!-- last step -->
+      <div id="step" class="form-steps inactive" data-step="4">
+        <p>thank you</p>
+      </div>
     </div>
 
     <div class="attribution">

@@ -3,18 +3,41 @@ const slider = document.querySelector(".slider");
 const planCards = document.querySelectorAll("plan-card");
 const spanError = document.querySelector("#step1-error");
 const addOns = document.querySelectorAll("add-on");
+const summaryNameEle = document.querySelector(".summary-plan-name");
+const summaryPriceEle = document.querySelector(".summary-plan-price");
+const summaryEle = document.querySelector(".summary");
+const changeEle = document.querySelector(".change");
+const totalBillingEle = document.querySelector(".totalBilling");
+const summaryTotalEle = document.querySelector(".summary-total");
+const submitButtonEle = document.querySelector("button[type='submit']");
 const pricePerMonth = [9, 12, 15];
 const addOnsPricePerMonth = [1, 2, 2];
 let addOnsNameList = [];
 let addOnsPricelist = [];
 const pricePerYear = pricePerMonth.map((i) => i * 10);
 const addOnsPricePerYear = addOnsPricePerMonth.map((i) => i * 10);
-let billing = "yearly";
+let billing = "monthly";
 let plan;
 let price;
 let currentCard;
 
-// add click event listener on add on cards
+// update total property in submitObject and go to thank you page
+submitButtonEle.addEventListener("click", handleLastStep);
+
+// add change option on step 4 summary form
+changeEle.addEventListener("click", (e) => {
+  // activate step 2
+  allSteps[1].classList.remove("inactive");
+  allSteps[2].classList.add("inactive");
+  allSteps[3].classList.add("inactive");
+  // update sidebar to step 2
+  allSideBarStatus[1].classList.add("sidebar-status");
+  allSideBarStatus[3].classList.remove("sidebar-status");
+  // remove all add-ons  from summary list
+  document.querySelectorAll(".summary-addon").forEach((ele) => ele.remove());
+});
+
+// add click event listener on add on cards (step 3)
 addOns.forEach((card) => {
   card.addEventListener("click", handleAddOn);
 });
@@ -25,6 +48,8 @@ nextButtons[2].addEventListener("click", (e) => {
   submitObject["addOns"] = addOnsNameList;
   submitObject["addOnsPrice"] = addOnsPricelist;
   console.log("submit object at step 3: ", submitObject);
+
+  createSummary();
 });
 
 //  update submit object from step 2
@@ -46,11 +71,11 @@ nextButtons[1].addEventListener("click", (e) => {
 
 // showing yearly and monthly billing and add on cards
 slider.addEventListener("click", () => {
-  billing = !flexWrap.checked ? "yearly" : "monthly";
+  billing = flexWrap.checked ? "monthly" : "yearly";
 
-  billing === "monthly"
-    ? showPrice(pricePerMonth, addOnsPricePerMonth, "mo", planCards, addOns)
-    : showPrice(pricePerYear, addOnsPricePerYear, "yr", planCards, addOns);
+  billing === "yearly"
+    ? showPrice(pricePerYear, addOnsPricePerYear, "yr", planCards, addOns)
+    : showPrice(pricePerMonth, addOnsPricePerMonth, "mo", planCards, addOns);
 });
 
 // get selected plan
@@ -204,4 +229,37 @@ function clearSelection(cardsList) {
     card.style.backgroundColor = "white";
     card.style.borderColor = ""; // Reset border color to default
   });
+}
+
+function createSummary() {
+  // step 4 create summary page
+  summaryNameEle.innerText = `${submitObject.plan} (${submitObject.billing})`;
+  summaryPriceEle.innerText = `${submitObject.planPrice}`;
+  totalBillingEle.innerText = `(${submitObject.billing})`;
+
+  let addonTotal = 0;
+  for (let i = 0; i < submitObject.addOns.length; i++) {
+    const divContainer = document.createElement("div");
+    divContainer.classList.add("summary-addon");
+    divContainer.innerHTML = `<p>${submitObject.addOns[i]}</p><p>${submitObject.addOnsPrice[i]}</p>`;
+    summaryEle.appendChild(divContainer);
+    addonTotal += Number(submitObject.addOnsPrice[i].replace(/[^0-9]/g, ""));
+  }
+
+  // show total
+  let total =
+    Number(submitObject.planPrice.replace(/[^0-9]/g, "")) + addonTotal;
+
+  if (billing === "monthly") summaryTotalEle.innerText = `$ ${total}/mo`;
+  if (billing === "yearly") summaryTotalEle.innerText = `$ ${total}/yr`;
+}
+
+function handleLastStep(e) {
+  submitObject["total"] = summaryTotalEle.innerText;
+
+  // activate last step
+  allSteps[4].classList.remove("inactive");
+
+  // inactivate step 4
+  allSteps[3].classList.add("inactive");
 }

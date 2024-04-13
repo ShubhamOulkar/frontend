@@ -9,7 +9,7 @@
   --color-checker: hsl(213, 73%, 31%);
 
   /* neutral colors */
-  --Cool-gray: hsl(228, 4%, 73%);
+  --Cool-gray: hsl(240, 1%, 31%);
   --Light-gray: hsl(229, 24%, 87%);
   --Magnolia: hsl(217, 100%, 97%);
   --Alabaster: hsl(231, 100%, 99%);
@@ -131,20 +131,6 @@ input:is(:hover, :active, :focus) {
 
 span.error {
   color: red;
-  position: absolute;
-  top: 125px;
-
-  @media screen and (width<1100px) {
-    top: 145px;
-  }
-  @media screen and (width<750px) {
-    top: 120px;
-  }
-
-  @media screen and (width<400px) {
-    font-size: 0.9rem;
-    top: 125px;
-  }
 }
 
 /* layout styling */
@@ -230,6 +216,7 @@ picture {
 
       > p {
         font-size: 0.9rem;
+        color: rgb(216, 213, 213);
       }
     }
 
@@ -467,4 +454,55 @@ add-on {
   display: flex;
   gap: 1rem;
   flex-direction: column;
+}
+
+/* step 4 styling */
+hr {
+  margin-block: 0.8rem;
+  color: gray;
+}
+
+.total {
+  flex-direction: row !important;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.summary {
+  padding: 1.5rem;
+  background-color: var(--Magnolia);
+  border-radius: 10px;
+  gap: 1rem !important;
+}
+
+.summary-plan {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+
+  > a {
+    font-family: "ubuntu-medium", sans-serif;
+    font-size: 1rem;
+
+    &:is(:hover, :focus, ) {
+      cursor: pointer;
+      color: #238b98;
+    }
+  }
+}
+
+.summary-plan-name,
+.summary-plan-price {
+  color: var(--Marine-blue);
+  font-family: "ubuntu-bold", sans-serif;
+  font-size: 1rem;
+}
+
+.summary-plan-name {
+  text-transform: capitalize;
+}
+
+.summary-total {
+  color: var(--Purplish-blue);
+  font-family: "ubuntu-bold", sans-serif;
 }

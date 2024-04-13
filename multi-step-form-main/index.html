@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Multi-step form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+
+        @media screen and (width<500px) {
+          margin-top: 3rem;
+        }
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- custome script -->
+    <script src="assets/js/userInfo.js" defer></script>
+    <script src="assets/js/createTemplates.js" defer></script>
+    <script src="assets/js/selectPlan.js" defer></script>
+  </head>
+  <body>
+    <template id="step-heading">
+      <div part="heading">
+        <slot name="heading">
+          <h1>Put heading here</h1>
+        </slot>
+        <slot name="description">
+          <p>Put description here.</p>
+        </slot>
+      </div>
+    </template>
+
+    <template id="step-button">
+      <style>
+        ::slotted(:is(button[data-next], button[type="submit"])) {
+          background-color: hsl(213, 96%, 18%);
+          color: hsl(206, 94%, 87%);
+          padding-block: 0.9rem;
+          padding-inline: 1.5rem;
+          border-radius: 10px;
+          font-family: "ubuntu-medium", sans-serif;
+          font-size: 1rem;
+          transition: all 0.7s;
+        }
+        ::slotted(:not(button[data-back]):is(:hover, :active, :focus)) {
+          background-color: hsl(213, 73%, 31%);
+          color: white;
+          cursor: pointer;
+          border: none;
+        }
+        ::slotted(button[data-back]) {
+          background-color: white;
+          border: none;
+          font-size: 1rem;
+          color: hsl(213, 96%, 18%);
+          padding: 1rem;
+          font-family: "ubuntu-bold", sans-serif;
+        }
+        ::slotted(button[data-back]:is(:hover, :focus)) {
+          border-color: hsl(213, 96%, 18%);
+          border-radius: 10px;
+          cursor: pointer;
+        }
+        @media screen and (max-width: 745px) {
+          ::slotted(
+              :is(button[data-back], button[data-next], button[type="submit"])
+            ) {
+            padding-block: 0.6rem;
+            padding-inline: 0.9rem;
+          }
+        }
+      </style>
+      <slot name="btn">
+        <button type="button">put button name here</button>
+      </slot>
+    </template>
+
+    <template id="plan-card">
+      <style>
+        .card {
+          display: flex;
+          flex-direction: column;
+          gap: 3rem;
+          border: 2px solid hsl(229, 24%, 87%);
+          padding-block: 1rem;
+          padding-inline: 1.2rem;
+          border-radius: 10px;
+          transition: all 0.9s;
+          min-width: 100px;
+
+          &:is(:hover, :focus, :active) {
+            border-color: hsl(243, 100%, 62%);
+            outline: none;
+          }
+
+          > div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+          }
+        }
+
+        ::slotted(h3) {
+          color: hsl(213, 96%, 18%);
+          font-family: "ubuntu-regular", sans-serif;
+          font-size: 1rem;
+        }
+
+        @media screen and (max-width: 1440px) {
+          .card {
+            flex-direction: row;
+            min-width: 200px;
+            align-items: center;
+            padding: 0.5rem;
+            gap: 1rem;
+
+            > div {
+              align-items: flex-start;
+            }
+          }
+        }
+      </style>
+      <div class="card" tabindex="0">
+        <slot name="icon">
+          <img src="assets\images\icon-arcade.svg" alt="card icon"
+        /></slot>
+        <div>
+          <slot name="heading"><h3>heading</h3></slot>
+          <slot name="price"><p>$0/mo</p></slot>
+        </div>
+      </div>
+    </template>
+
+    <template id="add-on">
+      <style>
+        .addon-card {
+          display: flex;
+          gap: 1rem;
+          border: 1px solid hsl(229, 24%, 87%);
+          border-radius: 10px;
+          padding: 1rem;
+
+          &:is(:hover, :focus, :active) {
+            border-color: hsl(243, 100%, 62%);
+            outline: none;
+          }
+        }
+        @media screen and (max-width: 1000px) {
+          .addon-card {
+            padding: 0.7rem;
+            gap: 0.7rem;
+          }
+        }
+        #label {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          cursor: pointer;
+        }
+        ::slotted(:is(price, info)) {
+          font-family: "ubuntu-regular", sans-serif;
+          font-size: 1rem;
+        }
+        ::slotted(price) {
+          color: hsl(243, 100%, 62%);
+          margin-left: auto !important;
+          align-self: center;
+          flex-shrink: 0;
+          flex-grow: 0;
+        }
+        ::slotted(info) {
+          color: hsl(231, 6%, 48%);
+        }
+        ::slotted(name) {
+          color: hsl(214, 54%, 36%);
+          font-family: "ubuntu-bold", sans-serif;
+          font-size: 1rem;
+        }
+        #check {
+          align-self: center;
+          width: 18px;
+          height: 18px;
+          flex-shrink: 0;
+          flex-grow: 0;
+        }
+      </style>
+      <div class="addon-card">
+        <input id="check" type="checkbox" aria-labelledby="label" />
+        <label id="label">
+          <slot name="addon-name">
+            <name>addon-name</name>
+          </slot>
+          <slot name="addon-info">
+            <info> addon-info </info>
+          </slot>
+        </label>
+        <slot name="addon-price">
+          <price>+$2/mo</price>
+        </slot>
+      </div>
+    </template>
+
+    <div class="form-container">
+      <!-- Sidebar start -->
+      <div class="form-sidebar">
+        <picture>
+          <source
+            media="(max-width: 745px)"
+            srcset="assets/images/bg-sidebar-mobile.svg"
+            width="375"
+            height="172"
+          />
+
+          <img
+            src="assets\images\bg-sidebar-desktop.svg"
+            alt="background image"
+            width="274"
+            height="568"
+          />
+        </picture>
+        <div class="step-btns">
+          <div>
+            <div id="Sidebar-state" class="sidebar-status">1</div>
+            <div>
+              <p>Step 1</p>
+              <span>Your info</span>
+            </div>
+          </div>
+          <div>
+            <div id="Sidebar-state">2</div>
+            <div>
+              <p>Step 2</p>
+              <span>Select plan</span>
+            </div>
+          </div>
+          <div>
+            <div id="Sidebar-state">3</div>
+            <div>
+              <p>Step 3</p>
+              <span>Add-ons</span>
+            </div>
+          </div>
+          <div>
+            <div id="Sidebar-state">4</div>
+            <div>
+              <p>Step 4</p>
+              <span>Summary</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Sidebar end -->
+
+      <!-- Step 1 start -->
+      <div id="step" class="form-steps inactive" data-step="0">
+        <step-heading>
+          <h1 slot="heading">Personal info</h1>
+          <p slot="description">
+            Please provide your name, email address, and phone number.
+          </p>
+        </step-heading>
+
+        <form id="form-0" class="input-container">
+          <div>
+            <div>
+              <label for="name">Name</label>
+              <span class="error"></span>
+            </div>
+            <input
+              id="name"
+              type="text"
+              placeholder="e.g. Stephen King"
+              required
+              autocomplete="off"
+              autofocus
+            />
+          </div>
+          <div>
+            <div>
+              <label for="email">Email Address</label>
+              <span class="error"></span>
+            </div>
+            <input
+              id="email"
+              type="email"
+              placeholder="e.g. stephenking@lorem.com"
+              required
+              autocomplete="off"
+            />
+          </div>
+          <div>
+            <div>
+              <label for="phone">Phone Number</label>
+              <span class="error"></span>
+            </div>
+            <input
+              id="phone"
+              type="tel"
+              placeholder="e.g. +1 234 567 890"
+              required
+              autocomplete="off"
+            />
+          </div>
+        </form>
+
+        <div class="nav-btn-container">
+          <!-- data-form-0 attribute is used for css selector -->
+          <step-button data-form-0>
+            <button slot="btn" type="button" form="form-0" data-next="1">
+              Next Step
+            </button>
+          </step-button>
+        </div>
+      </div>
+      <!-- Step 1 end -->
+
+      <!-- Step 2 start -->
+      <div id="step" class="form-steps inactive" data-step="1">
+        <step-heading>
+          <h1 slot="heading">Select your plan</h1>
+          <p slot="description">
+            You have the option of monthly or yearly billing.
+          </p>
+        </step-heading>
+        <span id="step1-error" class="error" style="display: none"></span>
+        <form id="form-1" class="input-container">
+          <!-- id card container to used to increase specificity of 1st child, in css style sheet input container 1st child is flex box with flex direction column but we want flex direction row, so id is helpful to increase specificity. -->
+          <div id="cards-container">
+            <plan-card>
+              <img
+                slot="icon"
+                src="assets\images\icon-arcade.svg"
+                alt="arcade icon"
+                width="40"
+                height="40"
+              />
+              <h3 slot="heading">Arcade</h3>
+              <p slot="price">$ 9/mo</p>
+            </plan-card>
+
+            <plan-card>
+              <img
+                slot="icon"
+                src="assets\images\icon-advanced.svg"
+                alt="advance icon"
+                width="40"
+                height="40"
+              />
+              <h3 slot="heading">Advanced</h3>
+              <p slot="price">$ 12/mo</p>
+            </plan-card>
+
+            <plan-card>
+              <img
+                slot="icon"
+                src="assets\images\icon-pro.svg"
+                alt="pro icon"
+                width="40"
+                height="40"
+              />
+              <h3 slot="heading">Pro</h3>
+              <p slot="price">$ 15/mo</p>
+            </plan-card>
+          </div>
+
+          <div class="toggle-btn">
+            <span>Monthly</span>
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider"></span>
+            </label>
+            <span>Yearly</span>
+          </div>
+        </form>
+
+        <div class="nav-btn-container">
+          <step-button>
+            <button slot="btn" type="button" data-back="0">Go Back</button>
+          </step-button>
+          <step-button>
+            <button slot="btn" type="button" form="form-1" data-next="2">
+              Next Step
+            </button>
+          </step-button>
+        </div>
+      </div>
+      <!-- Step 2 end -->
+
+      <!-- Step 3 start -->
+      <div id="step" class="form-steps inactive" data-step="2">
+        <step-heading>
+          <h1 slot="heading">Pick add-ons</h1>
+          <p slot="description">Add-ons help enhance your gaming experience.</p>
+        </step-heading>
+
+        <form id="form-2" class="addon-container">
+          <add-on>
+            <name slot="addon-name">Online</name>
+            <info slot="addon-info">service Access to multiplayer games</info>
+            <price slot="addon-price">+$1/mo</price>
+          </add-on>
+          <add-on>
+            <name slot="addon-name">Larger storage </name>
+            <info slot="addon-info">Extra 1TB of cloud save</info>
+            <price slot="addon-price">+$2/mo</price>
+          </add-on>
+          <add-on>
+            <name slot="addon-name">Customizable</name>
+            <info slot="addon-info">Profile Custom theme on your profile</info>
+            <price slot="addon-price">+$2/mo</price>
+          </add-on>
+        </form>
+
+        <div class="nav-btn-container">
+          <step-button>
+            <button slot="btn" type="button" data-back="1">Go Back</button>
+          </step-button>
+          <step-button>
+            <button slot="btn" type="button" form="form-2" data-next="3">
+              Next Step
+            </button>
+          </step-button>
+        </div>
+      </div>
+      <!-- Step 3 end -->
+
+      <!-- Step 4 start -->
+      <div id="step" class="form-steps inactive" data-step="3">
+        <step-heading>
+          <h1 slot="heading">Finishing up</h1>
+          <p slot="description">
+            Double-check everything looks OK before confirming.
+          </p>
+        </step-heading>
+
+        <form id="form-3" class="input-container" action="#">
+          <div class="summary">
+            <div>
+              <div class="summary-plan">
+                <p class="summary-plan-name">Plan <span>(monthly)</span></p>
+                <a class="change" href="#">Change</a>
+              </div>
+              <p class="summary-plan-price">$9/mo</p>
+            </div>
+            <hr />
+          </div>
+
+          <div class="total">
+            <p>Total <span class="totalBilling">(per month)</span></p>
+            <p class="summary-total">$0/mo</p>
+          </div>
+        </form>
+
+        <div class="nav-btn-container">
+          <step-button>
+            <button slot="btn" type="button" data-back="2">Go Back</button>
+          </step-button>
+          <step-button>
+            <button slot="btn" type="submit" form="form-3" data-next="4">
+              Submit
+            </button>
+          </step-button>
+        </div>
+      </div>
+      <!-- Step 4 end -->
+
+      <!-- last step -->
+      <div id="step" class="form-steps last-step" data-step="4">
+        <img
+          src="assets/images/icon-thank-you.svg"
+          alt="thank you icon"
+          width="80"
+          height="80"
+        />
+        <step-heading>
+          <h1 slot="heading">Thank you!</h1>
+          <p slot="description"></p>
+        </step-heading>
+        <p>
+          Thank you! Thanks for confirming your subscription! We hope you have
+          fun using our platform. If you ever need support, please feel free to
+          email us at support@loremgaming.com.
+        </p>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://github.com/ShubhamOulkar" target="_blank"
+        >Shubham Oulkar</a
+      >.
+    </div>
+  </body>
+</html>

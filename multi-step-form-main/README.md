@@ -10,6 +10,8 @@ This is a solution to the [Multi-step form challenge on Frontend Mentor](https:/
     - [The challenge](#the-challenge)
     - [Screenshot](#screenshot)
     - [Links](#links)
+      - [- Solution URL: on github](#--solution-url-on-github)
+      - [- Live Site URL: multi-step-form](#--live-site-url-multi-step-form)
   - [My process](#my-process)
     - [Built with](#built-with)
     - [What I learned](#what-i-learned)
@@ -45,8 +47,9 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Code on github](https://your-solution-url.com)
-- Live Site URL: [live site URL](https://your-live-site-url.com)
+#### - Solution URL: [on github](https://github.com/ShubhamOulkar/frontend/tree/main/multi-step-form-main)
+
+#### - Live Site URL: [multi-step-form](https://frontend-shubhamoulkars-projects.vercel.app/multi-step-form-main)
 
 ## My process
 

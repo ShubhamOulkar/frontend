@@ -13,6 +13,9 @@ This is a solution to the [Multi-step form challenge on Frontend Mentor](https:/
   - [My process](#my-process)
     - [Built with](#built-with)
     - [What I learned](#what-i-learned)
+      - [1. Web Components](#1-web-components)
+      - [2. Styling web components from shadow tree](#2-styling-web-components-from-shadow-tree)
+      - [3. State change management and form validations](#3-state-change-management-and-form-validations)
     - [Continued development](#continued-development)
     - [Useful resources](#useful-resources)
   - [Author](#author)
@@ -53,21 +56,35 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - Desktop-first workflow
-- Web components
+- Web components (template, slot)
 
 ### What I learned
 
-```html
+#### 1. Web Components
 
+```html
+<template id="step-heading">
+  <div part="heading">
+    <slot name="heading">
+      <h1>Put heading here</h1>
+    </slot>
+    <slot name="description">
+      <p>Put description here.</p>
+    </slot>
+  </div>
+</template>
 ```
+
+#### 2. Styling web components from shadow tree
 
 ```css
-
+::slotted(:is(price, info)) {
+  font-family: "ubuntu-regular", sans-serif;
+  font-size: 1rem;
+}
 ```
 
-```js
-
-```
+#### 3. State change management and form validations
 
 ### Continued development
 

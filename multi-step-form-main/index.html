@@ -271,7 +271,7 @@
       <!-- Sidebar end -->
 
       <!-- Step 1 start -->
-      <div id="step" class="form-steps" data-step="0">
+      <div id="step" class="form-steps inactive" data-step="0">
         <step-heading>
           <h1 slot="heading">Personal info</h1>
           <p slot="description">
@@ -484,8 +484,22 @@
       <!-- Step 4 end -->
 
       <!-- last step -->
-      <div id="step" class="form-steps inactive" data-step="4">
-        <p>thank you</p>
+      <div id="step" class="form-steps last-step" data-step="4">
+        <img
+          src="assets/images/icon-thank-you.svg"
+          alt="thank you icon"
+          width="80"
+          height="80"
+        />
+        <step-heading>
+          <h1 slot="heading">Thank you!</h1>
+          <p slot="description"></p>
+        </step-heading>
+        <p>
+          Thank you! Thanks for confirming your subscription! We hope you have
+          fun using our platform. If you ever need support, please feel free to
+          email us at support@loremgaming.com.
+        </p>
       </div>
     </div>
 

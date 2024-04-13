@@ -1,5 +1,4 @@
 *.zip
-*.txt
 node_modules/
 
 # delete this after project completed

@@ -506,3 +506,16 @@ hr {
   color: var(--Purplish-blue);
   font-family: "ubuntu-bold", sans-serif;
 }
+
+/* last step  */
+.last-step {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+
+  > p {
+    text-align: justify;
+  }
+}

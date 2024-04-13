@@ -35,10 +35,10 @@ Users should be able to:
 
 ### Screenshot
 
-![](./design/active-states-step-1.jpg)
-![](./design/active-states-step-2.jpg)
-![](./design/active-states-step-3.jpg)
-![](./design/active-states-step-4.jpg)
+![](/multi-step-form-main/design/step1-desktop.png)
+![](/multi-step-form-main/design/step2-desktop.png)
+![](/multi-step-form-main/design/step3-desktop.png)
+![](/multi-step-form-main/design/step4-desktop.png)
 
 ### Links
 

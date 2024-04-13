@@ -9,7 +9,7 @@
   --color-checker: hsl(213, 73%, 31%);
 
   /* neutral colors */
-  --Cool-gray: hsl(231, 6%, 48%);
+  --Cool-gray: hsl(228, 4%, 73%);
   --Light-gray: hsl(229, 24%, 87%);
   --Magnolia: hsl(217, 100%, 97%);
   --Alabaster: hsl(231, 100%, 99%);
@@ -131,16 +131,26 @@ input:is(:hover, :active, :focus) {
 
 span.error {
   color: red;
+  position: absolute;
+  top: 125px;
+
+  @media screen and (width<1100px) {
+    top: 145px;
+  }
+  @media screen and (width<750px) {
+    top: 120px;
+  }
 
   @media screen and (width<400px) {
     font-size: 0.9rem;
+    top: 125px;
   }
 }
 
 /* layout styling */
 
 .form-container {
-  width: 60%;
+  width: 62%;
   height: 80%;
   background-color: var(--White);
 
@@ -148,6 +158,7 @@ span.error {
   gap: 1rem;
   padding: 1rem;
   border-radius: 1rem;
+  position: relative;
 
   @media screen and (max-width: 1440px) {
     height: 85%;
@@ -444,8 +455,16 @@ input[type="checkbox"]:checked + .slider:before {
   border-radius: 50%;
 }
 
-/* plan-card */
-plan-card {
+/* plan-card, addon cad */
+plan-card,
+add-on {
   border-radius: 10px;
   cursor: pointer;
+}
+
+/* addon container */
+.addon-container {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
 }

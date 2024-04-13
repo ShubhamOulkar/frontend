@@ -5,11 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
 
+    <meta name="description" content="multi step form" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="multi step form" />
+    <meta property="og:description" content="multi step form" />
+    <meta
+      property="og:image"
+      content="https://frontend-shubhamoulkars-projects.vercel.app/multi-step-form-main/design/step2-desktop.png"
+    />
+    <meta name="twitter:title" content="multi step form" />
+    <meta name="twitter:description" content="multi step form" />
+    <meta
+      name="twitter:image:src"
+      content="https://frontend-shubhamoulkars-projects.vercel.app/multi-step-form-main/design/step2-desktop.png"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="multi step form" />
+    <meta name="application-name" content="multi step form" />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./assets/images/favicon-32x32.png"
+      href="/multi-step-form-main/assets/images/favicon-32x32.png"
     />
 
     <title>Frontend Mentor | Multi-step form</title>
@@ -30,12 +49,15 @@
     </style>
 
     <!-- stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="/multi-step-form-main/assets/css/style.css" />
 
     <!-- custome script -->
-    <script src="assets/js/userInfo.js" defer></script>
-    <script src="assets/js/createTemplates.js" defer></script>
-    <script src="assets/js/selectPlan.js" defer></script>
+    <script src="/multi-step-form-main/assets/js/userInfo.js" defer></script>
+    <script
+      src="/multi-step-form-main/assets/js/createTemplates.js"
+      defer
+    ></script>
+    <script src="/multi-step-form-main/assets/js/selectPlan.js" defer></script>
   </head>
   <body>
     <template id="step-heading">
@@ -271,7 +293,7 @@
       <!-- Sidebar end -->
 
       <!-- Step 1 start -->
-      <div id="step" class="form-steps inactive" data-step="0">
+      <div id="step" class="form-steps" data-step="0">
         <step-heading>
           <h1 slot="heading">Personal info</h1>
           <p slot="description">
@@ -348,7 +370,7 @@
             <plan-card>
               <img
                 slot="icon"
-                src="assets\images\icon-arcade.svg"
+                src="/multi-step-form-main/assets\images\icon-arcade.svg"
                 alt="arcade icon"
                 width="40"
                 height="40"
@@ -360,7 +382,7 @@
             <plan-card>
               <img
                 slot="icon"
-                src="assets\images\icon-advanced.svg"
+                src="/multi-step-form-main/assets\images\icon-advanced.svg"
                 alt="advance icon"
                 width="40"
                 height="40"
@@ -372,7 +394,7 @@
             <plan-card>
               <img
                 slot="icon"
-                src="assets\images\icon-pro.svg"
+                src="/multi-step-form-main/assets\images\icon-pro.svg"
                 alt="pro icon"
                 width="40"
                 height="40"
@@ -484,9 +506,9 @@
       <!-- Step 4 end -->
 
       <!-- last step -->
-      <div id="step" class="form-steps last-step" data-step="4">
+      <div id="step" class="form-steps last-step inactive" data-step="4">
         <img
-          src="assets/images/icon-thank-you.svg"
+          src="/multi-step-form-main/assets/images/icon-thank-you.svg"
           alt="thank you icon"
           width="80"
           height="80"

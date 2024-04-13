@@ -24,6 +24,14 @@ let currentCard;
 // update total property in submitObject and go to thank you page
 submitButtonEle.addEventListener("click", handleLastStep);
 
+// add keydown event to submit button
+submitButtonEle.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.keyCode === 13) {
+    e.preventDefault(); // Prevent the default action
+    handleLastStep(e);
+  }
+});
+
 // add change option on step 4 summary form
 changeEle.addEventListener("click", (e) => {
   // activate step 2

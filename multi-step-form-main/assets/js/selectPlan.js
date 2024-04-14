@@ -130,13 +130,19 @@ function checkEnterKey(e) {
 }
 
 function handleAddOn(e) {
+  // Prevent the default action (stop event propogation)
+  e.preventDefault();
+  // e.stopPropagation();
+  // e.stopImmediatePropagation();
+
   if (e.currentTarget.classList.contains("clicked")) {
-    // remove clicked card
-    e.currentTarget.classList.remove("clicked");
     // remove checkbox checked
     e.currentTarget.shadowRoot.querySelector(
       "input[type='checkbox']"
     ).checked = false;
+    // remove clicked card
+    e.currentTarget.classList.remove("clicked");
+
     // remove background
     e.currentTarget.style.backgroundColor = "white";
     e.currentTarget.style.borderColor = ""; // Reset border color to default
@@ -156,6 +162,11 @@ function handleAddOn(e) {
       addOnsPricelist.splice(p_index, 1)
     );
   } else {
+    // seet checked state of checkbox
+    e.currentTarget.shadowRoot.querySelector(
+      "input[type='checkbox']"
+    ).checked = true;
+
     // add class clicked
     e.currentTarget.classList.add("clicked");
     // get name and price of add ons
@@ -163,15 +174,13 @@ function handleAddOn(e) {
       e.currentTarget.querySelector("name").innerText.trim().toLowerCase()
     );
     addOnsPricelist.push(e.currentTarget.querySelector("price").innerText);
-    // seet checked state of checkbox
-    e.currentTarget.shadowRoot.querySelector(
-      "input[type='checkbox']"
-    ).checked = true;
 
     showSelectedPlanCard(e.currentTarget, addOns);
 
     console.log("Updated cart with add-ons: ", addOnsNameList, addOnsPricelist);
   }
+
+  return;
 }
 
 function showPrice(priceArray1, priceArray2, billing, cardsList1, cardsList2) {

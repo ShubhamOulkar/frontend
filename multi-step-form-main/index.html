@@ -199,11 +199,10 @@
           border: 1px solid hsl(229, 24%, 87%);
           border-radius: 10px;
           padding: 1rem;
-
-          &:is(:hover, :focus, :active) {
-            border-color: hsl(243, 100%, 62%);
-            outline: none;
-          }
+        }
+        .addon-card:is(:hover, :focus, :active) {
+          border-color: hsl(243, 100%, 62%);
+          outline: none;
         }
         @media screen and (max-width: 1000px) {
           .addon-card {
@@ -211,7 +210,7 @@
             gap: 0.7rem;
           }
         }
-        #label {
+        label[for="check"] {
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
@@ -242,6 +241,7 @@
           height: 18px;
           flex-shrink: 0;
           flex-grow: 0;
+          cursor: pointer;
         }
       </style>
       <div class="addon-card">

@@ -175,6 +175,18 @@
       </div>
     </template>
 
+    <template id="addon-name">
+      <name>addon-name</name>
+    </template>
+
+    <template id="addon-info">
+      <info>addon-info</info>
+    </template>
+
+    <template id="addon-price">
+      <price>addon-price</price>
+    </template>
+
     <template id="add-on">
       <style>
         .addon-card {
@@ -231,15 +243,15 @@
       <div class="addon-card">
         <input id="check" type="checkbox" aria-labelledby="label" />
         <label id="label">
-          <slot name="addon-name">
-            <name>addon-name</name>
+          <slot name="add-on-name">
+            <addon-name></addon-name>
           </slot>
-          <slot name="addon-info">
-            <info> addon-info </info>
+          <slot name="add-on-info">
+            <addon-info></addon-info>
           </slot>
         </label>
-        <slot name="addon-price">
-          <price>+$2/mo</price>
+        <slot name="add-on-price">
+          <addon-price>+$2/mo</addon-price>
         </slot>
       </div>
     </template>
@@ -296,7 +308,7 @@
       <!-- Sidebar end -->
 
       <!-- Step 1 start -->
-      <div class="step form-steps" data-step="0">
+      <div class="step form-steps inactive" data-step="0">
         <step-heading>
           <h1 slot="heading">Personal info</h1>
           <p slot="description">
@@ -434,7 +446,7 @@
       <!-- Step 2 end -->
 
       <!-- Step 3 start -->
-      <div class="step form-steps inactive" data-step="2">
+      <div class="step form-steps" data-step="2">
         <step-heading>
           <h1 slot="heading">Pick add-ons</h1>
           <p slot="description">Add-ons help enhance your gaming experience.</p>
@@ -442,19 +454,19 @@
 
         <form id="form-2" class="addon-container">
           <add-on>
-            <name slot="addon-name">Online</name>
-            <info slot="addon-info">service Access to multiplayer games</info>
-            <price slot="addon-price">+$1/mo</price>
+            <name slot="add-on-name">Online</name>
+            <info slot="add-on-info">service Access to multiplayer games</info>
+            <price slot="add-on-price">+$1/mo</price>
           </add-on>
           <add-on>
-            <name slot="addon-name">Larger storage </name>
-            <info slot="addon-info">Extra 1TB of cloud save</info>
-            <price slot="addon-price">+$2/mo</price>
+            <name slot="add-on-name">Larger storage </name>
+            <info slot="add-on-info">Extra 1TB of cloud save</info>
+            <price slot="add-on-price">+$2/mo</price>
           </add-on>
           <add-on>
-            <name slot="addon-name">Customizable</name>
-            <info slot="addon-info">Profile Custom theme on your profile</info>
-            <price slot="addon-price">+$2/mo</price>
+            <name slot="add-on-name">Customizable</name>
+            <info slot="add-on-info">Profile Custom theme on your profile</info>
+            <price slot="add-on-price">+$2/mo</price>
           </add-on>
         </form>
 

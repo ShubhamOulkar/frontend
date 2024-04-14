@@ -166,7 +166,11 @@
       </style>
       <div class="card" tabindex="0">
         <slot name="icon">
-          <img src="assets\images\icon-arcade.svg" alt="card icon"
+          <img
+            src="/multi-step-form-main/assets/images/favicon-32x32.png"
+            alt="card icon"
+            width="32"
+            height="32"
         /></slot>
         <div>
           <slot name="heading"><h3>heading</h3></slot>
@@ -241,8 +245,8 @@
         }
       </style>
       <div class="addon-card">
-        <input id="check" type="checkbox" aria-labelledby="label" />
-        <label id="label">
+        <input id="check" type="checkbox" />
+        <label for="check">
           <slot name="add-on-name">
             <addon-name></addon-name>
           </slot>
@@ -308,7 +312,7 @@
       <!-- Sidebar end -->
 
       <!-- Step 1 start -->
-      <div class="step form-steps inactive" data-step="0">
+      <div class="step form-steps" data-step="0">
         <step-heading>
           <h1 slot="heading">Personal info</h1>
           <p slot="description">
@@ -329,6 +333,7 @@
               required
               autocomplete="off"
               autofocus
+              name="name"
             />
           </div>
           <div>
@@ -342,6 +347,7 @@
               placeholder="e.g. stephenking@lorem.com"
               required
               autocomplete="off"
+              name="email"
             />
           </div>
           <div>
@@ -355,6 +361,7 @@
               placeholder="e.g. +1 234 567 890"
               required
               autocomplete="off"
+              name="phone"
             />
           </div>
         </form>
@@ -425,7 +432,7 @@
           <div class="toggle-btn">
             <span>Monthly</span>
             <label class="switch">
-              <input type="checkbox" />
+              <input type="checkbox" name="toggle" />
               <span class="slider"></span>
             </label>
             <span>Yearly</span>
@@ -446,7 +453,7 @@
       <!-- Step 2 end -->
 
       <!-- Step 3 start -->
-      <div class="step form-steps" data-step="2">
+      <div class="step form-steps inactive" data-step="2">
         <step-heading>
           <h1 slot="heading">Pick add-ons</h1>
           <p slot="description">Add-ons help enhance your gaming experience.</p>

@@ -310,14 +310,14 @@
 
       <!-- Step 1 start -->
       <div class="step form-steps" data-step="0">
-        <step-heading role="heading">
-          <h1 slot="heading">Personal info</h1>
+        <step-heading>
+          <h1 slot="heading" role="heading">Personal info</h1>
           <p slot="description">
             Please provide your name, email address, and phone number.
           </p>
         </step-heading>
 
-        <form id="form-0" class="input-container" role="form">
+        <form id="form-0" class="input-container">
           <div>
             <div>
               <label for="name">Name</label>
@@ -376,14 +376,14 @@
 
       <!-- Step 2 start -->
       <div class="step form-steps inactive" data-step="1">
-        <step-heading role="heading">
-          <h1 slot="heading">Select your plan</h1>
+        <step-heading>
+          <h1 slot="heading" role="heading">Select your plan</h1>
           <p slot="description">
             You have the option of monthly or yearly billing.
           </p>
         </step-heading>
         <span id="step1-error" class="error" style="display: none"></span>
-        <form id="form-1" class="input-container" role="form">
+        <form id="form-1" class="input-container">
           <!-- id card container to used to increase specificity of 1st child, in css style sheet input container 1st child is flex box with flex direction column but we want flex direction row, so id is helpful to increase specificity. -->
           <div id="cards-container">
             <plan-card>
@@ -451,12 +451,12 @@
 
       <!-- Step 3 start -->
       <div class="step form-steps inactive" data-step="2">
-        <step-heading role="heading">
-          <h1 slot="heading">Pick add-ons</h1>
+        <step-heading>
+          <h1 slot="heading" role="heading">Pick add-ons</h1>
           <p slot="description">Add-ons help enhance your gaming experience.</p>
         </step-heading>
 
-        <form id="form-2" class="addon-container" role="form">
+        <form id="form-2" class="addon-container">
           <add-on>
             <name slot="add-on-name">Online</name>
             <info slot="add-on-info">service Access to multiplayer games</info>
@@ -489,14 +489,14 @@
 
       <!-- Step 4 start -->
       <div class="step form-steps inactive" data-step="3">
-        <step-heading role="heading">
-          <h1 slot="heading">Finishing up</h1>
+        <step-heading>
+          <h1 slot="heading" role="heading">Finishing up</h1>
           <p slot="description">
             Double-check everything looks OK before confirming.
           </p>
         </step-heading>
 
-        <form id="form-3" class="input-container" action="#" role="form">
+        <form id="form-3" class="input-container" action="#">
           <div class="summary">
             <div>
               <div class="summary-plan">
@@ -536,8 +536,8 @@
           height="80"
           loading="lazy"
         />
-        <step-heading role="heading">
-          <h1 slot="heading">Thank you!</h1>
+        <step-heading>
+          <h1 slot="heading" role="heading">Thank you!</h1>
           <p slot="description"></p>
         </step-heading>
         <p>
@@ -548,7 +548,7 @@
       </div>
     </div>
 
-    <footer role="contentinfo">
+    <footer>
       <div class="attribution">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"

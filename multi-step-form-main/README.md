@@ -91,8 +91,11 @@ Users should be able to:
 
 ### Continued development
 
-- [x] Performance optimization
-- [x] Prograssive web app
+- [] Performance optimization
+- [] Prograssive web app
+- [] Error from html validator (child templates are not valid inside add-on element.)
+
+![error-template](https://github.com/ShubhamOulkar/frontend/assets/91728992/af4d57ea-d414-4ed6-81fa-cdf3ae5e22d4)
 
 ### Useful resources
 

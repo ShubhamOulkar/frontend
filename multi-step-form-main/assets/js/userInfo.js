@@ -3,8 +3,8 @@
 const inputElements = document.querySelectorAll("#form-0 > div > input");
 const nextButtons = document.querySelectorAll("button[data-next]");
 const backButtons = document.querySelectorAll("button[data-back]");
-const allSteps = document.querySelectorAll("#step");
-const allSideBarStatus = document.querySelectorAll("#Sidebar-state");
+const allSteps = document.querySelectorAll(".step");
+const allSideBarStatus = document.querySelectorAll(".Sidebar-state");
 const submitObject = {
   name: "text",
   email: "text",

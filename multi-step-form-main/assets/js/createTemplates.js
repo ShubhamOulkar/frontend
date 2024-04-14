@@ -35,6 +35,42 @@ customElements.define(
 );
 
 customElements.define(
+  "addon-name",
+  class extends HTMLElement {
+    constructor() {
+      super(); // Always call super first in constructor
+      const addOnName = document.getElementById("addon-name").content;
+      const shadowRoot = this.attachShadow({ mode: "open" });
+      shadowRoot.appendChild(addOnName.cloneNode(true));
+    }
+  }
+);
+
+customElements.define(
+  "addon-info",
+  class extends HTMLElement {
+    constructor() {
+      super(); // Always call super first in constructor
+      const addOnInfo = document.getElementById("addon-info").content;
+      const shadowRoot = this.attachShadow({ mode: "open" });
+      shadowRoot.appendChild(addOnInfo.cloneNode(true));
+    }
+  }
+);
+
+customElements.define(
+  "addon-price",
+  class extends HTMLElement {
+    constructor() {
+      super(); // Always call super first in constructor
+      const addOnPrice = document.getElementById("addon-price").content;
+      const shadowRoot = this.attachShadow({ mode: "open" });
+      shadowRoot.appendChild(addOnPrice.cloneNode(true));
+    }
+  }
+);
+
+customElements.define(
   "add-on",
   class extends HTMLElement {
     constructor() {

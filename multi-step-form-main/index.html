@@ -260,22 +260,19 @@
       </div>
     </template>
 
-    <div class="form-container">
+    <div class="form-container" role="main">
       <!-- Sidebar start -->
-      <div class="form-sidebar">
+
+      <div class="form-sidebar" role="status">
         <picture>
           <source
             media="(max-width: 745px)"
             srcset="/multi-step-form-main/assets/images/bg-sidebar-mobile.svg"
-            width="375"
-            height="172"
           />
 
           <img
             src="/multi-step-form-main/assets/images/bg-sidebar-desktop.svg"
             alt="background image"
-            width="274"
-            height="568"
           />
         </picture>
         <div class="step-btns">
@@ -313,14 +310,14 @@
 
       <!-- Step 1 start -->
       <div class="step form-steps" data-step="0">
-        <step-heading>
+        <step-heading role="heading">
           <h1 slot="heading">Personal info</h1>
           <p slot="description">
             Please provide your name, email address, and phone number.
           </p>
         </step-heading>
 
-        <form id="form-0" class="input-container">
+        <form id="form-0" class="input-container" role="form">
           <div>
             <div>
               <label for="name">Name</label>
@@ -379,14 +376,14 @@
 
       <!-- Step 2 start -->
       <div class="step form-steps inactive" data-step="1">
-        <step-heading>
+        <step-heading role="heading">
           <h1 slot="heading">Select your plan</h1>
           <p slot="description">
             You have the option of monthly or yearly billing.
           </p>
         </step-heading>
         <span id="step1-error" class="error" style="display: none"></span>
-        <form id="form-1" class="input-container">
+        <form id="form-1" class="input-container" role="form">
           <!-- id card container to used to increase specificity of 1st child, in css style sheet input container 1st child is flex box with flex direction column but we want flex direction row, so id is helpful to increase specificity. -->
           <div id="cards-container">
             <plan-card>
@@ -454,12 +451,12 @@
 
       <!-- Step 3 start -->
       <div class="step form-steps inactive" data-step="2">
-        <step-heading>
+        <step-heading role="heading">
           <h1 slot="heading">Pick add-ons</h1>
           <p slot="description">Add-ons help enhance your gaming experience.</p>
         </step-heading>
 
-        <form id="form-2" class="addon-container">
+        <form id="form-2" class="addon-container" role="form">
           <add-on>
             <name slot="add-on-name">Online</name>
             <info slot="add-on-info">service Access to multiplayer games</info>
@@ -492,14 +489,14 @@
 
       <!-- Step 4 start -->
       <div class="step form-steps inactive" data-step="3">
-        <step-heading>
+        <step-heading role="heading">
           <h1 slot="heading">Finishing up</h1>
           <p slot="description">
             Double-check everything looks OK before confirming.
           </p>
         </step-heading>
 
-        <form id="form-3" class="input-container" action="#">
+        <form id="form-3" class="input-container" action="#" role="form">
           <div class="summary">
             <div>
               <div class="summary-plan">
@@ -539,7 +536,7 @@
           height="80"
           loading="lazy"
         />
-        <step-heading>
+        <step-heading role="heading">
           <h1 slot="heading">Thank you!</h1>
           <p slot="description"></p>
         </step-heading>
@@ -551,14 +548,16 @@
       </div>
     </div>
 
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by
-      <a href="https://github.com/ShubhamOulkar" target="_blank"
-        >Shubham Oulkar</a
-      >.
-    </div>
+    <footer role="contentinfo">
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://github.com/ShubhamOulkar" target="_blank"
+          >Shubham Oulkar</a
+        >.
+      </div>
+    </footer>
   </body>
 </html>

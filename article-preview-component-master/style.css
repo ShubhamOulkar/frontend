@@ -41,7 +41,7 @@ main {
 
 article.card {
   width: 50%;
-  height: 31%;
+  height: 40%;
   background-color: white;
   border-radius: 1em;
   box-shadow: var(--box-shadow);

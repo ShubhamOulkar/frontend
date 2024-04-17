@@ -106,7 +106,6 @@ img.furniture {
 
 img.user-img {
   border-radius: 2em;
-  visibility: visible;
 }
 
 .user-info {
@@ -227,6 +226,11 @@ img.user-img {
     border-end-start-radius: 0;
   }
 
+  /* desktop tooltip closed on small screens */
+  .tooltiptext {
+    display: none;
+  }
+
   .user {
     position: relative;
   }
@@ -237,7 +241,7 @@ img.user-img {
     top: 2em;
     right: 1em;
   }
-
+  /* show mobile tooltip */
   .mobile-tooltip {
     position: absolute;
     bottom: 0;

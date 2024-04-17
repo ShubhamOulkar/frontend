@@ -7,13 +7,9 @@ const mobileToolTip = document.querySelector(".mobile-tooltip");
 
 // following event only of small screens
 
-userShare[0].addEventListener("click", handleClick);
-
-function handleClick() {
-  let userImage = userImg.style.visibility || "visible";
-  console.log(userImage);
-  userImage === "visible" ? handleHidden() : handleVisible();
-}
+// adding focus event for small screens
+userShare[0].addEventListener("focusin", handleHidden);
+userShare[0].addEventListener("focusout", handleVisible);
 
 // study purpose functions
 function handleHidden() {
@@ -41,9 +37,12 @@ function handleVisible() {
 
 // userShare[0].addEventListener("mouseout", handleVisible);
 
-// userShare[0].addEventListener("focusin", handleHidden);
+// userShare[0].addEventListener("click", handleClick);
 
-// userShare[0].addEventListener("focusout", handleVisible);
+// function handleClick() {
+//   let userImage = userImg.style.visibility || "visible";
+//   userImage === "visible" ? handleHidden() : handleVisible();
+// }
 
 // this event is fired on browser tab size change
 // window.addEventListener("resize", handleToolTip);

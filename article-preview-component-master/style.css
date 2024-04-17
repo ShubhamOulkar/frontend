@@ -1,8 +1,10 @@
 :root {
   --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
   --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
-  --Grayish-Blue: hsl(212, 23%, 69%);
+  --Grayish-Blue: hsl(213, 12%, 54%);
   --Light-Grayish-Blue: hsl(210, 46%, 95%);
+
+  --box-shadow: 15px 15px 25px -20px gray;
 }
 
 * {
@@ -42,7 +44,7 @@ article.card {
   height: 42%;
   background-color: white;
   border-radius: 1em;
-  box-shadow: 15px 15px 25px -20px gray;
+  box-shadow: var(--box-shadow);
 
   display: flex;
   gap: 0.5em;
@@ -80,12 +82,26 @@ img.furniture {
 }
 
 .user-share {
+  height: 40px;
+  width: 40px;
   margin-left: auto;
   background-color: var(--Light-Grayish-Blue);
   align-self: center;
-  padding: 0.7em;
-  border-radius: 2em;
+  border-radius: 50%;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color ease 0.8s;
+  position: relative;
+
+  &:is(:hover, :focus, :active, ) {
+    background-color: var(--Desaturated-Dark-Blue);
+
+    > svg.share-icon {
+      fill: #fff;
+    }
+  }
 }
 
 img.user-img {
@@ -107,6 +123,56 @@ img.user-img {
     font-family: 500;
     color: var(--Grayish-Blue);
   }
+}
+
+/* tooltip styling */
+.tooltip {
+  position: relative;
+}
+
+.tooltiptext {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1ch;
+  display: flex;
+  gap: 1em;
+  box-shadow: var(--box-shadow);
+  align-items: center;
+  justify-content: center;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: max-content;
+  background-color: var(--Very-Dark-Grayish-Blue);
+  color: var(--Grayish-Blue);
+  text-align: center;
+  border-radius: 10px;
+  padding: 1.2em 3em;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+}
+
+/* down arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--Very-Dark-Grayish-Blue) transparent transparent
+    transparent;
+}
+
+.tooltip:is(:hover, :focus) .tooltiptext {
+  visibility: visible;
+}
+
+.mobile-tooltip {
+  display: none;
 }
 
 /* responsive card */
@@ -136,6 +202,7 @@ img.user-img {
     height: 80%;
     justify-content: center;
     align-items: center;
+    position: relative;
   }
 
   .image,
@@ -158,6 +225,35 @@ img.user-img {
     border-start-end-radius: 1em;
     border-end-start-radius: 0;
   }
+
+  .user {
+    position: relative;
+  }
+
+  .user-share {
+    position: absolute;
+    z-index: 10;
+    top: 2em;
+    right: 1em;
+  }
+
+  .mobile-tooltip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--Very-Dark-Grayish-Blue);
+    width: 100%;
+    height: 70px;
+    padding: 2em;
+    gap: 1em;
+    font-weight: 600;
+    color: var(--Grayish-Blue);
+    text-transform: uppercase;
+    letter-spacing: 1ch;
+    align-items: center;
+    border-end-start-radius: 1em;
+    border-end-end-radius: 1em;
+  }
 }
 
 @media screen and (width<450px) {
@@ -169,9 +265,18 @@ img.user-img {
     gap: 1em;
   }
 
+  .user-share {
+    top: 1em;
+    right: 0.2em;
+  }
+
   .description {
     justify-content: space-between;
     padding-top: 1em;
+  }
+
+  .mobile-tooltip {
+    gap: 0.5em;
   }
 }
 

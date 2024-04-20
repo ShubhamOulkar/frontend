@@ -1,0 +1,285 @@
+@supports (font-variation-settings: normal) {
+  @font-face {
+    font-family: "roboto bold";
+    src: url(/newsletter-sign-up-with-success-message-main/assets/fonts/Roboto-Bold.ttf);
+    font-weight: 700;
+  }
+
+  @font-face {
+    font-family: "roboto medium";
+    src: url(/newsletter-sign-up-with-success-message-main/assets/fonts/Roboto-Regular.ttf);
+    font-weight: 400;
+  }
+}
+:root {
+  /* Primary */
+  --Tomato: hsl(4 100% 67%);
+
+  /* Neutral */
+  --Dark-Slate-Grey: hsl(234 29% 20%);
+  --Charcoal-Grey: hsl(235 18% 26%);
+  --Grey: hsl(231 7% 60%);
+  --White: hsl(0 0% 100%);
+
+  /* Body Copy */
+  --Font-size-p: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  line-height: 1.5;
+}
+
+h1,
+.success-heading {
+  font-family: "roboto bold", sans-serif;
+}
+
+p,
+.success-msg {
+  font-size: var(--Font-size-p);
+  font-weight: 400;
+}
+
+button {
+  background-color: var(--Charcoal-Grey);
+  color: var(--White);
+  font-weight: 500;
+}
+
+label[for="email"],
+button,
+.email-error {
+  font-size: 13px;
+}
+
+h1,
+.success-heading,
+label[for="email"],
+.email-error {
+  font-weight: 700;
+  color: var(--Dark-Slate-Grey);
+}
+
+p,
+label[for="email"],
+.email-error,
+.success-msg,
+button {
+  font-family: "roboto medium", sans-serif;
+}
+
+p,
+li {
+  color: var(--Charcoal-Grey);
+  margin-block-end: 5px;
+}
+
+li.update {
+  padding-inline-start: 10px;
+}
+
+li.update::marker {
+  content: url("/newsletter-sign-up-with-success-message-main/assets/images/icon-list.svg");
+}
+
+/* error */
+.email-error {
+  color: var(--Tomato);
+}
+
+/* layout style */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.image-section {
+  min-width: 100%;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.form-section {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+form,
+.form-email {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.form-email {
+  gap: 0.5rem;
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+form {
+  gap: 1rem;
+}
+
+.form-updates ul {
+  padding-left: 20px;
+}
+
+/* user interaction styling */
+input[type="email"],
+button {
+  padding: 5px;
+  min-width: 100%;
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+input[type="email"] {
+  padding-inline-start: 1.2rem;
+  border-color: rgb(169, 168, 168);
+}
+
+input[type="email"]:is(:hover, :focus) {
+  border-color: black;
+  outline: 1px solid black;
+}
+
+input[type="email"]::placeholder {
+  font-family: "roboto medium", sans-serif;
+  font-size: 1rem;
+  color: rgb(169, 168, 168);
+}
+
+input[type="email"]:user-invalid {
+  color: var(--Tomato);
+  border-color: var(--Tomato);
+  background-color: hsla(4, 43%, 81%, 0.416);
+  outline: 1px solid var(--Tomato);
+}
+
+button {
+  border-color: var(--Dark-Slate-Grey);
+  transition: background-image ease-in-out 1s;
+}
+
+button:is(:hover, :focus, :active) {
+  background-image: linear-gradient(to right, #ff5377, #ff673e);
+  border-color: #ff673e;
+  outline: 1px solid #ff673e;
+}
+
+/* form on success */
+.form-success {
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  height: 100%;
+}
+
+.success-close {
+  margin-block-start: auto;
+}
+
+.success-msg strong {
+  color: var(--Dark-Slate-Grey);
+}
+
+/* responsive design */
+@media screen and (min-width: 650px) {
+  body,
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  body {
+    background-color: var(--Dark-Slate-Grey);
+    height: 100vh;
+    width: 100vw;
+    gap: 1rem;
+  }
+
+  main,
+  .form-success {
+    height: 70%;
+    width: 90%;
+    background-color: var(--White);
+    border-radius: 1rem;
+  }
+
+  .form-container {
+    width: 100%;
+    height: 100%;
+    flex-direction: row-reverse;
+    gap: 2rem;
+    padding: 16px;
+  }
+
+  .image-section {
+    height: 100%;
+    min-width: 40%;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .form-section {
+    height: 100%;
+    width: 60%;
+    padding-block: 0;
+    padding-inline: 2rem;
+    flex-wrap: nowrap;
+  }
+
+  input[type="email"],
+  button {
+    height: 3rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  main,
+  .form-success {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1010px) {
+  main,
+  .form-success {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  main,
+  .form-success {
+    width: 55%;
+  }
+}
+
+@media screen and (width<650px) {
+  main {
+    height: 100vh;
+  }
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>
+      Frontend Mentor | Newsletter sign-up form with success message
+    </title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+        color: #fff;
+      }
+      .attribution a {
+        color: #fff;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="/newsletter-sign-up-with-success-message-main/style.css"
+    />
+    <script
+      src="/newsletter-sign-up-with-success-message-main/script.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <main>
+      <!-- Sign-up form start -->
+      <div class="form-container">
+        <div class="image-section">
+          <picture>
+            <source
+              srcset="
+                /newsletter-sign-up-with-success-message-main/assets/images/illustration-sign-up-mobile.svg
+              "
+              media="(max-width: 650px)"
+            />
+            <img
+              src="/newsletter-sign-up-with-success-message-main/assets/images/illustration-sign-up-desktop.svg"
+              alt="mobile form styling image"
+              width="400"
+              height="593"
+            />
+          </picture>
+        </div>
+
+        <div class="form-section">
+          <div class="form-heading">
+            <h1>Stay updated!</h1>
+          </div>
+          <div class="form-subheading">
+            <p>Join 60,000+ product managers receiving monthly updates on:</p>
+          </div>
+          <div class="form-updates">
+            <ul>
+              <li class="update">
+                Product discovery and building what matters
+              </li>
+              <li class="update">Measuring to ensure updates are a succes</li>
+              <li class="update">And much more!</li>
+            </ul>
+          </div>
+          <div class="form">
+            <form action="#">
+              <div class="form-email">
+                <div>
+                  <label for="email">Email address</label>
+                  <span class="email-error"></span>
+                </div>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="email@company.com"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+
+              <div class="form-button">
+                <button type="submit">Subscribe to monthly newsletter</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Sign-up form end -->
+
+      <!-- Success message start -->
+      <div class="form-success" style="display: none">
+        <div class="success-icon">
+          <img
+            src="/newsletter-sign-up-with-success-message-main/assets/images/icon-success.svg"
+            alt="form success"
+          />
+        </div>
+
+        <div class="success-heading">
+          <h1>Thanks for subscribing!</h1>
+        </div>
+
+        <div class="success-msg">
+          A confirmation email has been sent to
+          <strong>ash@loremcompany.com</strong>. Please open it and click the
+          button inside to confirm your subscription.
+        </div>
+
+        <div class="success-close">
+          <button class="close-btn">Dismiss message</button>
+        </div>
+      </div>
+      <!-- Success message end -->
+    </main>
+
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://github.com/ShubhamOulkar">Shubham Oulkar</a>.
+      </div>
+    </footer>
+  </body>
+</html>

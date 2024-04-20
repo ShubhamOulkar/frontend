@@ -1,0 +1,311 @@
+:root {
+  --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+  --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+  --Grayish-Blue: hsl(213, 12%, 54%);
+  --Light-Grayish-Blue: hsl(210, 46%, 95%);
+
+  --box-shadow: 15px 15px 25px -20px gray;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100vw;
+  gap: 2rem;
+  background-color: var(--Light-Grayish-Blue);
+  font-size: 13px;
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.manrope-heading {
+  font-weight: 700;
+  color: var(--Very-Dark-Grayish-Blue);
+  font-size: 1.5em;
+}
+
+.manrope-para {
+  font-weight: 700;
+  color: var(--Grayish-Blue);
+}
+
+article.card {
+  width: 50%;
+  height: 40%;
+  background-color: white;
+  border-radius: 1em;
+  box-shadow: var(--box-shadow);
+
+  display: flex;
+  gap: 0.5em;
+}
+
+.image {
+  width: 40%;
+  border-start-start-radius: 1em;
+  border-end-start-radius: 1em;
+}
+
+img.furniture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-start-start-radius: 1em;
+  border-end-start-radius: 1em;
+}
+
+.description {
+  padding-block: 3.5em;
+  padding-left: 3em;
+  padding-right: 3.5rem;
+  width: 60%;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user {
+  display: flex;
+  gap: 1.5em;
+  flex-wrap: wrap;
+}
+
+.user-share {
+  height: 40px;
+  width: 40px;
+  margin-left: auto;
+  background-color: var(--Light-Grayish-Blue);
+  align-self: center;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color ease 0.8s;
+  position: relative;
+
+  &:is(:hover, :focus, :active, ) {
+    background-color: var(--Desaturated-Dark-Blue);
+
+    > svg.share-icon {
+      fill: #fff;
+    }
+  }
+}
+
+img.user-img {
+  border-radius: 2em;
+  visibility: visible;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  justify-content: center;
+  visibility: visible;
+
+  > p {
+    font-weight: 700;
+    color: var(--Very-Dark-Grayish-Blue);
+  }
+
+  > span {
+    font-family: 500;
+    color: var(--Grayish-Blue);
+  }
+}
+
+/* tooltip styling */
+.tooltip {
+  position: relative;
+}
+
+.tooltiptext {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1ch;
+  display: flex;
+  gap: 1em;
+  box-shadow: var(--box-shadow);
+  align-items: center;
+  justify-content: center;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: max-content;
+  background-color: var(--Very-Dark-Grayish-Blue);
+  color: var(--Grayish-Blue);
+  text-align: center;
+  border-radius: 10px;
+  padding: 1.2em 3em;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+}
+
+/* down arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--Very-Dark-Grayish-Blue) transparent transparent
+    transparent;
+}
+
+.tooltip:is(:hover, :focus) .tooltiptext {
+  visibility: visible;
+}
+
+.mobile-tooltip {
+  display: none;
+}
+
+/* responsive card */
+
+@media screen and (width<1200px) {
+  article.card {
+    width: 70%;
+  }
+}
+
+@media screen and (width<950px) {
+  article.card {
+    width: 80%;
+  }
+}
+
+@media screen and (width<800px) {
+  article.card {
+    width: 90%;
+  }
+}
+
+@media screen and (width<650px) {
+  article.card {
+    flex-direction: column;
+    gap: 1em;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .image,
+  .description {
+    width: 100%;
+  }
+
+  .image {
+    height: 50%;
+  }
+
+  .description {
+    height: 50%;
+    padding: 2em;
+    justify-content: space-around;
+  }
+
+  img.furniture {
+    border-start-start-radius: 1em;
+    border-start-end-radius: 1em;
+    border-end-start-radius: 0;
+  }
+
+  /* desktop tooltip closed on small screens */
+  .tooltiptext {
+    display: none;
+  }
+
+  .user {
+    position: relative;
+  }
+
+  .user-share {
+    position: absolute;
+    z-index: 10;
+    top: 2em;
+    right: 1em;
+  }
+  /* show mobile tooltip */
+  .mobile-tooltip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--Very-Dark-Grayish-Blue);
+    width: 100%;
+    height: 70px;
+    padding: 2em;
+    gap: 1em;
+    font-weight: 600;
+    color: var(--Grayish-Blue);
+    text-transform: uppercase;
+    letter-spacing: 1ch;
+    align-items: center;
+    border-end-start-radius: 1em;
+    border-end-end-radius: 1em;
+  }
+}
+
+@media screen and (width<450px) {
+  article.card {
+    height: 90%;
+  }
+
+  body {
+    gap: 1em;
+  }
+
+  .user-share {
+    top: 1em;
+    right: 0.2em;
+  }
+
+  .description {
+    justify-content: space-between;
+    padding-top: 1em;
+  }
+
+  .mobile-tooltip {
+    gap: 0.5em;
+  }
+}
+
+@media screen and (width<350px) {
+  article.card {
+    height: 95%;
+    width: 95%;
+  }
+
+  body {
+    gap: 0.5em;
+  }
+
+  .description {
+    padding: 1em;
+  }
+
+  .user {
+    gap: 0.5em;
+  }
+
+  .user-share {
+    margin-left: 0.5em;
+  }
+}

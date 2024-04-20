@@ -148,10 +148,10 @@ function handleAddOn(e) {
     e.currentTarget.style.borderColor = ""; // Reset border color to default
     // update addOnsNameList and addOnsPriceList
     let n_index = addOnsNameList.indexOf(
-      e.currentTarget.querySelector("name").innerText.trim().toLowerCase()
+      e.currentTarget.querySelector("name-ele").innerText.trim().toLowerCase()
     );
     let p_index = addOnsPricelist.indexOf(
-      e.currentTarget.querySelector("price").innerText
+      e.currentTarget.querySelector("addon-price").innerText
     );
     console.log(
       "Removed name from the cart: ",
@@ -171,12 +171,17 @@ function handleAddOn(e) {
     e.currentTarget.classList.add("clicked");
     // get name and price of add ons
     addOnsNameList.push(
-      e.currentTarget.querySelector("name").innerText.trim().toLowerCase()
+      e.currentTarget.querySelector("name-ele").innerText.trim().toLowerCase()
     );
-    addOnsPricelist.push(e.currentTarget.querySelector("price").innerText);
+    addOnsPricelist.push(
+      e.currentTarget.querySelector("addon-price").innerText
+    );
 
-    showSelectedPlanCard(e.currentTarget, addOns);
-
+    // show selected card
+    e.currentTarget.style.backgroundColor = "hsl(231, 70%, 95%)";
+    e.currentTarget.style.borderColor = "hsl(243, 100%, 62%)";
+    // showSelectedPlanCard(e.currentTarget, addOns);
+    console.log(e.currentTarget);
     console.log("Updated cart with add-ons: ", addOnsNameList, addOnsPricelist);
   }
 
@@ -204,7 +209,7 @@ function showPrice(priceArray1, priceArray2, billing, cardsList1, cardsList2) {
 
   let j = 0;
   cardsList2.forEach((card) => {
-    card.querySelector("price").innerText =
+    card.querySelector("addon-price").innerText =
       "+$" + `${priceArray2[j]}/${billing}`;
     j++;
   });
@@ -215,10 +220,10 @@ function showPrice(priceArray1, priceArray2, billing, cardsList1, cardsList2) {
 
     if (
       addOnsNameList.includes(
-        card.querySelector("name").innerText.trim().toLowerCase()
+        card.querySelector("name-ele").innerText.trim().toLowerCase()
       )
     ) {
-      addOnsPricelist.push(card.querySelector("price").innerText);
+      addOnsPricelist.push(card.querySelector("addon-price").innerText);
     }
   });
   return;
@@ -272,6 +277,7 @@ function createSummary() {
 }
 
 function handleLastStep(e) {
+  e.preventDefault();
   submitObject["total"] = summaryTotalEle.innerText;
 
   // activate last step

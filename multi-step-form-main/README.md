@@ -19,6 +19,9 @@ This is a solution to the [Multi-step form challenge on Frontend Mentor](https:/
       - [2. Styling web components from shadow tree](#2-styling-web-components-from-shadow-tree)
       - [3. State change management and form validations](#3-state-change-management-and-form-validations)
     - [Continued development](#continued-development)
+      - [- \[\] Performance optimization](#---performance-optimization)
+      - [- \[\] Prograssive web app](#---prograssive-web-app)
+      - [- \[x\] Error from html validator (child templates are not valid inside add-on element.) (PR #27)](#--x-error-from-html-validator-child-templates-are-not-valid-inside-add-on-element-pr-27)
     - [Useful resources](#useful-resources)
   - [Author](#author)
 
@@ -91,9 +94,11 @@ Users should be able to:
 
 ### Continued development
 
-- [] Performance optimization
-- [] Prograssive web app
-- [] Error from html validator (child templates are not valid inside add-on element.)
+#### - [] Performance optimization
+
+#### - [] Prograssive web app
+
+#### - [x] Error from html validator (child templates are not valid inside add-on element.) [(PR #27)](https://github.com/ShubhamOulkar/frontend/pull/27)
 
 ![error-template](https://github.com/ShubhamOulkar/frontend/assets/91728992/af4d57ea-d414-4ed6-81fa-cdf3ae5e22d4)
 

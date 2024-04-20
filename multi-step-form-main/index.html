@@ -179,16 +179,18 @@
       </div>
     </template>
 
+    <template id="nameEle"> <slot></slot> </template>
+
     <template id="addon-name">
-      <name>addon-name</name>
+      <slot> </slot>
     </template>
 
     <template id="addon-info">
-      <info>addon-info</info>
+      <slot> </slot>
     </template>
 
     <template id="addon-price">
-      <price>addon-price</price>
+      <slot> </slot>
     </template>
 
     <template id="add-on">
@@ -216,21 +218,21 @@
           gap: 0.5rem;
           cursor: pointer;
         }
-        ::slotted(:is(price, info)) {
+        ::slotted(:is(addon-price, addon-info)) {
           font-family: "ubuntu-regular", sans-serif;
           font-size: 1rem;
         }
-        ::slotted(price) {
+        ::slotted(addon-price) {
           color: hsl(243, 100%, 62%);
           margin-left: auto !important;
           align-self: center;
           flex-shrink: 0;
           flex-grow: 0;
         }
-        ::slotted(info) {
+        ::slotted(addon-info) {
           color: hsl(231, 6%, 48%);
         }
-        ::slotted(name) {
+        ::slotted(addon-name) {
           color: hsl(214, 54%, 36%);
           font-family: "ubuntu-bold", sans-serif;
           font-size: 1rem;
@@ -247,16 +249,10 @@
       <div class="addon-card">
         <input id="check" type="checkbox" />
         <label for="check">
-          <slot name="add-on-name">
-            <addon-name></addon-name>
-          </slot>
-          <slot name="add-on-info">
-            <addon-info></addon-info>
-          </slot>
+          <slot name="add-on-name"> </slot>
+          <slot name="add-on-info"> </slot>
         </label>
-        <slot name="add-on-price">
-          <addon-price>+$2/mo</addon-price>
-        </slot>
+        <slot name="add-on-price"> </slot>
       </div>
     </template>
 
@@ -457,20 +453,31 @@
         </step-heading>
 
         <form id="form-2" class="addon-container">
+          <!-- info is anonymous element -->
           <add-on>
-            <name slot="add-on-name">Online</name>
-            <info slot="add-on-info">service Access to multiplayer games</info>
-            <price slot="add-on-price">+$1/mo</price>
+            <addon-name slot="add-on-name">
+              <name-ele>Online</name-ele>
+            </addon-name>
+            <addon-info slot="add-on-info"
+              >service Access to multiplayer games</addon-info
+            >
+            <addon-price slot="add-on-price">+$1/mo </addon-price>
           </add-on>
           <add-on>
-            <name slot="add-on-name">Larger storage </name>
-            <info slot="add-on-info">Extra 1TB of cloud save</info>
-            <price slot="add-on-price">+$2/mo</price>
+            <addon-name slot="add-on-name">
+              <name-ele>Larger storage</name-ele></addon-name
+            >
+            <addon-info slot="add-on-info">Extra 1TB of cloud save</addon-info>
+            <addon-price slot="add-on-price">+$2/mo</addon-price>
           </add-on>
           <add-on>
-            <name slot="add-on-name">Customizable</name>
-            <info slot="add-on-info">Profile Custom theme on your profile</info>
-            <price slot="add-on-price">+$2/mo</price>
+            <addon-name slot="add-on-name">
+              <name-ele>Customizable</name-ele></addon-name
+            >
+            <addon-info slot="add-on-info"
+              >Profile Custom theme on your profile</addon-info
+            >
+            <addon-price slot="add-on-price">+$2/mo</addon-price>
           </add-on>
         </form>
 

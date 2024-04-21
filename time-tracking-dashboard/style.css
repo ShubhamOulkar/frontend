@@ -1,0 +1,158 @@
+:root {
+  /* ### Primary */
+
+  --Blue: hsl(246 80% 60%);
+
+  /* following colors are encapsulated in <card-ele> web component */
+  /* --Light-red-work: hsl(15 100% 70%);
+  --Soft-blue-play: hsl(195 74% 62%);
+  --Light-red-study: hsl(348 100% 68%);
+  --Lime-green-exercise: hsl(145 58% -55%);
+  --Violet-social: hsl(264 64% 52%);
+  --Soft-orange-self-care: hsl(43 84% 65%); */
+
+  /* ### Neutral */
+
+  --Very-dark-blue: hsl(226 43% 10%);
+  --Dark-blue: hsl(235 46% 20%);
+  --Desaturated-blue: hsl(235 45% 61%);
+  --Pale-Blue: hsl(236 100% 87%);
+
+  /* other */
+  --border-radius: 18px;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  margin: 20px;
+  background-color: var(--Very-dark-blue);
+  transition: all 1s;
+}
+
+p,
+.past {
+  color: var(--Pale-Blue);
+}
+
+p,
+h3,
+button {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 300;
+  text-wrap: wrap;
+}
+
+button {
+  background-color: var(--Dark-blue);
+  border: 0;
+  text-align: left;
+  color: var(--Desaturated-blue);
+  padding: 5px;
+  border-radius: 3px;
+}
+
+button:is(:hover, :focus, :active, :focus-within) {
+  color: aliceblue;
+}
+
+/* user */
+.user-container {
+  background-color: var(--Dark-blue);
+  border-radius: var(--border-radius);
+  width: 250px;
+  height: 500px;
+}
+
+.user-info,
+.info-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+}
+
+.user-info {
+  height: 70%;
+  background-color: var(--Blue);
+  border-radius: var(--border-radius);
+}
+
+.user-name {
+  margin-block-start: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.user-img {
+  width: max-content;
+  border-radius: 50%;
+  border: 3px solid white;
+
+  > img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.info-filter {
+  height: 30%;
+}
+
+/* cards */
+/* .card-container {
+  width: 250px;
+  height: 250px;
+  border-radius: var(--border-radius);
+  overflow-y: hidden;
+  position: relative;
+
+  > img {
+    position: absolute;
+    right: 1rem;
+    bottom: 180px;
+  }
+}
+
+.tracker-container {
+  background-color: var(--Dark-blue);
+  border-radius: var(--border-radius);
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: start;
+  padding-inline: 1.5rem;
+  padding-block: 1rem;
+}
+
+.work {
+  background-color: var(--Light-red-work);
+}
+
+.current {
+  margin-block-start: 1rem;
+  font-size: 50px;
+  font-weight: 300;
+} */
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}

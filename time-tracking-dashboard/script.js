@@ -50,7 +50,8 @@ async function fetchData(DATABASE_URL, btn = "weekly") {
     // show cards
     populateCards(data, btn);
   } catch (error) {
-    console.error("Data fetch fail: ", error);
+    // handle error
+    cards.innerHTML = `${error} 🎆🎆🎆❌`;
   }
 }
 

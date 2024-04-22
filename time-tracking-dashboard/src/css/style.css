@@ -1,15 +1,15 @@
 :root {
   /* ### Primary */
 
-  --Blue: hsl(246 80% 60%);
+  --Blue: #5847eb;
 
   /* following colors are encapsulated in <card-ele> web component */
   /* --Light-red-work: hsl(15 100% 70%);
-  --Soft-blue-play: hsl(195 74% 62%);
-  --Light-red-study: hsl(348 100% 68%);
-  --Lime-green-exercise: hsl(145 58% -55%);
-  --Violet-social: hsl(264 64% 52%);
-  --Soft-orange-self-care: hsl(43 84% 65%); */
+    --Soft-blue-play: hsl(195 74% 62%);
+    --Light-red-study: hsl(348 100% 68%);
+    --Lime-green-exercise: hsl(145 58% -55%);
+    --Violet-social: hsl(264 64% 52%);
+    --Soft-orange-self-care: hsl(43 84% 65%); */
 
   /* ### Neutral */
 
@@ -32,12 +32,12 @@
 body {
   margin: 20px;
   background-color: var(--Very-dark-blue);
-  transition: all ease-out 2s;
+  transition: 2s;
 
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(2, 1fr) repeat(4, 250px) repeat(2, 1fr); /*items centering hack */
-  grid-template-rows: 1fr repeat(2, 250px) 1fr;
+  grid-template-rows: 60px repeat(2, 250px) 1fr;
 }
 
 p,
@@ -313,13 +313,41 @@ footer {
 
 /* Spinner style*/
 .spinner {
+  grid-column: 1 / span 3;
   margin: 5rem auto;
   text-align: center;
 
-  svg {
-    height: 6rem;
-    width: 6rem;
+  > img {
+    height: 1.5rem;
+    width: 1.5rem;
     fill: var(--Blue);
     animation: rotate 2s infinite linear;
+  }
+}
+
+/* error */
+.error {
+  grid-column: 1 / span 3;
+  margin: 5rem auto;
+  text-align: center;
+
+  > svg {
+    height: 3rem;
+    width: 3rem;
+    fill: red;
+  }
+
+  p {
+    color: rgb(228, 8, 8);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }

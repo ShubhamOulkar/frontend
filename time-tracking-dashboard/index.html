@@ -9,7 +9,7 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/time-tracking-dashboard/images/favicon-32x32.png"
+      href="/time-tracking-dashboard/src/images/favicon-32x32.png"
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,9 +19,12 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="/time-tracking-dashboard/style.css" />
+    <link rel="stylesheet" href="/time-tracking-dashboard/src/css/style.css" />
 
-    <script src="/time-tracking-dashboard/script.js" defer></script>
+    <script
+      type="module"
+      src="/time-tracking-dashboard/src/js/controller.js"
+    ></script>
 
     <title>Frontend Mentor | Time tracking dashboard</title>
   </head>
@@ -144,7 +147,7 @@
               <h3>Header</h3>
             </slot>
             <img
-              src="/time-tracking-dashboard/images/icon-ellipsis.svg"
+              src="/time-tracking-dashboard/src/images/icon-ellipsis.svg"
               alt="three dots"
               height="5"
               width="21"
@@ -169,7 +172,7 @@
         <div class="user-info">
           <div class="user-img">
             <img
-              src="/time-tracking-dashboard/images/image-jeremy.png"
+              src="/time-tracking-dashboard/src/images/image-jeremy.png"
               alt="jeremy smiling face"
               width="80"
               height="80"

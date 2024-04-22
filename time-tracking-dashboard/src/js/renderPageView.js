@@ -24,7 +24,7 @@ function createElement(eleData, btn) {
             src="/time-tracking-dashboard/src/images/icon-${title_clean}.svg"
             alt="background"
           />
-          <h3 slot="header">${title}</h3>
+          <h2 slot="header">${title}</h2>
           <div slot="current-record">${btnFilter.current}hrs</div>
           <span slot="past-record">${btn} - ${btnFilter.previous}hrs</span>
     `;

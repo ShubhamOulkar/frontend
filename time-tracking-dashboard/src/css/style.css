@@ -15,8 +15,8 @@
 
   --Very-dark-blue: hsl(226 43% 10%);
   --Dark-blue: hsl(235 46% 20%);
-  --Desaturated-blue: hsl(235 45% 61%);
-  --Pale-Blue: hsl(236 100% 87%);
+  --Desaturated-blue: hsl(235, 30%, 69%);
+  --Pale-Blue: hsl(240, 29%, 97%);
 
   /* other */
   --border-radius: 18px;
@@ -40,8 +40,7 @@ body {
   grid-template-rows: 60px repeat(2, 250px) 1fr;
 }
 
-p,
-.past {
+p {
   color: var(--Pale-Blue);
 }
 

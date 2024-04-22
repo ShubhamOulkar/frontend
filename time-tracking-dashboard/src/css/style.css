@@ -37,7 +37,7 @@ body {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(2, 1fr) repeat(4, 250px) repeat(2, 1fr); /*items centering hack */
-  grid-template-rows: 60px repeat(2, 250px) 1fr;
+  grid-template-rows: 125px repeat(2, 250px) 125px;
 }
 
 p {

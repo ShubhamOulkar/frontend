@@ -310,3 +310,16 @@ footer {
     grid-column: 2/3;
   }
 }
+
+/* Spinner style*/
+.spinner {
+  margin: 5rem auto;
+  text-align: center;
+
+  svg {
+    height: 6rem;
+    width: 6rem;
+    fill: var(--Blue);
+    animation: rotate 2s infinite linear;
+  }
+}

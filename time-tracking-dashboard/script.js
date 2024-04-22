@@ -91,3 +91,15 @@ function createElement(element, btn) {
 function removeAllCards() {
   [...cards.children].forEach((child) => cards.removeChild(child));
 }
+
+function renderSpinner() {
+  const markup = `
+        <div class="spinner">
+          <svg>
+            <use href="${icons}#icon-loader"></use>
+          </svg>
+        </div>
+  `;
+  this.#clear();
+  this.#parentElement.insertAdjacentHTML("afterbegin", markup);
+}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/time-tracking-dashboard/src/images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/time-tracking-dashboard/src/css/style.css" />
+
+    <script
+      type="module"
+      src="/time-tracking-dashboard/src/js/controller.js"
+    ></script>
+
+    <title>Frontend Mentor | Time tracking dashboard</title>
+  </head>
+  <body>
+    <template id="card-container">
+      <style>
+        :host {
+          --work: hsl(15 100% 70%);
+          --play: hsl(195 74% 62%);
+          --study: hsl(348 100% 68%);
+          --exercise: hsl(145 58% 55%);
+          --social: hsl(264 64% 52%);
+          --selfcare: hsl(43 84% 65%);
+        }
+
+        .card-container {
+          width: 100%;
+          height: 100%;
+          border-radius: 18px;
+          overflow: hidden;
+          position: relative;
+          box-sizing: border-box;
+          transition: all 1s;
+          background-color: rgb(
+            153,
+            143,
+            143
+          ); /* default background color, change it by setBackground(color) method */
+        }
+
+        ::slotted(img) {
+          position: absolute;
+          right: 1rem;
+          bottom: 185px;
+          scale: 0.95;
+        }
+
+        .tracker-container {
+          background-color: hsl(235 46% 20%);
+          border-radius: 18px;
+          width: 100%;
+          height: 82%;
+          position: absolute;
+          top: 50px;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          justify-content: center;
+          align-items: start;
+          padding-inline: 1.5rem;
+          box-sizing: border-box;
+        }
+
+        .tracker-header {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .tracker-info {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          width: 100%;
+        }
+
+        .past {
+          color: hsl(236 100% 87%);
+        }
+
+        ::slotted(span) {
+          color: hsl(236 100% 87%) !important;
+        }
+
+        ::slotted(div) {
+          /*class="current" */
+          margin-block-start: 1rem;
+          font-size: 50px;
+          font-weight: 300;
+        }
+
+        @media screen and (width<1120px) {
+          ::slotted(img) {
+            bottom: 160px;
+          }
+        }
+
+        @media screen and (width<820px) {
+          ::slotted(img) {
+            bottom: 135px;
+          }
+
+          ::slotted(div) {
+            font-size: 30px;
+          }
+        }
+
+        @media screen and (width<820px) {
+          .tracker-info {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+          }
+          ::slotted(div) {
+            font-size: 25px;
+          }
+          .past {
+            font-size: 12px;
+          }
+        }
+      </style>
+      <div class="card-container">
+        <slot name="background-img">
+          <img src="" alt="background" />
+        </slot>
+        <div class="tracker-container">
+          <div class="tracker-header">
+            <slot name="header">
+              <h3>Header</h3>
+            </slot>
+            <img
+              src="/time-tracking-dashboard/src/images/icon-ellipsis.svg"
+              alt="three dots"
+              height="5"
+              width="21"
+            />
+          </div>
+
+          <div class="tracker-info">
+            <slot name="current-record">
+              <div class="current">100hrs</div>
+            </slot>
+
+            <div class="past">
+              Last <slot name="past-record"><span>Week - 100hrs</span></slot>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <section id="user" role="main">
+      <div class="user-container">
+        <div class="user-info">
+          <div class="user-img">
+            <img
+              src="/time-tracking-dashboard/src/images/image-jeremy.png"
+              alt="jeremy smiling face"
+              width="80"
+              height="80"
+            />
+          </div>
+          <div class="user-name">
+            <p>Report for</p>
+            <h1>Jeremy Robson</h1>
+          </div>
+        </div>
+        <div class="info-filter">
+          <button value="daily">Daily</button>
+          <button value="weekly">Weekly</button>
+          <button value="monthly">Monthly</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="cards"></section>
+
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://github.com/ShubhamOulkar">Shubham Oulkar</a>.
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Tip calculator web app" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Tip calculator" />
+    <meta property="og:description" content="Tip calculator web app" />
+    <meta
+      property="og:image"
+      content="https://frontend-shubhamoulkars-projects.vercel.app/tip-calculator-app/design/Tip-calculator.png"
+    />
+
+    <meta name="twitter:title" content="htmldom" />
+    <meta name="twitter:description" content="Tip calculator web app" />
+    <meta
+      name="twitter:image:src"
+      content="https://frontend-shubhamoulkars-projects.vercel.app/tip-calculator-app/design/Tip-calculator.png"
+    />
+
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/tip-calculator-app/src/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Tip calculator app</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+    <link rel="stylesheet" href="/tip-calculator-app/src/css/style.css" />
+    <script
+      type="module"
+      src="/tip-calculator-app/src/js/controller.js"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <img src="/tip-calculator-app/src/images/logo.svg" alt="logo" />
+    </header>
+
+    <main class="calculator-container">
+      <section class="input-container">
+        <div class="input">
+          <label for="bill">Bill <span class="error"></span></label>
+          <div>
+            <img
+              src="/tip-calculator-app/src/images/icon-dollar.svg"
+              alt="dollar sign"
+              width="12"
+              height="18"
+            />
+            <input
+              type="number"
+              name="bill"
+              id="bill"
+              min="0"
+              autocomplete="off"
+              placeholder="0"
+            />
+          </div>
+        </div>
+        <div class="select">
+          <label for="custom">Select Tip % <span class="error"></span></label>
+          <div id="selection">
+            <!-- use button element instead of div -->
+            <div tabindex="0" role="button">5%</div>
+            <div tabindex="0" role="button">10%</div>
+            <div tabindex="0" role="button">15%</div>
+            <div tabindex="0" role="button">25%</div>
+            <div tabindex="0" role="button">50%</div>
+            <div>
+              <input
+                type="number"
+                placeholder="Custom"
+                name="custom"
+                id="custom"
+                min="0"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="input">
+          <label for="people"
+            >Number of People <span class="error"></span
+          ></label>
+          <div>
+            <img
+              src="/tip-calculator-app/src/images/icon-person.svg"
+              alt="a person"
+              width="12"
+              height="15"
+            />
+            <input
+              type="number"
+              name="people"
+              id="people"
+              autocomplete="off"
+              placeholder="0"
+              min="0"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="output-container">
+        <div class="tip">
+          <p>Tip Amount <br /><sub>/ person</sub></p>
+          <p id="tipamount">$0.00</p>
+        </div>
+        <div class="tip">
+          <p>
+            Total <br />
+            <sub>/ person</sub>
+          </p>
+          <p id="totalamount">$0.00</p>
+        </div>
+        <div>
+          <button type="button">Reset</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://twitter.com/shubhuoulkar">Shubham Oulkar</a>
+      </div>
+    </footer>
+  </body>
+</html>

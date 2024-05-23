@@ -5,7 +5,7 @@ html, body {
 
 html {
   background-color: #270237;
-  background-image: url("stars.bd7e51c0.svg"), url("bg.6b392238.svg");
+  background-image: url("stars.62099fd7.svg"), url("bg.59c4635d.svg");
   background-position: bottom, bottom;
   background-repeat: repeat, no-repeat;
   background-size: auto, cover;
@@ -23,7 +23,7 @@ body {
 
   &:before {
     content: "";
-    background-image: url("asteriod2.644803cf.svg");
+    background-image: url("asteriod2.0cba2103.svg");
     background-repeat: no-repeat;
     background-size: 100px;
     width: 100px;
@@ -34,7 +34,7 @@ body {
 
   &:after {
     content: "";
-    background-image: url("asteriod1.c379addf.svg");
+    background-image: url("asteriod1.e0ff23c5.svg");
     background-repeat: no-repeat;
     background-size: 100px;
     width: 100px;

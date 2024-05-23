@@ -8,7 +8,7 @@ html {
   background-color: #270237;
   /* background-image: url(/img/stars.svg), url(/img/asteriod2.svg),
     url(/img/asteriod1.svg), url(/img/bg.svg); */
-  background-image: url(./img/stars.svg), url(./img/bg.svg);
+  background-image: url(./img-optimised/stars.svg), url(./img-optimised/bg.svg);
   /* linear-gradient(to bottom, #270237, #1b3454, #2d4a69, #3f607f, #537895); */
   background-repeat: repeat, no-repeat;
   background-size: auto, cover;
@@ -34,7 +34,7 @@ body {
     left: -150px;
     width: 100px;
     height: 200px;
-    background-image: url(./img/asteriod2.svg);
+    background-image: url(./img-optimised/asteriod2.svg);
     background-repeat: no-repeat;
     background-size: 100px;
   }
@@ -46,7 +46,7 @@ body {
     width: 100px;
     height: 200px;
     top: 200px;
-    background-image: url(./img/asteriod1.svg);
+    background-image: url(./img-optimised/asteriod1.svg);
     background-repeat: no-repeat;
     background-size: 100px;
   }

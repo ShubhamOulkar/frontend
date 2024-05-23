@@ -17,8 +17,8 @@
 
 ### Links
 
-- Solution URL: [TODO list web app on github](https://github.com/ShubhamOulkar/frontend/tree/main/todo-list)
-- Live Site URL: [tip calculator app](https://frontend-yiim-shubhamoulkars-projects.vercel.app/)
+- Solution URL: [github](https://github.com/ShubhamOulkar/frontend/tree/main/near-misses-NASA)
+- Live Site URL: [Eaths near misses](https://frontend-yiim-shubhamoulkars-projects.vercel.app/)
 - NASA API: https://api.nasa.gov/neo/rest/v1/feed?start_date=${getDate()}&api_key=DEMO_KEY
 
 ## My process

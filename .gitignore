@@ -1,5 +1,6 @@
 *.zip
 node_modules/
+.parcel-cache/
 
 # delete this after project completed
 # near-misses-NASA/

@@ -1,8 +1,44 @@
-# React + Vite
+# TODO list web app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of contents
 
-Currently, two official plugins are available:
+- [TODO list web app]()
+  - [Table of contents](#table-of-contents)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [What I learned](#what-i-learned)
+  - [Author](#author)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Screenshot
+
+![](/todo-list/public/todolist.png)
+
+### Links
+
+- Solution URL: [TODO list web app on github](https://github.com/ShubhamOulkar/frontend/tree/main/todo-list)
+- Live Site URL: [tip calculator app](https://shubhu-todolist.netlify.app/)
+
+## My process
+
+### Built with
+
+- React
+- JSX
+- Hooks
+- Accessibility
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+
+### What I learned
+
+I learned React library and Vite local development server. This app solve accessibility issue by using
+React useEffect() hook and usePrevious() custom hook. (Refer Todo.jsx component)
+
+## Author
+
+- Github - [@ShubhamOulkar](https://github.com/ShubhamOulkar)
+- Frontend Mentor - [@ShubhamOulkar](https://www.frontendmentor.io/profile/ShubhamOulkar)
+- Twitter - [@shubhuoulkar](https://twitter.com/shubhuoulkar)

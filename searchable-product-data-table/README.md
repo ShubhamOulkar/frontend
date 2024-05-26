@@ -1,8 +1,45 @@
-# React + Vite
+# Search product data table
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of contents
 
-Currently, two official plugins are available:
+- [Search product data table]()
+  - [Table of contents](#table-of-contents)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [What I learned](#what-i-learned)
+  - [Author](#author)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Mobile Screenshot
+
+![](/searchable-product-data-table/search.png)
+
+### Links
+
+## My process
+
+- Live Site URL: [Search product data table](https://shubhu-searchable-table.netlify.app)
+
+## My process
+
+### Built with
+
+- React
+- JSX
+- useState() Hooks
+- Accessibility
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+- Model view controller architecture
+
+### What I learned
+
+I learned how to break UI into a component hierarchy, lisfting up state and inverse data flow.
+
+## Author
+
+- Github - [@ShubhamOulkar](https://github.com/ShubhamOulkar)
+- Frontend Mentor - [@ShubhamOulkar](https://www.frontendmentor.io/profile/ShubhamOulkar)
+- Twitter - [@shubhuoulkar](https://twitter.com/shubhuoulkar)

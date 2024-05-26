@@ -17,11 +17,7 @@
 
 ### Links
 
-## My process
-
 - Live Site URL: [Search product data table](https://shubhu-searchable-table.netlify.app)
-
-## My process
 
 ### Built with
 

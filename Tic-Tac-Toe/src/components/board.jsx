@@ -1,18 +1,5 @@
-import { useState } from "react";
-
-function Square({ value, onSquareClick, color }) {
-  return (
-    <button
-      className="square"
-      onClick={onSquareClick}
-      style={{
-        backgroundColor: color,
-      }}
-    >
-      {value}
-    </button>
-  );
-}
+import Square from "./square";
+import calculateWinner from "../calculateWinner";
 
 function Board({ Xplayer, squares, onPlay }) {
   const winner = calculateWinner(squares);
@@ -93,77 +80,4 @@ function Board({ Xplayer, squares, onPlay }) {
   );
 }
 
-function Game() {
-  const [history, setHistory] = useState([Array(9).fill(null)]);
-  const [currentMove, setCurrentMove] = useState(0);
-  const currentSquares = history[currentMove];
-  const Xplayer = currentMove % 2 === 0;
-
-  function jumpTo(mov) {
-    setCurrentMove(mov);
-  }
-
-  const moves = history.map((hist, mov) => {
-    let description;
-    if (mov > 0) {
-      description = `Go to move # ${mov}`;
-    } else {
-      description = "Go to start";
-    }
-
-    return (
-      <li>
-        <button key={mov} onClick={() => jumpTo(mov)}>
-          {description}
-        </button>
-      </li>
-    );
-  });
-
-  function handleHistory(newSquares) {
-    const nextHistory = [...history.slice(0, currentMove + 1), newSquares];
-    setHistory(nextHistory);
-    setCurrentMove(nextHistory.length - 1);
-  }
-
-  return (
-    <>
-      <div className="game">
-        <div className="game-board">
-          <Board
-            Xplayer={Xplayer}
-            squares={currentSquares}
-            onPlay={handleHistory}
-          />
-        </div>
-        <div className="game-info">
-          <ol>{moves}</ol>
-        </div>
-      </div>
-    </>
-  );
-}
-
-function calculateWinner(state) {
-  const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6],
-  ];
-
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
-    if (state[a] && state[a] === state[b] && state[a] === state[c]) {
-      return [a, b, c];
-    }
-  }
-
-  return null;
-}
-
-export default Game;
+export default Board;

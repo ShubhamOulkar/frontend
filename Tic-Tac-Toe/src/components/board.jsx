@@ -1,11 +1,52 @@
-import Square from "./square";
-import calculateWinner from "../calculateWinner";
+import { useEffect, useState } from "react";
+import calculateWinner from "../helpers/calculateWinner";
+import SquareGrid from "./grid";
+import findBestMove from "../helpers/aiOpponent";
+import ScoreBoard from "./score";
 
-function Board({ Xplayer, squares, onPlay }) {
-  const winner = calculateWinner(squares);
+function Board({ Xplayer, squares, onPlay, restartGame, scores, setScores }) {
+  let winner;
+
+  useEffect(() => {
+    if (!Xplayer) {
+      /* //opponent by random number generator 
+      const emptySquares = squares
+        .map((square, i) => (square === null ? i : null))
+        .filter((square) => square !== null);
+      const randomIndex = Math.floor(Math.random() * emptySquares.length);
+      const randomSquare = emptySquares[randomIndex];
+
+      if (squares[randomSquare] || calculateWinner(squares)) return;
+
+      const nextBoard = squares.slice();
+      nextBoard[randomSquare] = "O";
+      console.log("nextBoard :", nextBoard);
+     */
+
+      // minimax algorithem
+      const opponentChoice = findBestMove(squares);
+      const nextBoard = squares.slice();
+      nextBoard[opponentChoice] = "O";
+
+      setTimeout(() => {
+        onPlay(nextBoard);
+      }, 1000);
+    }
+
+    if (winner === "X") {
+      setScores({ ...scores, x: scores.x + 1 });
+    }
+    if (winner === "O") {
+      setScores({ ...scores, y: scores.y + 1 });
+    }
+  }, [Xplayer, winner]);
+
+  const winnerSquares = calculateWinner(squares);
   let status;
-  if (winner) {
-    status = `Winner : ${squares[winner[0]]} 🏆`;
+
+  if (winnerSquares) {
+    winner = squares[winnerSquares[0]];
+    status = `Winner : ${winner} 🏆`;
   } else if (!squares.filter((i) => i === null).length) {
     status = "Match Draws ❌";
   } else {
@@ -17,64 +58,29 @@ function Board({ Xplayer, squares, onPlay }) {
 
     const nextBoard = squares.slice();
 
-    Xplayer ? (nextBoard[squ] = "X") : (nextBoard[squ] = "O");
+    // Xplayer ? (nextBoard[squ] = "X") : (nextBoard[squ] = "O");
+
+    nextBoard[squ] = "X";
 
     onPlay(nextBoard);
   }
 
   return (
     <>
-      <div>{status}</div>
-      <div className="board-row">
-        <Square
-          value={squares[0]}
-          onSquareClick={() => handleClick(0)}
-          color={winner ? (winner.includes(0) ? "green" : "pink") : "white"}
-        />
-        <Square
-          value={squares[1]}
-          onSquareClick={() => handleClick(1)}
-          color={winner ? (winner.includes(1) ? "green" : "pink") : "white"}
-        />
-        <Square
-          value={squares[2]}
-          onSquareClick={() => handleClick(2)}
-          color={winner ? (winner.includes(2) ? "green" : "pink") : "white"}
+      <div>
+        <div>{status}</div>
+        <button onClick={() => restartGame()}>Restart Game</button>
+      </div>
+      <div className="board">
+        <SquareGrid
+          winner={winnerSquares}
+          squares={squares}
+          handleClick={handleClick}
+          Xplayer={Xplayer}
         />
       </div>
-      <div className="board-row">
-        <Square
-          value={squares[3]}
-          onSquareClick={() => handleClick(3)}
-          color={winner ? (winner.includes(3) ? "green" : "pink") : "white"}
-        />
-        <Square
-          value={squares[4]}
-          onSquareClick={() => handleClick(4)}
-          color={winner ? (winner.includes(4) ? "green" : "pink") : "white"}
-        />
-        <Square
-          value={squares[5]}
-          onSquareClick={() => handleClick(5)}
-          color={winner ? (winner.includes(5) ? "green" : "pink") : "white"}
-        />
-      </div>
-      <div className="board-row">
-        <Square
-          value={squares[6]}
-          onSquareClick={() => handleClick(6)}
-          color={winner ? (winner.includes(6) ? "green" : "pink") : "white"}
-        />
-        <Square
-          value={squares[7]}
-          onSquareClick={() => handleClick(7)}
-          color={winner ? (winner.includes(7) ? "green" : "pink") : "white"}
-        />
-        <Square
-          value={squares[8]}
-          onSquareClick={() => handleClick(8)}
-          color={winner ? (winner.includes(8) ? "green" : "pink") : "white"}
-        />
+      <div className="board">
+        <ScoreBoard scoreX={scores.x} scoreY={scores.y} />
       </div>
     </>
   );

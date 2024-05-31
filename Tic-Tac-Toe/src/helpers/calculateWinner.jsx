@@ -10,14 +10,17 @@ function calculateWinner(state) {
     [2, 4, 6],
   ];
 
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
-    if (state[a] && state[a] === state[b] && state[a] === state[c]) {
-      return [a, b, c];
-    }
-  }
+  let result = null;
 
-  return null;
+  lines.forEach((line) => {
+    const [a, b, c] = line;
+    if (state[a] && state[a] === state[b] && state[a] === state[c]) {
+      result = [a, b, c];
+      return;
+    }
+  });
+
+  return result;
 }
 
 export default calculateWinner;

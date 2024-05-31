@@ -1,4 +1,4 @@
-function Square({ value, onSquareClick, color }) {
+function Square({ value, onSquareClick, color, Xplayer }) {
   return (
     <button
       className="square"
@@ -6,6 +6,7 @@ function Square({ value, onSquareClick, color }) {
       style={{
         backgroundColor: color,
       }}
+      disabled={Xplayer ? false : true}
     >
       {value}
     </button>

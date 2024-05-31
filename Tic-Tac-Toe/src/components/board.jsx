@@ -57,11 +57,7 @@ function Board({ Xplayer, squares, onPlay, restartGame, scores, setScores }) {
     if (squares[squ] || calculateWinner(squares)) return;
 
     const nextBoard = squares.slice();
-
-    // Xplayer ? (nextBoard[squ] = "X") : (nextBoard[squ] = "O");
-
     nextBoard[squ] = "X";
-
     onPlay(nextBoard);
   }
 

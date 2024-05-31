@@ -10,3 +10,5 @@
 8. [Tip calculator app](https://frontend-shubhamoulkars-projects.vercel.app/tip-calculator-app)
 9. [Earths near misses](https://frontend-yiim-shubhamoulkars-projects.vercel.app/)
 10. [TODO-list](https://shubhu-todolist.netlify.app)
+11. [Searchable product data table](https://shubhu-searchable-table.netlify.app)
+12. [Tic Tac Toe](https://shubhu-tic-tac-toe.netlify.app)

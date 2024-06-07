@@ -11,7 +11,7 @@ const users = [
 
 const customers = [
   {
-    id: '3958dc9e-85e9-fec4b6a6442a',
+    id: '3958dc9e-701f-4377-85e9-fec4b6a6442a',
     name: 'Shubham Oulkar',
     email: 'shubham@oulkar.com',
     image_url: '/customers/image.png',

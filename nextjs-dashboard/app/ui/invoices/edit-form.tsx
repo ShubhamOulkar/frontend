@@ -10,6 +10,7 @@ import {
 import Link from 'next/link';
 import { Button } from '@/app/ui/button';
 import { editInvoice } from '@/app/lib/actions';
+import { useFormState } from 'react-dom';
 
 export default function EditInvoiceForm({
   invoice,
@@ -18,10 +19,12 @@ export default function EditInvoiceForm({
   invoice: InvoiceForm;
   customers: CustomerField[];
 }) {
-  // console.log('invoice', invoice);
+  const initialState = { message: '', errors: {} };
   const editInvoiceAction = editInvoice.bind(null, invoice.id);
+  const [state, dispatch] = useFormState(editInvoiceAction, initialState);
+
   return (
-    <form action={editInvoiceAction}>
+    <form action={dispatch}>
       {/* using hidden field is not reliable and secure */}
       {/* <input type="hidden" name="invoiceId" defaultValue={invoice.id} /> */}
 
@@ -38,9 +41,7 @@ export default function EditInvoiceForm({
               className="peer block w-full cursor-pointer rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
               defaultValue={invoice.customer_id}
             >
-              <option value="" disabled>
-                Select a customer
-              </option>
+              <option value="">Select a customer</option>
               {customers.map((customer) => (
                 <option key={customer.id} value={customer.id}>
                   {customer.name}
@@ -48,6 +49,13 @@ export default function EditInvoiceForm({
               ))}
             </select>
             <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
+          </div>
+          <div id="customer-error" aria-live="polite" aria-atomic="true">
+            {state.errors.customerId && (
+              <p className="mt-2 text-sm text-red-500" key="amount error">
+                {state.errors.customerId[0]}
+              </p>
+            )}
           </div>
         </div>
 
@@ -69,6 +77,13 @@ export default function EditInvoiceForm({
               />
               <CurrencyDollarIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
+          </div>
+          <div id="customer-error" aria-live="polite" aria-atomic="true">
+            {state.errors.amount && (
+              <p className="mt-2 text-sm text-red-500" key="amount error">
+                {state.errors.amount[0]}
+              </p>
+            )}
           </div>
         </div>
 
@@ -114,6 +129,18 @@ export default function EditInvoiceForm({
             </div>
           </div>
         </fieldset>
+        <div id="customer-error" aria-live="polite" aria-atomic="true">
+          {state.errors.status && (
+            <p className="mt-2 text-sm text-red-500" key="status error">
+              {state.errors.status[0]}
+            </p>
+          )}
+          {state.errors && (
+            <p className="mt-2 text-sm text-red-500" key="message error">
+              {state.message}
+            </p>
+          )}
+        </div>
       </div>
       <div className="mt-6 flex justify-end gap-4">
         <Link

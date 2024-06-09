@@ -124,7 +124,7 @@ export async function fetchFilteredInvoices(
         invoices.amount::text ILIKE ${`%${query}%`} OR
         invoices.date::text ILIKE ${`%${query}%`} OR
         invoices.status ILIKE ${`%${query}%`}
-      ORDER BY invoices.date DESC
+      ORDER BY (invoices.date, invoices.amount)  DESC
       LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
     `;
 
@@ -176,10 +176,11 @@ export async function fetchInvoiceById(id: string) {
       amount: invoice.amount / 100,
     }));
 
+    console.log('invoice: ', invoice);
     return invoice[0];
   } catch (error) {
     console.error('Database Error:', error);
-    throw new Error('Failed to fetch invoice.');
+    // throw new Error('Failed to fetch invoice.');
   }
 }
 

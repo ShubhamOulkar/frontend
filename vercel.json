@@ -6,6 +6,9 @@
         {
           "key": "x-robots-tag",
           "value": "index, follow"
+        },
+        {
+          "key": "x-original-uri"
         }
       ]
     }

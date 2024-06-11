@@ -3,9 +3,17 @@ import { z } from 'zod';
 import { redirect } from 'next/navigation';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
-import { State } from './definitions';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
+
+type State = {
+  errors?: {
+    customerId?: string[];
+    amount?: string[];
+    status?: string[];
+  };
+  message?: string | null;
+};
 
 const FormSchema = z.object({
   invoiceId: z.string(),
@@ -29,7 +37,7 @@ function revalidateRedirect() {
   redirect('/ui/invoices');
 }
 
-export async function createInvoice(prevState: State, formData: FormData) {
+export async function createInvoice(state: any, formData: FormData) {
   // validate
   const validateFields = InvoiceFormCheck.safeParse({
     customerId: formData.get('customerId'),
@@ -52,6 +60,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
             VALUES (${customerId},${amountInCents?.toString()},${status},${date})`;
 
     console.log('storing into database.....');
+    return;
   } catch (error) {
     console.log('🚒....create invoice error: ', error);
     return error;
@@ -78,11 +87,7 @@ export async function deleteInvoice(id: string) {
   revalidateRedirect();
 }
 
-export async function editInvoice(
-  id: string,
-  prevState: State,
-  formData: FormData,
-) {
+export async function editInvoice(state: any, formData: FormData, id: string) {
   // check authorized user
   // const session = await getSession();
   // const userRole = session?.user?.role;

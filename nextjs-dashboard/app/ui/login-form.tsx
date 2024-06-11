@@ -77,7 +77,7 @@ export default function LoginForm() {
 function LoginButton() {
   const { pending } = useFormStatus();
 
-  const handleCLick = (e) => {
+  const handleCLick = (e: { preventDefault: () => void }) => {
     if (pending) e.preventDefault();
   };
 

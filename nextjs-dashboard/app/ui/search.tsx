@@ -6,12 +6,13 @@ import { useRef } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 
 export default function Search({ placeholder }: { placeholder: string }) {
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
   // console.log(searchParams.get('query')?.toString());
+  console.log('inputRef', inputRef);
 
   const handleIconClick = () => {
     if (inputRef.current) inputRef.current.focus();

@@ -19,12 +19,12 @@ export default function EditInvoiceForm({
   invoice: InvoiceForm;
   customers: CustomerField[];
 }) {
-  const initialState = { message: '', errors: {} };
-  const editInvoiceAction = editInvoice.bind(null, invoice.id);
-  const [state, dispatch] = useFormState(editInvoiceAction, initialState);
+  // const initialState = { message: '', errors: {} };
+  // const editInvoiceAction = editInvoice.bind(null, invoice.id);
+  // const [state, dispatch] = useFormState(editInvoiceAction, initialState);
 
   return (
-    <form action={dispatch}>
+    <form>
       {/* using hidden field is not reliable and secure */}
       {/* <input type="hidden" name="invoiceId" defaultValue={invoice.id} /> */}
 
@@ -51,11 +51,11 @@ export default function EditInvoiceForm({
             <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
           </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">
-            {state.errors.customerId && (
+            {/* {state.errors.customerId && (
               <p className="mt-2 text-sm text-red-500" key="amount error">
                 {state.errors.customerId[0]}
               </p>
-            )}
+            )} */}
           </div>
         </div>
 
@@ -79,11 +79,11 @@ export default function EditInvoiceForm({
             </div>
           </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">
-            {state.errors.amount && (
+            {/* {state.errors.amount && (
               <p className="mt-2 text-sm text-red-500" key="amount error">
                 {state.errors.amount[0]}
               </p>
-            )}
+            )} */}
           </div>
         </div>
 
@@ -130,7 +130,7 @@ export default function EditInvoiceForm({
           </div>
         </fieldset>
         <div id="customer-error" aria-live="polite" aria-atomic="true">
-          {state.errors.status && (
+          {/* {state.errors.status && (
             <p className="mt-2 text-sm text-red-500" key="status error">
               {state.errors.status[0]}
             </p>
@@ -139,7 +139,7 @@ export default function EditInvoiceForm({
             <p className="mt-2 text-sm text-red-500" key="message error">
               {state.message}
             </p>
-          )}
+          )} */}
         </div>
       </div>
       <div className="mt-6 flex justify-end gap-4">

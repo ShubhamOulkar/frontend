@@ -11,9 +11,11 @@ import { Button } from '@/app/ui/button';
 import { createInvoice } from '@/app/lib/actions';
 import { useFormState } from 'react-dom';
 
+const initialState = { message: '', errors: {} };
+
 export default function Form({ customers }: { customers: CustomerField[] }) {
-  const initialState = { message: '', errors: {} };
   const [state, dispatch] = useFormState(createInvoice, initialState);
+  console.log('state: ', state);
 
   return (
     <form action={dispatch}>
@@ -43,12 +45,11 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
             <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
           </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">
-            {state.errors.customerId &&
-              state.errors.customerId.map((error: string) => (
-                <p className="mt-2 text-sm text-red-500" key={error}>
-                  {error}
-                </p>
-              ))}
+            {/* {state.errors.customerId && (
+              <p className="mt-2 text-sm text-red-500" key="customerId error">
+                {state.errors.customerId[0]}
+              </p>
+            )} */}
           </div>
         </div>
 
@@ -73,11 +74,11 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
             </div>
           </div>
           <div id="customer-error" aria-live="polite" aria-atomic="true">
-            {state.errors.amount && (
+            {/* {state.errors.amount && (
               <p className="mt-2 text-sm text-red-500" key="amount error">
                 {state.errors.amount[0]}
               </p>
-            )}
+            )} */}
           </div>
         </div>
 
@@ -122,7 +123,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
           </div>
         </fieldset>
         <div id="customer-error" aria-live="polite" aria-atomic="true">
-          {state.errors.status && (
+          {/* {state.errors.status && (
             <p className="mt-2 text-sm text-red-500" key="status error">
               {state.errors.status[0]}
             </p>
@@ -131,7 +132,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
             <p className="mt-2 text-sm text-red-500" key="message error">
               {state.message}
             </p>
-          )}
+          )} */}
         </div>
       </div>
       <div className="mt-6 flex justify-end gap-4">

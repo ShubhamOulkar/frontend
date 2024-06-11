@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     email: false,
     address: false,
     telephone: false,
+    date: false,
   },
   metadataBase: new URL('https://financialdashboard-beige.vercel.app/'),
   alternates: {
@@ -36,12 +37,12 @@ export const metadata: Metadata = {
     siteName: 'Next.js',
     images: [
       {
-        url: 'https://financialdashboard-beige.vercel.app/og.png', // Must be an absolute URL
+        url: 'https://financialdashboard-beige.vercel.app/opengraph-image.png', // Must be an absolute URL
         width: 800,
         height: 600,
       },
       {
-        url: 'https://financialdashboard-beige.vercel.app/og-alt.png', // Must be an absolute URL
+        url: 'https://financialdashboard-beige.vercel.app/opengraph-image.png', // Must be an absolute URL
         width: 1800,
         height: 1600,
         alt: 'My custom alt',
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
     siteId: '1467726470533754880',
     creator: '@shubham',
     creatorId: '1467726470533754880',
-    images: ['https://financialdashboard-beige.vercel.app/og.png'], // Must be an absolute URL
+    images: ['https://financialdashboard-beige.vercel.app/opengraph-image.png'], // Must be an absolute URL
   },
 };
 
@@ -71,10 +72,16 @@ export default function RootLayout({
       <head>
         <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
       </head>
-      <body className={`${inter.className} antialised`}>{children}</body>
-      {/* No vercel web vitals send to the server during development. 
+      <body className={`${inter.className} antialised`}>
+        {children}
+
+        {/* No vercel web vitals send to the server during development. 
           Hydration Error is there during development. See console for more info. */}
-      <SpeedInsights />
+
+        <div suppressHydrationWarning={true}>
+          <SpeedInsights />
+        </div>
+      </body>
     </html>
   );
 }

@@ -8,9 +8,11 @@ import {
   LoginFormSchema,
 } from "../lib/definitions";
 import { sql } from "@vercel/postgres";
-import { createSession } from "../lib/session";
+// import { createSession } from "../lib/stateless-session";
+// import { deleteSession } from "@/app/lib/stateless-session";
+import { createSession } from "../lib/database-sessions";
+import { deleteSession } from "../lib/database-sessions";
 import { redirect } from "next/navigation";
-import { deleteSession } from "@/app/lib/session";
 const bcrypt = require("bcrypt");
 
 export async function login(state: LoginForm, formData: FormData) {
@@ -31,7 +33,7 @@ export async function login(state: LoginForm, formData: FormData) {
 
   try {
     // fetch user
-    const user = await sql`select name, password from users
+    const user = await sql`select * from users
                           where email=${email}`;
 
     // verify user password
@@ -45,6 +47,10 @@ export async function login(state: LoginForm, formData: FormData) {
         },
       };
     }
+
+    // create user session
+    await createSession(user.rows[0].id);
+    console.log("user session created....");
   } catch (error) {
     console.error("user does not exist");
     return {
@@ -90,7 +96,13 @@ export async function signup(state: FormState, formData: FormData) {
     console.log("new user created...");
   } catch (error) {
     console.error("new user signup error: ", error);
-    throw error;
+    return {
+      errors: {
+        name: [],
+        email: ["This email already exist."],
+        password: [],
+      },
+    };
   }
 
   // create user session

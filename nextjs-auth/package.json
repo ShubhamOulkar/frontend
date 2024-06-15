@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/kv": "^2.0.0",
     "@vercel/postgres": "^0.8.0",
     "bcrypt": "^5.1.1",
     "jose": "^5.4.0",

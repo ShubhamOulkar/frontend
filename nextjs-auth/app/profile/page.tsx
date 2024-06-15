@@ -15,6 +15,9 @@ export default function Page() {
         >
           <button className="underline">Logout</button>
         </form>
+        <a href="/" className="underline">
+          Home
+        </a>
       </main>
     </>
   );

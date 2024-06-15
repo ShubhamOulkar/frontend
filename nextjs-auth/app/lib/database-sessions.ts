@@ -4,7 +4,7 @@ import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import type { SessionPayload } from "@/app/lib/definitions";
 import { kv } from "@vercel/kv";
-import { redirect } from "next/navigation";
+import { verifySession } from "./data-access-layer";
 
 const secretKey = process.env.SESSION_SECRET;
 const encodedKey = new TextEncoder().encode(secretKey);
@@ -29,17 +29,18 @@ export async function decrypt(session: string | undefined = "") {
 }
 
 export async function createSession(userId: string) {
-  const expiresAt = new Date(Date.now() + 60 * 1000);
-
-  //  create a session in database using vercel kv (redis database)
-  await kv.hset(`userId:${userId}`, { expiresAt: expiresAt });
-
-  console.log("user id stored into redis database...");
+  const expiresAt = new Date(Date.now() + 60 * 60 * 1000);
 
   //  encrypt a session before storing as cookie
   const session = await encrypt({ userId, expiresAt });
 
-  console.log("new databse session created...");
+  //  create a session in database using vercel kv (redis database)
+  await kv.hset(`sessionToken:${session}`, {
+    userId: userId,
+    expiresAt: expiresAt,
+  });
+
+  console.log("new session stored in database...");
   //   store a session as a cookie
   cookies().set("session", session, {
     httpOnly: true,
@@ -53,29 +54,39 @@ export async function createSession(userId: string) {
 }
 
 export async function updateSession() {
-  const session = cookies().get("session")?.value;
+  // const session = cookies().get("session")?.value;
   // cookie verification
-  const payload = await decrypt(session);
+  // const payload = await decrypt(session);
 
-  if (!session || !payload) {
+  const { isAuth, userId } = await verifySession();
+
+  if (!isAuth) {
     return null;
   }
 
-  const expires = new Date(Date.now() + 60 * 1000);
+  // Ensure userId is a string before passing to createSession
+  if (typeof userId !== "string") {
+    console.error("userId must be a string");
+    return null;
+  }
 
-  // await kv.hset(`userId:${session?.userId}`, { expiresAt: expires });
+  createSession(userId);
 
-  console.log("new expiration date stored...");
+  // const expires = new Date(Date.now() + 60 * 1000);
 
-  cookies().set("session", session, {
-    httpOnly: true,
-    secure: true,
-    expires: expires,
-    sameSite: "lax",
-    path: "/",
-  });
+  // await kv.hset(`userId:${userId}`, { expiresAt: expires });
 
-  console.log("Session is updated...");
+  // console.log("new expiration date stored...");
+
+  // cookies().set("session", session, {
+  //   httpOnly: true,
+  //   secure: true,
+  //   expires: expires,
+  //   sameSite: "lax",
+  //   path: "/",
+  // });
+
+  console.log("new Session is updated...");
 }
 
 export function deleteSession() {

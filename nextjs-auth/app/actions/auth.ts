@@ -12,6 +12,7 @@ import { sql } from "@vercel/postgres";
 // import { deleteSession } from "@/app/lib/stateless-session";
 import { createSession } from "../lib/database-sessions";
 import { deleteSession } from "../lib/database-sessions";
+import { verifySession } from "../lib/data-access-layer";
 import { redirect } from "next/navigation";
 const bcrypt = require("bcrypt");
 
@@ -50,7 +51,6 @@ export async function login(state: LoginForm, formData: FormData) {
 
     // create user session
     await createSession(user.rows[0].id);
-    console.log("user session created....");
   } catch (error) {
     console.error("user does not exist");
     return {
@@ -107,13 +107,24 @@ export async function signup(state: FormState, formData: FormData) {
 
   // create user session
   await createSession(id);
-  console.log("user session created....");
 
   // redirect to profile page
   redirect("/profile");
 }
 
 export async function logout() {
+  const { isAuth, userId } = await verifySession();
+
+  if (!isAuth) return null;
+
   deleteSession();
   redirect("/login");
+}
+
+async function fetchUser(email: string) {
+  // fetch user
+  const user = await sql`select * from users
+   where email=${email}`;
+
+  return user;
 }

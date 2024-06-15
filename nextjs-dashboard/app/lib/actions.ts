@@ -5,6 +5,8 @@ import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
+import bcrypt from 'bcrypt';
+import { randomUUID } from 'crypto';
 
 type State = {
   errors?: {
@@ -13,6 +15,15 @@ type State = {
     status?: string[];
   };
   message?: string | null;
+};
+
+type SignupState = {
+  errors?: {
+    name?: string[];
+    email: string[];
+    password?: string[];
+    confirm?: string[];
+  };
 };
 
 const FormSchema = z.object({
@@ -29,12 +40,66 @@ const FormSchema = z.object({
 
 const InvoiceFormCheck = FormSchema.omit({ invoiceId: true, date: true });
 
-function revalidateRedirect() {
+const SignupSchema = z
+  .object({
+    name: z.string(),
+    email: z.string().email({ message: 'Password is not correct' }),
+    password: z
+      .string()
+      .min(6, { message: 'Password should be at least 6 characters' }),
+    confirm: z
+      .string()
+      .min(6, { message: 'Password should be at least 6 characters' }),
+  })
+  .refine((data) => data.password === data.confirm, {
+    message: "Passwords don't match",
+    path: ['confirm'], // path of error
+  });
+
+function revalidateRedirect(path: string) {
   //   clear this cache and trigger a new request to the serve
-  revalidatePath('/ui/invoices');
+  revalidatePath(path);
 
   // redirect to invoice page
-  redirect('/ui/invoices');
+  redirect(path);
+}
+
+export async function userSignup(state: any, formData: FormData) {
+  console.log('Validation started ....');
+
+  // validate
+  const signupFields = SignupSchema.safeParse({
+    name: formData.get('name'),
+    email: formData.get('email'),
+    password: formData.get('password'),
+    confirm: formData.get('confirmpassword'),
+  });
+  // console.log('formData', formData);
+  // console.log(signupFields);
+
+  if (!signupFields.success) {
+    console.log('Validation faild');
+    return {
+      errors: signupFields.error.flatten().fieldErrors,
+    };
+  }
+
+  const { name, email, password } = signupFields.data;
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  try {
+    console.log('creating new user ....');
+    // create user in database
+    await sql`INSERT INTO users (id, name, email, password)
+        VALUES (${randomUUID()}, ${name}, ${email}, ${hashedPassword})
+        ON CONFLICT (id) DO NOTHING;`;
+
+    // sign in new user
+
+    console.log('new user joined');
+  } catch (error) {
+    console.log('New user signup error ===>', error);
+  }
 }
 
 export async function createInvoice(state: any, formData: FormData) {
@@ -51,23 +116,23 @@ export async function createInvoice(state: any, formData: FormData) {
       message: 'Missing Fields. Failed to Create Invoice.',
     };
   }
+
   const { customerId, amount, status } = validateFields.data;
   const amountInCents = amount * 100;
   const date = new Date().toISOString().split('T')[0];
+
   try {
     // store in DB and handle error
     await sql`INSERT INTO invoices (customer_id, amount, status, date)
             VALUES (${customerId},${amountInCents?.toString()},${status},${date})`;
 
     console.log('storing into database.....');
-    return;
   } catch (error) {
     console.log('🚒....create invoice error: ', error);
-    return error;
   }
 
   // redirect
-  revalidateRedirect();
+  revalidateRedirect('/ui/invoices');
 }
 
 export async function deleteInvoice(id: string) {
@@ -84,7 +149,7 @@ export async function deleteInvoice(id: string) {
   }
 
   // redirect
-  revalidateRedirect();
+  revalidateRedirect('/ui/invoices');
 }
 
 export async function editInvoice(state: any, formData: FormData, id: string) {
@@ -129,17 +194,13 @@ export async function editInvoice(state: any, formData: FormData, id: string) {
     console.log('Form edited : ', id);
   } catch (error) {
     console.log('🚒....edit invoice error: ', error);
-    return error;
   }
 
   // redirect
-  revalidateRedirect();
+  revalidateRedirect('/ui/invoices');
 }
 
-export async function authenticate(
-  prevState: string | undefined,
-  formData: FormData,
-) {
+export async function authenticate(state: any, formData: FormData) {
   try {
     await signIn('credentials', formData);
   } catch (error) {

@@ -13,7 +13,7 @@ export async function encrypt(payload: SessionPayload) {
   return new SignJWT(payload)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime("1 minute")
+    .setExpirationTime("1 hour")
     .sign(encodedKey);
 }
 
@@ -22,9 +22,10 @@ export async function decrypt(session: string | undefined = "") {
     const { payload } = await jwtVerify(session, encodedKey, {
       algorithms: ["HS256"],
     });
+    console.log("Cookie is verified.");
     return payload;
   } catch (error) {
-    console.log("Failed to verify session");
+    console.log("Failed to verify session:");
   }
 }
 

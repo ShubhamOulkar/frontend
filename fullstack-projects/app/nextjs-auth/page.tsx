@@ -3,8 +3,7 @@ import { getUser } from "./lib/data-access-layer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Next App Authentication",
-  description: "Authentication, session management, authorization in nextjs.",
+  title: "User Auth project",
 };
 
 export default async function Home() {
@@ -30,6 +29,11 @@ export default async function Home() {
           <div>
             <Link href="/nextjs-auth/login" className="underline">
               Login form
+            </Link>
+          </div>
+          <div>
+            <Link className="underline" href="/">
+              Go to project list
             </Link>
           </div>
         </>

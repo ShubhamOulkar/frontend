@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifySession } from "./app/nextjs-auth/lib/data-access-layer";
 
-// import { decrypt } from "./app/nextjs-auth/lib/stateless-session";
+// import { decrypt } from "./app/nextjs-auth/lib/database-sessions";
 // import { cookies } from "next/headers";
 
 // 1. Specify protected and public routes
@@ -23,7 +23,7 @@ export default async function middleware(req: NextRequest) {
   // 5. Redirect to /login if the user is not authenticated
   if (isProtectedRoute && !isAuth) {
     console.log("THis path is protected. Login to continue...");
-    return NextResponse.redirect(new URL("/", req.nextUrl));
+    return NextResponse.redirect(new URL("/nextjs-auth/login", req.nextUrl));
   }
 
   if (

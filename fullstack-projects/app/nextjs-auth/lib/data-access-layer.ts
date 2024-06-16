@@ -5,6 +5,7 @@ import { decrypt } from "./database-sessions";
 import { cache } from "react";
 
 export const verifySession = cache(async () => {
+  console.log("verifying session...");
   const cookie = cookies().get("session")?.value;
   const session = await decrypt(cookie);
 
@@ -30,7 +31,7 @@ export const getUser = cache(async () => {
   try {
     const user = await sql`select id, name, email from users
                       where id=${userId}`;
-
+    console.log("User data fetched from database...");
     return user.rows[0];
   } catch (error) {
     console.log("Failed to fetch user");

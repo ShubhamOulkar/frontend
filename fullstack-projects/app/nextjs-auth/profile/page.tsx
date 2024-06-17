@@ -1,17 +1,18 @@
 import Link from "next/link";
 import { logout } from "../actions/auth";
 import { getUser } from "../lib/data-access-layer";
-import { Metadata, ResolvedMetadata } from "next";
+import { Metadata } from "next";
 
-// export const metadata: Metadata = {
-//   title: "profile",
+// type Props = {
+//   user: { id: string; name: string; email: string };
 // };
 
-export async function generateMetadata(
-  parent: ResolvedMetadata
-): Promise<Metadata> {
-  const user = await getUser();
+// export const metadata: Metadata = {
+//   title: `profile`,
+// };
 
+export async function generateMetadata(): Promise<Metadata> {
+  const user = await getUser();
   return {
     title: user?.name + " profile",
   };

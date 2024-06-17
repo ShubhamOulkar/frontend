@@ -1,10 +1,18 @@
 import Link from "next/link";
 import { getUser } from "./lib/data-access-layer";
 import type { Metadata } from "next";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
-export const metadata: Metadata = {
-  title: "User Auth project",
-};
+// export const metadata: Metadata = {
+//   title: "User Auth project",
+// };
+
+export async function generateMetadata(): Promise<Metadata> {
+  const user = await getUser();
+  return {
+    title: "login:" + user?.name,
+  };
+}
 
 export default async function Home() {
   const user = await getUser();
@@ -17,6 +25,13 @@ export default async function Home() {
           <p>Login as : {user?.name}</p>{" "}
           <Link className="underline" href={"/nextjs-auth/profile"}>
             Go to profile page
+          </Link>
+          <Link
+            href="/"
+            className="outline  flex items-center  gap-5 rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:self-end md:text-base"
+          >
+            <span>Go to project list</span>
+            <ArrowRightIcon className="w-5 md:w-6" />
           </Link>
         </>
       ) : (

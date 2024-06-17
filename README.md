@@ -12,6 +12,6 @@
 10. [TODO-list](https://shubhu-todolist.netlify.app)
 11. [Searchable product data table](https://shubhu-searchable-table.netlify.app)
 12. [Tic Tac Toe](https://shubhu-tic-tac-toe.netlify.app)
-13. [Financial dashboard (full stack web app)](https://financialdashboard-beige.vercel.app/)
+13. [Financial dashboard (full stack web app) (signin, login, logout)](https://fullstackdemoes.vercel.app/dashboard)
 14. [Authentication, session management, Authorization in nextjs (full
-    stack web app) (signin, login, logout)]()
+    stack web app) (signin, login, logout)](https://fullstackdemoes.vercel.app/nextjs-auth)

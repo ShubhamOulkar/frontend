@@ -30,6 +30,7 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUnusedLocals": true,
+    "noImplicitAny": true,
     "useUnknownInCatchVariables": true,
     "outDir": "dist",
     "removeComments": true,

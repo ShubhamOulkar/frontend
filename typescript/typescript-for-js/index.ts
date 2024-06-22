@@ -1,3 +1,4 @@
+// ? type annotations in typescript : dont need to specify type for following declarations. TypeScript automatically find type for us.
 let greeting = "Hello world";
 
 const greet = "Good morning";
@@ -135,3 +136,27 @@ const point = { x: 100, y: 55 };
 add(point); // object is passed because object structue matched with type point
 
 add({ a: 55, y: 55 }); // do not pass because 'a' does not exist in Point interface
+
+// ? optional properties
+function fullName(obj: { firstName?: string; lastName?: string }) {
+  if (!(obj.firstName && obj.lastName))
+    return new Error("one of the arguments firstName or lastName required");
+  return obj?.firstName + obj?.lastName;
+}
+
+fullName({ firstName: "Shubham" });
+fullName({ lastName: "Oulkar" });
+fullName({ firstName: "shubham", lastName: "oulkar" });
+fullName({ firstName: "shubham", lastName: "oulkar", age: 55 });
+
+// ? type assertion
+const canvas1 = document.getElementById("mainCanvas") as HTMLCanvasElement;
+//  OR
+const myCanvas1 = <HTMLCanvasElement>document.getElementById("mainCanvas");
+//  above generic annotation is not used in .tsx file
+
+// ? non-null assertion operator (!)
+function liveDangerously(x?: number | null) {
+  // No error
+  console.log(x!.toFixed());
+}

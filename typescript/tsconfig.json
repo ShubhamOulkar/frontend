@@ -1,0 +1,39 @@
+{
+  "files": ["type.ts", "code.ts"],
+  "include": ["src/**/*", "tests/**/*", ".js"],
+  "exclude": ["node_modules"],
+
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "_version": "20.1.0",
+  "extends": "@tsconfig/node20/tsconfig.json",
+
+  "compilerOptions": {
+    "lib": ["es2023", "dom"],
+    "module": "node16",
+    "target": "es2022",
+
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node16",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "useUnknownInCatchVariables": true,
+    "outDir": "compiledJS",
+    "removeComments": false,
+    "allowJs": true
+  }
+}

@@ -14,6 +14,7 @@ myFunc.description = "default description";
 doSomething(myFunc);
 
 type SomeConstructor = {
+  /** Use new on object  */
   new (s: string): Function;
 };
 function fn(ctor: SomeConstructor): Function {

@@ -121,12 +121,12 @@ const getType = type.fun1();
 // ? Structural type system :
 
 interface Point {
-  x: number;
+  x?: number;
   y: number;
 }
 
 function add(num: Point) {
-  return num.x + num.y;
+  return num.x! + num.y;
 }
 
 add({ x: 11, y: 20 }); // object is passed because object structue matched with type point
@@ -135,7 +135,7 @@ const point = { x: 100, y: 55 };
 
 add(point); // object is passed because object structue matched with type point
 
-add({ a: 55, y: 55 }); // do not pass because 'a' does not exist in Point interface
+add({ y: 55 }); // do not pass because 'a' does not exist in Point interface
 
 // ? optional properties
 function fullName(obj: { firstName?: string; lastName?: string }) {

@@ -32,8 +32,8 @@
     "noUnusedLocals": true,
     "noImplicitAny": true,
     "useUnknownInCatchVariables": true,
-    "outDir": "dist",
-    "removeComments": true,
+    "outDir": "compiledJS",
+    "removeComments": false,
     "allowJs": true
   }
 }

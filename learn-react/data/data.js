@@ -244,9 +244,343 @@ const questions = [
     ans: true,
   },
   {
+    type: "mcq",
+    ques: "Choose a React event-handling attribute.",
+    options: {
+      1: "onclick",
+      2: "React.on-click",
+      3: "onClick",
+    },
+    ans: 3,
+  },
+  {
     type: "bool",
-    ques: "",
+    ques: "Event handlers make sure that the actions of events are executed. To set up the click handling behavior for a button, you can use an expression named clickHandler.",
+    ans: false,
+  },
+  {
+    type: "mcq",
+    ques: "When handling a click event in react, you should use the following attribute:",
+    options: {
+      1: "OnClick",
+      2: "onClick",
+      3: "on-click",
+    },
+    ans: 2,
+  },
+  {
+    type: "mcq",
+    ques: "Choose the valid example of an onclick event handler",
+    options: {
+      1: "<button onClick={handleClick}>Click me</button>",
+      2: "<button on-click=”handleClick”>Click me</button>",
+      3: "<button onClick={handleClick()}>Click me</button>",
+    },
+    ans: 1,
+  },
+  {
+    type: "bool",
+    ques: "Inside a JSX element, you can assign a JSX expression to the onClick handler to handle a click in React.",
     ans: true,
+  },
+  {
+    type: "bool",
+    ques: "You can place an opening and a closing parenthesis after the name of the event-handling function that you assign to the onClick attribute.",
+    ans: false,
+  },
+  {
+    type: "bool",
+    ques: "The try...catch syntax can be used in React in certain cases.",
+    ans: true,
+  },
+  {
+    type: "bool",
+    ques: "True or false? You can use the onclick event-handling HTML attribute to handle click events.    ",
+    ans: true,
+  },
+  {
+    type: "mcq",
+    ques: "What's wrong with this code?",
+    code: "<button onClick={handleClick()>Click me</button>}",
+    options: {
+      1: "This code should work",
+      2: "The event-handling attribute should be all lowercased",
+      3: "You cannot invoke an event-handling function from a JSX expression.",
+    },
+    ans: 3,
+  },
+  {
+    type: "bool",
+    ques: "In React, a click handler is placed inside a JSX expression, and only needs a click handler function's name - without the parentheses to invoke it.",
+    ans: true,
+  },
+  {
+    type: "bool",
+    ques: "In React, you are not allowed to code a separate function that should be run to handle a click event.",
+    ans: false,
+  },
+  {
+    type: "bool",
+    ques: "Event-handling attributes in React are named almost the same as in HTML. Syntactically, the only difference is in the capitalization.",
+    ans: true,
+  },
+  {
+    type: "bool",
+    ques: "Is a click handler on its own enough to change the values of variables in your React apps?",
+    ans: false,
+  },
+  {
+    type: "mcq",
+    ques: "Imagine that you have a variable named userLoggedIn and it’s set to the boolean of true. How would you complete the below clickHandler function declaration to toggle the value of the userLoggedIn boolean?",
+    options: {
+      1: "userLoggedIn = !userLoggedIn",
+      2: "userLoggedIn = false",
+      3: "userLoggedIn = true",
+    },
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: "What are the ways to write an event-handling function in React. Select all that apply.",
+    options: {
+      1: "Using a separate function expression",
+      2: "With an inline anonymous ES5 function",
+      3: "Using a separate function declaration",
+      4: "With an inline, anonymous ES6 function (an arrow function)",
+    },
+    ans: [1, 2, 3, 4],
+  },
+  {
+    type: "mcq",
+    ques: "What are the advantages of utilizing a centralized point of data - a 'single source of truth' - in your React apps? Choose all that apply.  ",
+    options: {
+      1: "Data flows both ways, so it can be edited from anywhere ",
+      2: "It reduces the possibility of typing errors in your code",
+      3: "It offers a more efficient way of working when data frequently changes",
+      4: "It allows you to edit multiple items from a single point",
+    },
+    ans: [2, 3, 4],
+  },
+  {
+    type: "mcq",
+    ques: "Which of the following statements about data flow in React are correct? Select all that apply.",
+    options: {
+      1: "The props data is data outside the component and cannot mutate.",
+      2: "Data can flow from parent to child and in the other direction with state data.",
+      3: "State data is data inside the component, and the component can control and mutate the data.",
+      4: "The props data is data outside the component and can mutate.",
+    },
+    ans: [1, 3],
+  },
+  {
+    type: "bool",
+    ques: "Usually, a React app consists of many components, organized as a component tree.",
+    ans: true,
+  },
+  {
+    type: "bool",
+    ques: "You can only pass a single prop to a component",
+    ans: false,
+  },
+  {
+    type: "mcq",
+    ques: "The props parameter is:",
+    options: {
+      1: "object",
+      2: "boolean",
+      3: "array",
+    },
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: "A component can, at any given time_______. Select all that apply.",
+    options: {
+      1: "Pass data as prop",
+      2: "Receive data a s prop",
+      3: "Pass data as props and receive data as props at the same time",
+    },
+    ans: [1, 2, 3],
+  },
+  {
+    type: "mcq",
+    ques: "Uni-directional data flow is...",
+    options: {
+      1: "The term that describes the one-way flow of data in a React app.",
+      2: "The term that describes the one-way flow of components in a React app",
+      3: "The term that describes the one-way flow of DOM updates in a React app",
+    },
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: "Which of these rules apply to hooks in React?  Check all that apply.",
+    options: {
+      1: "Hooks can be called only at the top level.  ",
+      2: "Hooks can be called only from React functions.",
+      3: "Hooks can be called from any JavaScript function.",
+    },
+    ans: [1, 2],
+  },
+  {
+    type: "mcq",
+    ques: "Select rules applied to all react hooks.",
+    options: {
+      1: "You can only call hooks at the top level of your component or your own hooks.",
+      2: "You cannot call hooks inside loops or conditions.",
+      3: "You can only call hooks from React functions or custom react hook function, and not regular JavaScript functions.",
+    },
+    ans: [1, 2, 3],
+  },
+  {
+    type: "bool",
+    ques: "A parent component is able to pass its state onto children components using props. True or false? ",
+    ans: true,
+  },
+  {
+    type: "mcq",
+    ques: "Consider the following line of code, which contains a useState hook: const [date, setDate] = React.useState(new Date()); Which argument updates the state? ",
+    options: {
+      1: "setDate",
+      2: "date",
+      3: "none of the above",
+    },
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: "Choose the correct statement.",
+    options: {
+      1: "The props object represents data that is internal to a component, and state represents data that is external to a component.",
+      2: "The props object represents data that is external to a component, and state represents data that is internal to a component.",
+    },
+    ans: 2,
+  },
+  {
+    type: "bool",
+    ques: "In React, can state be considered data?",
+    ans: true,
+  },
+  {
+    type: "bool",
+    ques: "In React, can props be considered data?",
+    ans: true,
+  },
+  {
+    type: "mcq",
+    ques: "What does the useState hook do?",
+    options: {
+      1: "It allows a component to have its own state",
+      2: "It allows a component to receive state from its parent",
+    },
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: "Based on the code below, is the userName variable external or internal data of the DisplayUser component?",
+    code: "function DisplayUaer(props){return (<h1>{props.useerName}</h1>)}",
+    options: {
+      1: "The userName value is data that is internal to the DisplayUser component",
+      2: "he userName value is data that is external to the DisplayUser component",
+    },
+    ans: 2,
+  },
+  {
+    type: "bool",
+    ques: "Lifting state up is coding your app so that the state from the child component is moved to the parent component and the child component simply receives it via props",
+    ans: true,
+  },
+  {
+    type: "mcq",
+    ques: "What is context consumer?",
+    options: {
+      1: "The App component is the context consumer.",
+      2: "The index.js file is the context consumer",
+      3: "Context provider is the context consumer.",
+      4: "It's the component that uses the context provider's state.",
+    },
+    ans: 4,
+  },
+  {
+    type: "bool",
+    ques: "When working with useState to keep state in a variable, you should not use array destructuring.",
+    ans: false,
+  },
+  {
+    type: "mcq",
+    ques: "What is the Context API?",
+    options: {
+      1: "An alternative way to working with state in React.",
+      2: "A way to change the execution context of a function in JavaScript.",
+    },
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: "If a state variable is destructured from useState, and set to variable name of user, the name of the function to update the user state variable should be...",
+    options: {
+      1: "useState",
+      2: "setUser",
+      3: "useUser",
+    },
+    ans: 2,
+  },
+  {
+    type: "mcq",
+    ques: "What does the concept of “lifting up state” entail?",
+    options: {
+      1: "It involves moving the state from the child component to the parent component.",
+      2: "It involves moving the state from the parent component to the child component.",
+    },
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: "What is a negative result of lifting up state in a React app?",
+    options: {
+      1: "Prop drilling",
+      2: "There are no negatives from lifting up state in React.",
+      3: "It can significantly increase the number of components that you need to create",
+    },
+    ans: 1,
+  },
+  {
+    type: "bool",
+    ques: "If the state variable holds an array or a string value, once you pass that state via props from a parent to a child, you can then read the length property from the received prop in the child component.",
+    ans: true,
+  },
+  {
+    type: "mcq",
+    ques: "Choose the correct statement.",
+    options: {
+      1: "Remember that you should always change the values of props in children components; you should never work with them as they are. In other words, props are mutable.",
+      2: "Remember that you should never change the values of props in children components; you should only work with them as they are. In other words, props are immutable.",
+    },
+    ans: 2,
+  },
+  {
+    type: "bool",
+    ques: "The distinction between stateful and stateless components is that the latter doesn't have its own state. ",
+    ans: true,
+  },
+  {
+    type: "mcq",
+    ques: "What is prop drilling?",
+    options: {
+      1: "Prop drilling is a situation where you are passing data from a parent to a child component, then to a grandchild component, and so on, until it reaches a more distant component further down the component tree, where this data is required",
+      2: "Prop drilling is a situation where you are passing data from a child, to a parent component, then to a grandparent component, and so on, until it reaches a more distant component further up the component tree, where this data is required.",
+    },
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: "The Context API allows you to",
+    options: {
+      1: "Avoid having to pass state down through multiple levels of components.",
+      2: "Avoid having to use the return statement in a child component.",
+      3: "Avoid having to keep your components modular.",
+    },
+    ans: 1,
   },
   {
     type: "mcq",
@@ -257,5 +591,10 @@ const questions = [
       3: "",
     },
     ans: "",
+  },
+  {
+    type: "bool",
+    ques: "",
+    ans: true,
   },
 ];

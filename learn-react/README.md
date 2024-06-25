@@ -1,3 +1,9 @@
+# Learn React
+
+- 1. What is react component? :- react components are JavaScript pure functions.
+- 2. What is synthetic events? :- it is cross-browser wrapper around browser events. it make sure same behaviour in all browsers.
+- 3. What is prop drilling? :- passing data from parent component to its child component, then to a grandchild component and so on, until it reaches a target component down the component tree where data is required.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -696,39 +696,100 @@ const questions = [
     ans: 2,
   },
   {
-    type: "mcq",
-    ques: "",
-    options: {
-      1: "",
-      2: "",
-      3: "",
-    },
-    ans: "",
-  },
-  {
-    type: "mcq",
-    ques: "",
-    options: {
-      1: "",
-      2: "",
-      3: "",
-    },
-    ans: "",
-  },
-  {
-    type: "mcq",
-    ques: "",
-    options: {
-      1: "",
-      2: "",
-      3: "",
-    },
-    ans: "",
+    type: "bool",
+    ques: "True or false? webpack is a module bundler.",
+    ans: true,
   },
   {
     type: "bool",
-    ques: "",
+    ques: "React Router has a <Link> element.",
     ans: true,
+  },
+  {
+    type: "mcq",
+    ques: "React Router is...",
+    options: {
+      1: "A built-in part of React.",
+      2: "A built-in part of React-DOM.",
+      3: "A stand-alone package that you can add to a React app.",
+    },
+    ans: 3,
+  },
+  {
+    type: "mcq",
+    ques: "What will be the output of the code below?let name; if (Math.random() > 0.5) {   name = 'Mike'} else {   name = 'Susan'} ",
+    options: {
+      1: "It will always be Susan",
+      2: "It will always be Mike",
+      3: "It will be 0.5",
+      4: "It will be sometimes Mike, and sometimes Susan, randomly",
+    },
+    ans: 4,
+  },
+  {
+    type: "mcq",
+    ques: "What is an asset?",
+    options: {
+      1: "Images, Fonts, Stylesheets",
+      2: "Components",
+      3: "Images, video and components",
+    },
+    ans: 1,
+  },
+  {
+    type: "bool",
+    ques: "If your app can compile without it, you can keep an asset in a public folder.",
+    ans: true,
+  },
+  {
+    type: "mcq",
+    ques: "",
+    options: {
+      1: "",
+      2: "",
+      3: "",
+    },
+    ans: "",
+  },
+  {
+    type: "mcq",
+    ques: "",
+    options: {
+      1: "",
+      2: "",
+      3: "",
+    },
+    ans: "",
+  },
+  {
+    type: "mcq",
+    ques: "",
+    options: {
+      1: "",
+      2: "",
+      3: "",
+    },
+    ans: "",
+  },
+  {
+    type: "mcq",
+    ques: "",
+    options: {
+      1: "",
+      2: "",
+      3: "",
+    },
+    ans: "",
+  },
+  {
+    type: "mcq",
+    ques: "",
+    options: {
+      1: "",
+      2: "",
+      3: "",
+    },
+    ans: "",
   },
   {
     type: "bool",

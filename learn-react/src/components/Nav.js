@@ -1,12 +1,12 @@
-function Nav(props) {
-  console.log("props: ", props);
+import CustomLink from "./Link";
+
+function Nav({ navbar }) {
   return (
     <nav className="main-nav">
-      <ul>
-        <li>Home</li>
-        <li>Articles</li>
-        <li>About</li>
-        <li>Contact</li>
+      <ul style={{ display: "flex", gap: 20, listStyleType: "none" }}>
+        {navbar.map((nav, index) => (
+          <CustomLink key={index} urlSegment={!index ? "" : nav} title={nav} />
+        ))}
       </ul>
     </nav>
   );

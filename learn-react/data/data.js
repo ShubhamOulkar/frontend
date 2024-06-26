@@ -635,18 +635,65 @@ const questions = [
   },
   {
     type: "bool",
-    ques: "",
+    ques: "True or false: You can use JavaScript's logical AND operator in a React component's return statement to conditionally render some JSX elements based on whether a value to the right of the AND operator evaluates to true. ",
+    ans: false,
+  },
+  {
+    type: "mcq",
+    ques: "True or false: You can use JavaScript's logical AND operator in a React component's return statement to conditionally render some JSX elements based on whether a value to the right of the AND operator evaluates to true. ",
+    options: {
+      1: "ternary operator",
+      2: "switch statement",
+      3: "if-else statement",
+      4: "logical && operators",
+      5: "logical || operators",
+    },
+    ans: [1, 2, 3, 4, 5],
+  },
+  {
+    type: "mcq",
+    ques: "What will be the output if you ran this code in the browser console:",
+    options: {
+      1: "undefined",
+      2: "5",
+      3: "null",
+    },
+    ans: 2,
+  },
+  {
+    type: "mcq",
+    ques: "Choose the correct syntax to build a new Date object in JavaScript?",
+    options: {
+      1: "Date()",
+      2: "new Date()",
+      3: "new Date",
+    },
+    ans: 2,
+  },
+  {
+    type: "bool",
+    ques: "In React, you can import an image as you would any other module.",
     ans: true,
   },
   {
     type: "mcq",
-    ques: "",
+    ques: "In plain JavaScript, how do you build an instance of the Audio constructor?",
     options: {
-      1: "",
-      2: "",
-      3: "",
+      1: "new Audio();",
+      2: "New Audio();",
+      3: "Audio();",
     },
-    ans: "",
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: "If an object instance of the Audio constructor is saved in a variable named “song”, what property on the “song” object can you use to check if the song is currently playing?",
+    options: {
+      1: "song.pause();",
+      2: "song.paused",
+      3: "song.play()",
+    },
+    ans: 2,
   },
   {
     type: "mcq",
@@ -667,6 +714,21 @@ const questions = [
       3: "",
     },
     ans: "",
+  },
+  {
+    type: "mcq",
+    ques: "",
+    options: {
+      1: "",
+      2: "",
+      3: "",
+    },
+    ans: "",
+  },
+  {
+    type: "bool",
+    ques: "",
+    ans: true,
   },
   {
     type: "bool",

@@ -5,11 +5,20 @@ import logo from "./assets/logo.svg";
 import { MealContext } from "./context/MealContext";
 import MealList from "./context/MealList";
 import Nav from "./components/Nav";
-import ReactPlayer from "react-player/youtube";
+// import ReactPlayer from "react-player/youtube";
+import BookList from "./components/ListComponents";
+import Test from "./components/test";
 
 const todayMeals = ["roti", "curry", "rice", "papad"];
 
-const navbar = ["home", "about", "contact", "products"];
+const navbar = [
+  "home",
+  "about",
+  "contact",
+  "products",
+  "feedback",
+  "registration",
+];
 
 function App() {
   const bird1 = new Audio(
@@ -35,21 +44,24 @@ function App() {
       bird2.pause();
     }
   }
+
   return (
     <>
       <Nav navbar={navbar} />
+
+      <BookList />
 
       <div>
         <button onClick={toggle1}>Caspian Tern 1</button>
         <button onClick={toggle2}>Caspian Tern 2</button>
       </div>
 
-      <ReactPlayer
+      {/* <ReactPlayer
         url={"https://youtu.be/i1VeFUbWrjU?si=Rdq4D-DRB_gH0L18"}
         height={200}
         width={200}
         volume={0.5}
-      />
+      /> */}
 
       <img src={logo} alt="logo" height={200} />
       <img src={require("./assets/logo.svg").default} alt="logo" height={200} />
@@ -69,6 +81,8 @@ function App() {
       <MealContext.Provider value={""}>
         <MealList></MealList>
       </MealContext.Provider>
+
+      <Test />
     </>
   );
 }

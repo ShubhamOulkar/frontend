@@ -3,74 +3,54 @@
 - 1. What is react component? :- react components are JavaScript pure functions.
 - 2. What is synthetic events? :- it is cross-browser wrapper around browser events. it make sure same behaviour in all browsers.
 - 3. What is prop drilling? :- passing data from parent component to its child component, then to a grandchild component and so on, until it reaches a target component down the component tree where data is required.
+- 4. can we pass key as props ? No, we can not pass key as props to child component.
+- 5. Always use unique Id as key prop to prevent re-rendering of component in react.
+- 6. Use spread (...) operation first before manipulating any object property, otherwise it will not overwrite property of the object.
+- 7. Uncontrolled input example :- they are not powerful as controlled inputs. type="file" input is always uncontrolled input because it is read-only value.
 
-# Getting Started with Create React App
+  ```js
+  function Input() {
+    const inputRef = useRef(null);
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    function handleOnSubmit() {
+      const inputValue = inputRef.current.value;
+      return inputValue;
+    }
 
-## Available Scripts
+    return (
+        <form onSubmit={handleOnSubmit}>
+            <input ref={inputRef} type="text" />
+            <button type='submit' >Submit<button />
+        <form />
+    )
+  };
+  ```
 
-In the project directory, you can run:
+- 8. Controlled Input :- Controlled input use callbacks to update local state data.
 
-### `npm start`
+  ```js
+  function ControlledInput(){
+    const [state, setState] = useState('');
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+     function handleOnChange(e) {
+        setState(e.target.value);
+    }
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    function handleOnSubmit(e){
+        e.preventDefault();
+        setState('');
+        console.log('Form is submitted!');
+    }
 
-### `npm test`
+    return (
+        <form onSubmit={handleOnSubmit}>
+            <input type="text" value={state} onChange={handleOnChange}/>
+            <button diasble={!state} type='submit' >Submit<button />
+        <form />
+    )
+  };
+  ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 9. What is different between controlled components and uncontrolled components? :- Controlled components are controlled by local states where as uncontrolled components are controlled by DOM(useRef) itself.
+- 10. What will happen on submitting the form ? :- Default behaviour of the form i.e. Root of the server and refrashing the page. To stop this happening use current submit event and call preventDefault() on it.
+- 11. Disable the submit button if input is empty by using !state.

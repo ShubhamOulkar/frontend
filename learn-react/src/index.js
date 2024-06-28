@@ -8,6 +8,8 @@ import ErrorPage from "./components/error-page";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Products from "./components/Products";
+import FeedBack from "./components/forms/FeedBack";
+import RegistrationForm from "./components/forms/RegistrationForm";
 
 const route = createBrowserRouter([
   {
@@ -27,6 +29,14 @@ const route = createBrowserRouter([
   {
     path: "/products",
     element: <Products></Products>,
+  },
+  {
+    path: "/feedback",
+    element: <FeedBack></FeedBack>,
+  },
+  {
+    path: "/registration",
+    element: <RegistrationForm />,
   },
 ]);
 

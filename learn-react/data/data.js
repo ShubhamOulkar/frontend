@@ -743,13 +743,288 @@ const questions = [
   },
   {
     type: "mcq",
-    ques: "",
+    ques: "Which of the following is true about the map() method in JavaScript.Select all that apply.",
     options: {
-      1: "",
-      2: "",
-      3: "",
+      1: "The map() method is a collection of elements.",
+      2: "The map() method is a transformation operation.",
+      3: "The map() method returns a new array.",
+      4: "The map() method is useful for handling third party data.",
     },
-    ans: "",
+    ans: [2, 3, 4],
+  },
+  {
+    type: "mcq",
+    ques: "When you are working with lists in JSX, you can return a React component. What is the purpose of curly braces in this process? ",
+    options: {
+      1: "To access the needed properties from the initial data.",
+      2: "To store the result of the transformation being performed.",
+      3: "To access the content of the variable that represents your list item.",
+      4: "To loop through the array of initial data.",
+    },
+    ans: 3,
+  },
+  {
+    type: "mcq",
+    ques: "When using the filter operator from arrays in JavaScript, what type should you return from the predicate function to determine if the element should be filtered out or not?",
+    options: {
+      1: "You should return null if the element should be filtered out and any other value to keep the element.",
+      2: "You should return true to keep the element and false to filter out the element.",
+      3: "You should return undefined to filter out the element and true to keep it in the list.",
+    },
+    ans: 2,
+  },
+  {
+    type: "mcq",
+    ques: "When chaining the three array operators map, filter and sort; in which order should they be applied to props.data? Remember that props.data contains an array of dessert objects.",
+    options: {
+      1: "sort, filter, map",
+      2: "filter, map, sort",
+      3: "filter, sort, map",
+    },
+    ans: 3,
+  },
+  {
+    type: "mcq",
+    ques: "When using the map function to transform an array item into a <li> element, what of the following code snippets should be inside the <li> tag to render the list item correctly in the following format: Ice Cream - 200 cal",
+    options: {
+      1: "<li>${dessert.name} - ${dessert.calories} cal</li>",
+      2: "<li>dessert.name - dessert.calories + “cal”</li>",
+      3: "<li>{dessert.name} - {dessert.calories} cal</li>",
+    },
+    ans: 3,
+  },
+  {
+    type: "mcq",
+    ques: "Which of the following statements about keys in React are true? Select all that apply.",
+    options: {
+      1: "Keys help React determine which items have changed, are added or are removed.",
+      2: "Keys instruct React about whether a specific element’s internal state should be preserved or not.",
+      3: "Keys instruct React how to treat a specific element when an update occurs. ",
+      4: "Keys always positively impact app performance and user interface (UI).",
+    },
+    ans: [1, 2, 3],
+  },
+  {
+    type: "mcq",
+    ques: "Imagine you have an array with one object that represents a dessert. You would like to apply some transformation to the item to output a different structure using the map function as per the code below. What would be the value of the newDesserts variable?",
+    code: `const desserts = [
+  {
+    title: 'Chocolate Cake',
+    description: 'Chocolate cake is a cake flavored with melted chocolate',
+    calories: 500,
+  }
+];
+
+const newDesserts = desserts.map((dessert) => {
+  return {
+    title: dessert.title.toUpperCase(),
+    ...dessert,
+    kCal: dessert.calories / 1000,
+  };
+});`,
+    options: {
+      1: `[
+  {
+    title: 'CHOCOLATE CAKE',
+    description: 'Chocolate cake is a cake flavored with melted chocolate',
+    kCal: 0.5,
+  }
+]`,
+      2: `[
+  {
+    title: 'Chocolate Cake',
+    description: 'Chocolate cake is a cake flavored with melted chocolate',
+    calories: 500,
+    kCal: 0.5,
+  }
+]`,
+      3: `[
+  {
+    title: 'CHOCOLATE CAKE',
+    description: 'Chocolate cake is a cake flavored with melted chocolate',
+    calories: 500,
+    kCal: 0.5,
+  }
+]`,
+    },
+    ans: 2,
+  },
+  {
+    type: "bool",
+    ques: "True or false: It is recommended to use item indexes as keys when selecting keys for rendered list items.",
+    ans: true,
+  },
+  {
+    type: "mcq",
+    ques: "How do you access dynamic data inside the JSX from the render function?",
+    options: {
+      1: "Using local state in the component",
+      2: "Using component props.",
+      3: "Wrapping the variable in question with curly braces. ",
+    },
+    ans: 3,
+  },
+  {
+    type: "mcq",
+    ques: "What could be a potential problem of using a randomiser function that generates an integer number from 0 to 10 as a key for your list items, having a list of only eight items? Select all that apply",
+    options: {
+      1: "The randomiser function does not entirely guarantee that the keys it generates will be different per item and a collision could happen, having two items with the same integer as keys.",
+      2: "There is no persistence of the keys generated since the moment the component re-renders the keys will vary and that could cause unexpected UI changes. ",
+      3: "The randomiser function is a potential performance bottleneck since it has to run every re-render and it’s an unnecessary computation.",
+    },
+    ans: [1, 2],
+  },
+  {
+    type: "mcq",
+    ques: "The todos array contains a list of todo objects, where each object has an id property that is unique. Which of the following code snippets will throw a React warning when opening up the browser console? Select all that apply",
+    options: {
+      1: `{todos.map((todo, index) => (
+  <ToDo id={todo.id} />
+))}`,
+      2: `{todos.map((todo, index) => (
+  <ToDo key={index} id={todo.id} />
+))}`,
+      3: `{todos.map((todo, index) => (
+  <ToDo key={index} id={todo.id} />
+))}`,
+      4: `{todos.map((todo, index) => (
+  <ToDo key={index} id={todo.id} />
+))}`,
+    },
+    ans: [1, 4],
+  },
+  {
+    type: "mcq",
+    ques: "What are the potential problems of using indexes as keys?",
+    options: {
+      1: "An index is not guaranteed to be unique.",
+      2: "The index is not persisted and will change the moment the component re-renders.",
+      3: "If the order of items may change, that can negatively impact performance and may cause issues with component state.",
+    },
+    ans: 3,
+  },
+  {
+    type: "mcq",
+    ques: "You are using controlled components in React in order to have more control over the forms in an application you are creating.Which of the following props is used to perform state delegation?",
+    options: {
+      1: "value",
+      2: "onChange",
+      3: "onSubmit",
+      4: "action",
+    },
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: "Imagine you’d like to better control the submission of a form you’re creating for an app. Which prop is required to prevent the default behavior of the form submit event in React?",
+    options: {
+      1: "preventDefault()",
+      2: "stop()",
+      3: "stopPropogation()",
+    },
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: "What are the two props you need to add when creating a controlled input range component?",
+    options: {
+      1: "value and onChange",
+      2: "min and max",
+      3: "htmlFor and id",
+    },
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: "When you need to change the password state, which is stored as an object with two properties, value and isTouched, how should you correctly use the setPassword state setter inside the onChange event handler?",
+    options: {
+      1: "setPassword({ ...password, value: e.target.value });",
+      2: "setPassword({ isTouched: false, value: e.target.value }); ",
+      3: "setPassword({ value: e.target.value });",
+    },
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: "What’s the correct event prop you should use to determine when an input has been interacted with at least once?",
+    options: {
+      1: "onFocus",
+      2: "onBlur",
+      3: "onChange",
+    },
+    ans: 2,
+  },
+  {
+    type: "mcq",
+    ques: "How do you prevent the default behavior of the form HTML tag in React when a submission event occurs?",
+    options: {
+      1: "By returning false from the onSubmit function prop that the form tag provides. ",
+      2: "By calling preventDefault on the event object inside any onChange handler from an input tag.",
+      3: "By calling preventDefault on the event object inside the onSubmit function prop from the form tag. ",
+    },
+    ans: 3,
+  },
+  {
+    type: "mcq",
+    ques: "What of the next input types doesn’t have a controlled version when they are used in React?",
+    options: {
+      1: "<textarea /> ",
+      2: "<input type=”text” />",
+      3: "<input type=”file” /> ",
+    },
+    ans: 3,
+  },
+  {
+    type: "mcq",
+    ques: "What are some of the features of controlled components? Select all that apply",
+    options: {
+      1: "Conditionally disabling the submit button.",
+      2: "Enforcing a specific input format. ",
+      3: "Validating all values in the client side when a submission occurs in the form, before calling the server endpoint.",
+    },
+    ans: [1, 2, 3],
+  },
+  {
+    type: "mcq",
+    ques: "How do you get the value of an input when its state is handled by the DOM (Uncontrolled)? Select all that apply.",
+    options: {
+      1: "Using a ref via useRef hook, assigning it to the input and then reading the input value when the submission happens via ref.current.value.",
+      2: "Using local state and initializing it to an empty string. Then, reading the input value from the event object when the submission happens and finally setting the local state with that value.",
+      3: "Using a combination of useEffect and useRef hooks, where a ref is used on the uncontrolled input and then its value can be read on useEffect after a re-render cycle happens. ",
+    },
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: "What happens when you click on the submit button in the below code snippet?",
+    code: `
+     <form onSubmit={() => alert("Submitting")}>
+        <input type="text" value={text} onChange={e => setText(e.target.value)} />
+        <input type="button" value="Submit" />
+      </form>
+    `,
+    options: {
+      1: "The onSubmit callback is executed and an alert is shown with the text 'Submitting'.",
+      2: "An error is thrown.",
+      3: "Nothing happens when the button is clicked.",
+    },
+    ans: 3,
+  },
+  {
+    type: "mcq",
+    ques: "What is missing in the below code for the select component to work properly?",
+    code: `<select onChange={handleChange}>
+  <option value="grapefruit">Grapefruit</option>
+  <option value="lime">Lime</option>
+  <option value="coconut">Coconut</option>
+  <option value="mango">Mango</option>
+ </select>`,
+    options: {
+      1: "Each option tag should be accompanied by a label tag.",
+      2: "Each option tag should have an onChange handler.",
+      3: "The select tag is missing a value prop. ",
+    },
+    ans: 3,
   },
   {
     type: "mcq",
@@ -759,7 +1034,7 @@ const questions = [
       2: "",
       3: "",
     },
-    ans: "",
+    ans: 1,
   },
   {
     type: "mcq",
@@ -769,7 +1044,7 @@ const questions = [
       2: "",
       3: "",
     },
-    ans: "",
+    ans: 1,
   },
   {
     type: "mcq",
@@ -779,17 +1054,7 @@ const questions = [
       2: "",
       3: "",
     },
-    ans: "",
-  },
-  {
-    type: "mcq",
-    ques: "",
-    options: {
-      1: "",
-      2: "",
-      3: "",
-    },
-    ans: "",
+    ans: 1,
   },
   {
     type: "bool",

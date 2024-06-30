@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.form,
+.rating,
+.feedback,
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fields {
+  gap: 20px;
+}

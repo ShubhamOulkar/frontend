@@ -1,0 +1,18 @@
+.light {
+  --text-color: black;
+  --background-color: #d0d1d4;
+  --button-background-color: blue;
+  --button-text-color: var(--background-color);
+}
+
+.dark {
+  --text-color: white;
+  --background-color: #2a2a2f;
+  --button-background-color: rgb(128, 163, 176);
+  --button-text-color: var(--background-color);
+}
+
+#body .dark {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

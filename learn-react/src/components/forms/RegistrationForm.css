@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 500px;
+  padding: 15px;
+  border-radius: 10px;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+}
+
+input,
+button {
+  cursor: pointer;
+  font-size: 20px;
+  height: 40px;
+  padding-block: 0;
+  padding-inline: 5px;
+  border-radius: 10px;
+}
+label {
+  cursor: pointer;
+  display: inline-flex;
+
+  > span {
+    margin-left: auto;
+    color: red;
+  }
+}
+
+.matched > input {
+  outline: 2px solid green;
+  background-color: rgb(219, 235, 196);
+}
+
+ul {
+  list-style-type: none;
+}
+#error {
+  color: red;
+}
+
+.strongPass {
+  color: green;
+}

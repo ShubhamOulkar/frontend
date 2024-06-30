@@ -50,10 +50,9 @@ label {
 
 ul {
   list-style-type: none;
-
-  > li {
-    color: red;
-  }
+}
+#error {
+  color: red;
 }
 
 .strongPass {

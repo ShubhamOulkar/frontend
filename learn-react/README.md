@@ -54,3 +54,25 @@
 - 9. What is different between controlled components and uncontrolled components? :- Controlled components are controlled by local states where as uncontrolled components are controlled by DOM(useRef) itself.
 - 10. What will happen on submitting the form ? :- Default behaviour of the form i.e. Root of the server and refrashing the page. To stop this happening use current submit event and call preventDefault() on it.
 - 11. Disable the submit button if input is empty by using !state.
+- 12. What is similarity between prop and state? :- Both are js objects and render component on update.
+- 13. What is difference between prop and state? :- State are local to component, and props are passed as parameters to the component. Props are immutable with in component and state are updated with user interactions. We can say that state are private to the component.
+- 14. What is stateless and statefull components?
+      Stateless Components:- only have props, no state. (visualizations)
+      Statefull Component:- have both props and state.
+      Statefull component manage client-server communication, data processing and responding to user events.
+- 15. What is context? why it is used?
+      It is api to teleport information from parent to deep child component without using prop any drilling.
+      Some times we need to pass data all levels in the component tree via props even though intermediatory component do not need this data. This is cumbersom task. We minimise this unneccessary task by using context.
+- 16. What is problem with using context?
+
+- Possible use cases with components
+
+| Feature                                   | Uncontrolled | Controlled |
+| ----------------------------------------- | ------------ | ---------- |
+| One-time value retrieval (e.g. on submit) | Yes          | Yes        |
+| Validating on submit                      | Yes          | Yes        |
+| Instant field validation                  | No           | Yes        |
+| Conditionally disabling a submit button   | No           | Yes        |
+| Enforcing a specific input format         | No           | Yes        |
+| Several inputs for one piece of data      | No           | Yes        |
+| Dynamic inputs                            | No           | Yes        |

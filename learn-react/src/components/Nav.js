@@ -1,11 +1,20 @@
+import { useContext } from "react";
 import CustomLink from "./Link";
+import { ThemeContext } from "./ThemeToggle";
 
 function Nav({ navbar }) {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <nav className="main-nav">
+    <nav className={theme}>
       <ul style={{ display: "flex", gap: 20, listStyleType: "none" }}>
         {navbar.map((nav, index) => (
-          <CustomLink key={index} urlSegment={!index ? "" : nav} title={nav} />
+          <CustomLink
+            theme={theme}
+            key={index}
+            urlSegment={!index ? "" : nav}
+            title={nav}
+          />
         ))}
       </ul>
     </nav>

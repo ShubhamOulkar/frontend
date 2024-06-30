@@ -10,6 +10,9 @@ import About from "./components/About";
 import Products from "./components/Products";
 import FeedBack from "./components/forms/FeedBack";
 import RegistrationForm from "./components/forms/RegistrationForm";
+import StandardForm from "./components/forms/StandardForm";
+import ContextComponent from "./components/ContextComponent";
+import MyApp from "./components/ReactMemo_1";
 
 const route = createBrowserRouter([
   {
@@ -38,9 +41,22 @@ const route = createBrowserRouter([
     path: "/registration",
     element: <RegistrationForm />,
   },
+  {
+    path: "/standard form",
+    element: <StandardForm></StandardForm>,
+  },
+  {
+    path: "/context",
+    element: <ContextComponent />,
+  },
+  {
+    path: "/ReactMemo",
+    element: <MyApp />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     <RouterProvider router={route}></RouterProvider>

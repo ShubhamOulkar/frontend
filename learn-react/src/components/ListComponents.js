@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import fetchData from "../utils/fetchData";
 import ClipLoader from "react-spinners/ClipLoader";
+import { ThemeContext } from "./ThemeToggle";
 
 const api =
   "https://api.freeapi.app/api/v1/public/books?page=1&limit=10&inc=kind%2Cid%2Cetag%2CvolumeInfo";
 
 export default function BookList() {
   const [bookdata, setBookdata] = useState(null);
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     async function bookdata() {
@@ -25,7 +27,7 @@ export default function BookList() {
   }
 
   return (
-    <>
+    <div id="book" className={theme}>
       <button type="button" onClick={reverseList}>
         Reverse the list
       </button>
@@ -38,7 +40,7 @@ export default function BookList() {
           <ClipLoader />
         )}
       </ul>
-    </>
+    </div>
   );
 }
 

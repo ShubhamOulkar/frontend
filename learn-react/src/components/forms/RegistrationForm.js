@@ -8,7 +8,6 @@ export default function RegistrationForm() {
     email: "",
     password: "",
     confirm: false,
-    isValid: false,
   });
 
   const [errors, setErros] = useState({
@@ -22,6 +21,11 @@ export default function RegistrationForm() {
   const handleForm = (e) => {
     e.preventDefault();
     // check fields are valid
+    if (register.confirm && errors.passStrangth) {
+      // send request to database
+    } else {
+      // show error
+    }
 
     // set register to default values
     setRegister({
@@ -29,7 +33,6 @@ export default function RegistrationForm() {
       email: "",
       password: "",
       confirm: false,
-      isConfirm: false,
     });
   };
 
@@ -138,6 +141,8 @@ export default function RegistrationForm() {
                   error={
                     errors.passStrangth ? (
                       <span className="strongPass">Password is strong</span>
+                    ) : register.password ? (
+                      <span>Weak password</span>
                     ) : (
                       ""
                     )
@@ -146,7 +151,9 @@ export default function RegistrationForm() {
                 {register.password && errors.passwordErr.length ? (
                   <ul>
                     {errors.passwordErr.map((err) => (
-                      <li key={err}>{err}</li>
+                      <li id="error" key={err}>
+                        {err}
+                      </li>
                     ))}
                   </ul>
                 ) : (

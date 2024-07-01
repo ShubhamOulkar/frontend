@@ -3,9 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: hsl(0, 0%, 100%);
-  background-color: hsl(222, 26%, 31%);
+  /* color-scheme: light dark; */
 
   box-sizing: border-box;
   margin: 0;
@@ -15,21 +13,52 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.theme1 {
+  --calculator-background-color: hsl(222, 26%, 31%);
+  --inputscreen-background-color: hsl(224, 36%, 15%);
+  --keypad-toggle-backgroundcolor: hsl(223, 31%, 20%);
+  --dark-keys-background: hsl(225, 21%, 49%);
+  --dark-keys-shadow: hsl(224, 28%, 35%);
+  --red-key: hsl(6, 63%, 50%);
+  --red-key-shadow: hsl(6, 70%, 34%);
+  --light-keys-background: hsl(30, 25%, 89%);
+  --light-keys-shadow: hsl(28, 16%, 65%);
+  --text-color-gray: hsl(221, 14%, 31%);
+  --text-color: hsl(0, 0%, 100%);
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.theme2 {
+  --calculator-background-color: hsl(0, 0%, 90%);
+  --inputscreen-background-color: hsl(0, 0%, 93%);
+  --keypad-toggle-backgroundcolor: hsl(0, 5%, 81%);
+  --dark-keys-background: hsl(185, 42%, 37%);
+  --dark-keys-shadow: hsl(185, 58%, 25%);
+  --red-key: hsl(25, 98%, 40%);
+  --red-key-shadow: hsl(25, 99%, 27%);
+  --light-keys-background: hsl(45, 7%, 89%);
+  --light-keys-shadow: hsl(35, 11%, 61%);
+  --text-color: hsl(60, 10%, 19%);
+  --text-color-white: hsl(0, 0%, 100%);
+}
+
+.theme3 {
+  --calculator-background-color: hsl(268, 75%, 9%);
+  --inputscreen-background-color: hsl(268, 71%, 12%);
+  --keypad-toggle-backgroundcolor: hsl(269, 51%, 31%);
+  --dark-keys-background: hsl(281, 89%, 26%);
+  --dark-keys-shadow: hsl(285, 91%, 52%);
+  --red-key: hsl(176, 100%, 44%);
+  --red-key-shadow: hsl(177, 92%, 70%);
+  --light-keys-background: hsl(268, 47%, 21%);
+  --light-keys-shadow: hsl(290, 70%, 36%);
+  --text-color-gray: hsl(198, 20%, 13%);
+  --text-color: hsl(52, 100%, 62%);
+  --text-color-white: hsl(0, 0%, 100%);
+}
+
+.calc {
+  color: var(--text-color);
+  background-color: var(--calculator-background-color);
 }
 
 h1 {
@@ -56,7 +85,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -67,4 +96,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */

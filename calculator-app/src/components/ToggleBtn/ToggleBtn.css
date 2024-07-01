@@ -1,0 +1,73 @@
+.toggle-container {
+  --toggle-width: 60px;
+  --toggle-height: 20px;
+  --toggle-border-radius: 20px;
+  --label-btn-width-height: 20px;
+  --transition: 0.4s;
+
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  background-color: var(--keypad-toggle-backgroundcolor);
+  border-radius: var(--toggle-border-radius);
+  padding: 2px;
+}
+
+.theme-number {
+  width: 70px;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.toggle-container > input[type="checkbox"] {
+  position: absolute;
+  left: -10px;
+  visibility: hidden;
+  display: none;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.toggle-container > label::before {
+  position: absolute;
+  cursor: pointer;
+  display: inline-block;
+  content: "";
+  width: var(--label-btn-width-height);
+  height: var(--label-btn-width-height);
+  background-color: var(--red-key);
+  border-radius: 50%;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+input[type="checkbox"]:checked + label::before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(200%);
+}
+
+input[type="checkbox"]:indeterminate + label::before {
+  transform: translateX(100%);
+}
+
+.toggle-btns {
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.toggle-container > .toggle-btns > span {
+  width: var(--label-btn-width-height);
+  height: var(--label-btn-width-height);
+  transition: var(--transition);
+  opacity: 0;
+}
+
+.toggle-container > .toggle-btns > span:is(:hover, :focus, :focus-visible) {
+  background-color: rgba(107, 107, 150, 0.258);
+  border-radius: var(--toggle-border-radius);
+  opacity: 1;
+}

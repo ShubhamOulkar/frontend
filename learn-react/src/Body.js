@@ -20,9 +20,9 @@ const navbar = [
   "products",
   "feedback",
   "registration",
-  "standard form",
   "context",
   "ReactMemo",
+  "useEffect",
 ];
 
 export default function Body() {

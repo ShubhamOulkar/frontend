@@ -1,4 +1,12 @@
-# useState()
+# Table of content
+
+- [useState()](#usestate)
+- [useEffect()](#useEffect)
+- [useReducer()](#useReducer)
+- [useRef()](#useRef)
+- [custom hook](#custom)
+
+# useState() <p id='useState'>
 
 This hook is used to store local data in component. This hook return array object of variable state value and function to update that state. use Array destructuring to work on it.
 
@@ -8,7 +16,10 @@ Object are compared by reference of the object (shallow comparison). Primitive a
 
 If these comparision is false then react re-render component if true then state are not changed.
 
-# useEffect()
+# useEffect(setup:fn, dependencies:[]): undefined <p id='useEffect'>
+
+useEffect let component to connect and synchronise with external system i.e. outside of react environment.
+For example document object model, fetch data from a database, chat system, video calling system, timers, event listeners, animations, window object.
 
 useEffect hook is used to perform side effects in a component. useEffect runs after vertual DOM is updated or change in state in state and props.
 
@@ -57,3 +68,15 @@ Note:-
 - 1. Without dependency array :- useEffect() will run on every re-render i.e. if prop or state changes this will run side effect as well.
 - 2. With empty array [] :- This will run effect only once on first render. It will not run on any state or prop changes.
 - 3. Dependency array :- Effect will run on change in depedency variables only. Any other changes will not run side effect.
+
+#### Cleanup function in useEffect:- Cleanup function is a function which is return by useEffect. It is optional. This functions is basically stops and undoes whatever setup function is doing. When component is added into DOM, then react will run 'Setup' function. After every re-render with changed dependencies, react will first run 'Cleanup' function with old values then it runs 'Setup' function with new values. Cleanup function also run after component is removed from DOM.
+
+# Q. When will react run cleanup function?
+
+Cleanup function is run on after re-rendering of component as wel as after component removed from DOM.
+
+# useReducer() <p id='useReducer'>
+
+# useRef() <p id='useRef'>
+
+# custom hooks <p id='custom'>

@@ -63,9 +63,13 @@
 - 15. What is context? why it is used?
       It is api to teleport information from parent to deep child component without using prop any drilling.
       Some times we need to pass data all levels in the component tree via props even though intermediatory component do not need this data. This is cumbersom task. We minimise this unneccessary task by using context.
-- 16. What is problem with using context?
+- 16. What is problem with using context? :- On context data change all children down in the tree are re-render even if children dont use context data. To stop this re-rendering use memoization.
+- 17. What are the rules of hooks? :-
+      - Only call hooks from react component functions. (dont use in class component)
+      - Only call hooks at the top level in function
+      - Do not use hooks inside conditions
 
-- Possible use cases with components
+- 18. Possible use cases with components
 
 | Feature                                   | Uncontrolled | Controlled |
 | ----------------------------------------- | ------------ | ---------- |
@@ -76,3 +80,40 @@
 | Enforcing a specific input format         | No           | Yes        |
 | Several inputs for one piece of data      | No           | Yes        |
 | Dynamic inputs                            | No           | Yes        |
+
+- 19. What are the limitations of useState() hook?
+
+  - Complex state logic where next state depends on previous state
+  - not best on more complex data like arrays or objects
+  - it is hard to maintain if state gets more complex
+
+- 20. When to choose useReducer over useState ?
+
+  - best used on more complex data arrays and objects
+  - state has three or more properties
+
+- 21. When to use custom hooks? :- A custom hook is simply a way to extract a piece of functionality that you can use again and again. Put differently, you can code a custom hook when you want to avoid duplication or when you do not want to build a piece of functionality from scratch across multiple React projects. By coding a custom hook, you can create a reliable and streamlined way to reuse a piece of functionality in your React apps.
+
+```js
+export default function useConsoleLog(value) {
+  useEffect(() => {
+    console.log(value);
+  }, [value]);
+}
+```
+
+- 22. What are valid types of children in component? :-
+
+  - Strings literals
+  - JSX elements
+  - JSX expressions
+  - functions
+  - null, undefined, false, true are all valid childrens but do not render anything. (except zero '0') (these are useful while conditional rendering)
+
+- Following children render same output
+  `<div />`
+  `<div></div>`
+  `<div>{false}</div>`
+  `<div>{null}</div>`
+  `<div>{undefined}</div>`
+  `<div>{true}</div>`

@@ -7,11 +7,11 @@ import EffectHook from "./hooks/UseEffect";
 function App() {
   return (
     <>
-      <UseStateHook />
-      <EffectHook />
       <Theme>
         <Body />
       </Theme>
+      <UseStateHook />
+      <EffectHook />
     </>
   );
 }

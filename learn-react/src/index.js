@@ -13,6 +13,7 @@ import RegistrationForm from "./components/forms/RegistrationForm";
 import StandardForm from "./components/forms/StandardForm";
 import ContextComponent from "./components/ContextComponent";
 import MyApp from "./components/ReactMemo_1";
+import UseEffectExamples from "./examples/useEffect/UseEffect";
 
 const route = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const route = createBrowserRouter([
   {
     path: "/ReactMemo",
     element: <MyApp />,
+  },
+  {
+    path: "/useEffect",
+    element: <UseEffectExamples></UseEffectExamples>,
   },
 ]);
 

@@ -1346,32 +1346,358 @@ Imagine you're using a setPerson() state-updating function to update the value o
   },
   {
     type: "mcq",
-    ques: "",
+    ques: "In what sequence react run use effect logic in development?",
     options: {
-      1: "",
-      2: "",
-      3: "",
+      1: "setup --> cleanup function",
+      2: "setup --> cleanup function --> setup",
+      3: "It a bug in react",
+    },
+    ans: 2,
+  },
+  {
+    type: "bool",
+    ques: `Is this code using a valid invocation of a hook?
+            if (data !== '') { 
+          useEffect( () => { 
+            setData('test data') 
+           }) 
+        }
+    `,
+    ans: false,
+  },
+  {
+    type: "mcq",
+    ques: `Which of the below statements is an accurate description of JavaScript utilizing the fetch function?`,
+    options: {
+      1: `When JavaScript uses the fetch function it is performing each step ofthe process one by one, carrying out all of the required duties. This is known as single-threaded execution.`,
+      2: `When JavaScript uses the fetch function it is delegating duties to an external API so that it can continue its process. This is known as single-threaded execution.`,
+      3: `When JavaScript uses the fetch function it is delegating duties to an external API so that it can continue its process. This is known as asynchronous JavaScript.`,
+      4: `When JavaScript uses the fetch function it is performing each step ofthe process one by one, carrying out all of the required duties. This is known as asynchronous JavaScript.`,
+    },
+    ans: 3,
+  },
+  {
+    type: "bool",
+    ques: `True or False: When invoking the fetch() function to get some JSON data from an API, you should pass it a URL.`,
+    ans: true,
+  },
+  {
+    type: "mcq",
+    ques: `Choose the right way to handle the response from a fetch call.`,
+    options: {
+      1: `then( response => response.json())`,
+      2: `then( response => json() )`,
+      3: `then( json => response() )`,
+    },
+    ans: 1,
+  },
+  {
+    type: "bool",
+    ques: `True or False: After invoking the fetch() function, you need to add a call to the then() function.`,
+    ans: true,
+  },
+  {
+    type: "bool",
+    ques: `True or false: You should not call hooks inside loops.`,
+    ans: true,
+  },
+  {
+    type: "bool",
+    ques: `True or false: You should call hooks inside if statements.`,
+    ans: false,
+  },
+  {
+    type: "bool",
+    ques: `True or false: You should call hooks inside nested functions.`,
+    ans: false,
+  },
+  {
+    type: "bool",
+    ques: `True or false: You don't have to always make multiple hook calls in the same sequence.
+`,
+    ans: false,
+  },
+  {
+    type: "mcq",
+    ques: `You are allowed to:`,
+    options: {
+      1: `call multiple state hooks and effect hooks inside a component`,
+      2: `only call a single state hook inside a component `,
+      3: `only call a single effect hook inside a component.`,
     },
     ans: 1,
   },
   {
     type: "mcq",
-    ques: "",
+    ques: `Which of the following statements is true about the useReducer hook?`,
     options: {
-      1: "",
-      2: "",
-      3: "",
+      1: `The useReducer hookStarts with an initial state only `,
+      2: `The useReducer hook starts with a reducer function only`,
+      3: `The useReducer hook starts with an initial state and reducer function`,
+    },
+    ans: 3,
+  },
+  {
+    type: "mcq",
+    ques: `What is the data type of the returned value from the useRef hook invocation? `,
+    options: {
+      1: `object`,
+      2: `array`,
+      3: `string`,
     },
     ans: 1,
   },
   {
     type: "bool",
-    ques: "",
+    ques: `True or False: You code a custom hook when you want to avoid duplication.`,
+    ans: true,
+  },
+  {
+    type: "mcq",
+    ques: `Let's imagine you code a custom hook, called for example useNext, on a separate file named useNext.js 
+
+What's the minimum requirement for the custom useNext hook to be a valid hook?`,
+    options: {
+      1: `The custom hook should always return a value`,
+      2: `The custom hook should use at least one built-in React hook`,
+      3: `The custom hook should always receive a parameter`,
+    },
+    ans: 2,
+  },
+  {
+    type: "mcq",
+    ques: `A common scenario for using the useRef hook is to...`,
+    options: {
+      1: `...focus the cursor into an input field.`,
+      2: `...control a component's state. `,
+      3: `...handle side effects.`,
+    },
+    ans: 1,
+  },
+  {
+    type: "bool",
+    ques: `True or false: useReducer is a reducer function that takes in the initial state and an action and returns the new state.`,
     ans: true,
   },
   {
     type: "bool",
-    ques: "",
+    ques: `True or false: The useState hook is best suited for complex state logic or when the next state depends on the previous one.`,
+    ans: false,
+  },
+  {
+    type: "mcq",
+    ques: `The useState hook gives us a reliable way to...`,
+    options: {
+      1: `... deal with state updates in React components.`,
+      2: `... deal with state updates in React prompts.`,
+      3: `... deal with state updates in React dependency arrays.`,
+    },
+    ans: 1,
+  },
+  {
+    type: "bool",
+    ques: `True or false:  Building your own Hooks lets you extract component logic into reusable functions `,
+    ans: true,
+  },
+  {
+    type: "mcq",
+    ques: `How is array destructuring relevant to hooks in React?`,
+    options: {
+      1: `It makes it possible to handle click events.`,
+      2: `It makes it possible to reassign state objects.`,
+      3: `It is a way to get individual items from an array of items, and save those individual items as separate components.`,
+    },
+    ans: 2,
+  },
+  {
+    type: "bool",
+    ques: `
+Is the following paragraph correct?
+
+With array destructuring, you are free to give any variable name to the items that you destructure from an array. Contrary to that, when destructuring objects, you have to destructure a property of an object using that exact property's name as the name of the destructured variable.`,
+    ans: true,
+  },
+  {
+    type: "mcq",
+    ques: `The useEffect hook is a way to:`,
+    options: {
+      1: `handle a side effect. `,
+      2: `handle visual effects (animations and transitions) in React`,
+      3: `handle one-way data flows `,
+    },
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: `Which answer is correct about the following code snippet?
+    useEffect( () => {
+      if (data !== '') {
+        setData('test data')
+      }
+    })
+    `,
+    options: {
+      1: `This code is ok, except the fact that you should replace the if statement with a ternary operator.`,
+      2: `This code is breaking the rules of hooks`,
+      3: `This code is not breaking the rules of hooks`,
+    },
+    ans: 3,
+  },
+  {
+    type: "mcq",
+    ques: `Choose an example of a side-effect with which you’d need to use a useEffect hook:`,
+    options: {
+      1: `Update the value of the state variable in a child component.`,
+      2: `Run a Fetch API call in React. `,
+      3: `Render some prop values on the screen.`,
+    },
+    ans: 2,
+  },
+  {
+    type: "mcq",
+    ques: `
+        Complete the sentence:
+
+        The useState hook starts with an initial state, but...`,
+    options: {
+      1: `the useReducer hook gets a reducer function in addition to the initial state. `,
+      2: `the useReducer hook cannot be used to track the state at all.`,
+      3: `the userReducer hook must be used when the initial state is an object.`,
+    },
+    ans: 1,
+  },
+  {
+    type: "bool",
+    ques: `True or false: useRef is a custom hook in React`,
+    ans: false,
+  },
+  {
+    type: "mcq",
+    ques: `JavaScript is a single-threaded language, meaning...`,
+    options: {
+      1: `...you can use it with React only when this single thread is used with the useEffect hook.`,
+      2: `...you can use it with React only when this single thread is passed to the useState variable. `,
+      3: `...it can only do a single thing at any given time.`,
+    },
+    ans: 3,
+  },
+  {
+    type: "mcq",
+    ques: `The useEffect hook is a way to:`,
+    options: {
+      1: ``,
+      2: ``,
+      3: ``,
+    },
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: `Which statement is correct about the following code snippet:
+    import { useEffect } from "react";
+
+      function useConsoleLog(varName) {
+        useEffect(() => {
+          console.log(varName);
+        });
+      }
+
+      export default useConsoleLog;
+      
+      Choose the correct statement below.
+    `,
+    options: {
+      1: `This code is an example of an explicit state-updating function.`,
+      2: `This is an example of a custom hook.`,
+      3: `This code is an example of an implicit state-updating function.`,
+    },
+    ans: 2,
+  },
+  {
+    type: "mcq",
+    ques: `
+Find the error in this code:
+import {useState} from "react";
+
+export default function App() {
+  const [restaurantName, setRestaurantName] = useState("Lemon");
+
+  function updateRestaurantName() {
+    useRestaurantName("Little Lemon");
+  };
+
+  return (
+    <div>
+      <h1>{restaurantName}</h1>
+      <button onClick={updateRestaurantName}>
+        Update restaurant name
+      </button>
+    </div>
+  );
+};
+`,
+    options: {
+      1: `The state-setting function's variable name in the array destructuring should not be setRestaurantName. `,
+      2: `The onClick event should not be this: onClick={updateRestaurantName}`,
+      3: `The code inside the updateRestaurantName() function definition should not invoke useRestaurantName("Little Lemon")`,
+    },
+    ans: 3,
+  },
+  {
+    type: "mcq",
+    ques: `Which of the examples below are valid types for Elements? Select all that apply. (where DeleteButton is react component)`,
+    options: {
+      1: `type: <div />`,
+      2: `type: div`,
+      3: `type: button`,
+      4: `type: DeleteButton`,
+    },
+    ans: [2, 3, 4],
+  },
+  {
+    type: "mcq",
+    ques: `Which of the statements below clearly states the definitions of Containment and Specialization? Select all that apply. `,
+    options: {
+      1: `Containment refers to the fact that some components don’t know their children ahead of time`,
+      2: `Specialization defines components as being “unique” from all other components.`,
+      3: `Specialization defines components as being “special cases” of other components.`,
+    },
+    ans: [1, 3],
+  },
+  {
+    type: "mcq",
+    ques: `Which of the following operations does the React.cloneElementAPI enable a parent to perform? Select all that apply.`,
+    options: {
+      1: `Transform React props directly `,
+      2: `Add to children properties`,
+      3: `Extend the functionality of children components`,
+      4: `Modify children properties`,
+    },
+    ans: [2, 3, 4],
+  },
+  {
+    type: "mcq",
+    ques: ``,
+    options: {
+      1: ``,
+      2: ``,
+      3: ``,
+    },
+    ans: 1,
+  },
+  {
+    type: "bool",
+    ques: ``,
+    ans: true,
+  },
+  {
+    type: "bool",
+    ques: ``,
+    ans: true,
+  },
+  {
+    type: "bool",
+    ques: ``,
     ans: true,
   },
 ];

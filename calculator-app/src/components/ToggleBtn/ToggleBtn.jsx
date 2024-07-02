@@ -79,21 +79,24 @@ export default function ToggleBtn() {
   }
 
   return (
-    <>
-      <div className={"theme-number " + theme}>
-        <span>1</span>
-        <span>2</span>
-        <span>3</span>
-      </div>
-      <div className={"toggle-container " + theme}>
-        <input ref={inputRef} type="checkbox" />
-        <label htmlFor="toggle"></label>
-        <div className="toggle-btns">
-          <span onClick={uncheckToggle}></span>
-          <span onClick={indeterminateToggle}></span>
-          <span onClick={checkedToggle}></span>
+    <div className="theme">
+      <h5>THEME</h5>
+      <div>
+        <div className="theme-number">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+        </div>
+        <div className="toggle-container">
+          <input ref={inputRef} type="checkbox" />
+          <label></label>
+          <div className="toggle-btns">
+            <span onClick={uncheckToggle}></span>
+            <span onClick={indeterminateToggle}></span>
+            <span onClick={checkedToggle}></span>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

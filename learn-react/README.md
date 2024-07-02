@@ -1,4 +1,6 @@
-# Learn React
+#### [Get react hooks short notes here](/learn-react/src/hooks/readme.md)
+
+# Learn React : General questions
 
 - 1. What is react component? :- react components are JavaScript pure functions.
 - 2. What is synthetic events? :- it is cross-browser wrapper around browser events. it make sure same behaviour in all browsers.

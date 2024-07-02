@@ -3,7 +3,7 @@ import { Theme } from "./components/ThemeToggle";
 import Body from "./Body";
 import UseStateHook from "./hooks/UseState";
 import EffectHook from "./hooks/UseEffect";
-
+import MyComponent from "./client-api/createPortal";
 function App() {
   return (
     <>
@@ -12,6 +12,7 @@ function App() {
       </Theme>
       <UseStateHook />
       <EffectHook />
+      <MyComponent />
     </>
   );
 }

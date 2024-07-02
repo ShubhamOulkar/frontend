@@ -8,13 +8,49 @@
 
 # useState() <p id='useState'>
 
-This hook is used to store local data in component. This hook return array object of variable state value and function to update that state. use Array destructuring to work on it.
+This hook is used to store local data in the component. This hook return array object of state value variable and function to update that state. use Array destructuring to work on it.
 
 React re-render that component on state changes. React compare these state changes differently for primitive state values and object state values.
 
 Object are compared by reference of the object (shallow comparison). Primitive are compared by values.
 
-If these comparision is false then react re-render component if true then state are not changed.
+If these comparision is false then react re-render component if true then state are not changed so no re-rendering.
+
+Function as a initial state (initializer function)=> Function should be pure, should take no argument and return value of any type. Function with no return as initialstate returns 'undefined' on re-render.
+To avoid creating initial state on each re-render we use initializer function. Passing initializer directly will call on each re-render so it is less efficient. Do not call initializer in useState(initializer()) instead pass it as useState(initializer).
+
+Function as a nextState (updater function)=> It must be pure function , should take pending state only argument and return next state. Example of updater function setState(c => c + 1)
+
+```js
+// set function as a state, use () =>, otherwise they are called as initializers or updaters
+const [state, setState] = useState(() => someFunction);
+
+setState(() => someOtherFunction);
+
+// react updaters from previous state
+function handleClick() {
+  // react put them in a queue
+  setAge((age) => age + 1); // setAge(42 => 43)
+  setAge((age) => age + 1); // setAge(43 => 44)
+  setAge((age) => age + 1); // setAge(44 => 45)
+}
+```
+
+`set` functions do not have return values.
+
+`set` function only set value for next render. If you log state after set function you will get old value. set function only set value for next re-render, if we call it after setting new value then we get old value because old value is the value used by old render. This is because of diffing algorithm. Diffing algorithm use Object.is() to compare old with new, if it is false then re-render component.
+
+Do not call `set` update function while rendering current component, it will render component infinitely and it will crash. Calling another component 'set' while rendering is also an error.
+If you want to call `set` while rendering then use condition statements to call it or use useEffect().
+
+`Only component, initializer, and updater functions need to be pure. Event handlers don’t need to be pure, so React will never call your event handlers twice.`
+
+```js
+if (preCount !== count) {
+  setStatus(count > preCount ? "⏫" : "⏬");
+  setPrecount(count);
+}
+```
 
 # useEffect(setup:fn, dependencies:[]): undefined <p id='useEffect'>
 
@@ -73,7 +109,7 @@ Note:-
 
 # Q. When will react run cleanup function?
 
-Cleanup function is run on after re-rendering of component as wel as after component removed from DOM.
+Cleanup function is run on after re-rendering of component as well as after component removed from DOM.
 
 # useReducer() <p id='useReducer'>
 

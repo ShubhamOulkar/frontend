@@ -23,6 +23,9 @@ const navbar = [
   "context",
   "ReactMemo",
   "useEffect",
+  "useState",
+  "useRef",
+  "useReducer",
 ];
 
 export default function Body() {

@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { hydrateRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -14,6 +15,9 @@ import StandardForm from "./components/forms/StandardForm";
 import ContextComponent from "./components/ContextComponent";
 import MyApp from "./components/ReactMemo_1";
 import UseEffectExamples from "./examples/useEffect/UseEffect";
+import UseStateExamples from "./examples/useState/useState";
+import UseRefExamples from "./examples/useRef/useRef";
+import UseReducerExamples from "./examples/useReducer/useReducer";
 
 const route = createBrowserRouter([
   {
@@ -58,6 +62,18 @@ const route = createBrowserRouter([
     path: "/useEffect",
     element: <UseEffectExamples></UseEffectExamples>,
   },
+  {
+    path: "/useState",
+    element: <UseStateExamples></UseStateExamples>,
+  },
+  {
+    path: "/useRef",
+    element: <UseRefExamples></UseRefExamples>,
+  },
+  {
+    path: "/useReducer",
+    element: <UseReducerExamples></UseReducerExamples>,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -67,6 +83,29 @@ root.render(
     <RouterProvider router={route}></RouterProvider>
   </React.StrictMode>
 );
+
+const secoundRoot = ReactDOM.createRoot(
+  document.getElementById("secoundRoot"),
+  {
+    onUncaughtError: (error, errorInfo) => {
+      console.error("Uncaught error", error, errorInfo.componentStack);
+    },
+  }
+);
+
+secoundRoot.render(UseStateExamples());
+
+// Error : - Hydration failed because the initial UI does not match what was rendered on the server.
+// const root2 = hydrateRoot(
+//   document.getElementById("hydrateRoot"),
+//   <UseRefExamples />
+// );
+
+// calling render twotimes do not render complete tree
+// secoundRoot.render(<UseStateExamples />);
+
+// destroy all content from secoundRoot by using unmount()
+// secoundRoot.unmount();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -1,6 +1,12 @@
 import { useState } from "react";
 
 export default function UseStateHook() {
+  // console.log return value of useState
+  const [func, setFunc] = useState(function add(a = 10, b = 10) {
+    const c = a + b;
+    return c;
+  });
+  console.log("Return value of useState:");
   // handleing state as object
   const [heading, setHeading] = useState({ head: "Hello" });
   //handling state as primitive

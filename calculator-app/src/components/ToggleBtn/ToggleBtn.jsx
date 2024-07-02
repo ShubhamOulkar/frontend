@@ -1,11 +1,27 @@
 import "./ToggleBtn.css";
-import { useRef, useState } from "react";
-import { useThemeContext } from "../../context/themeContext";
+import { useRef, useState, useLayoutEffect } from "react";
+import { useThemeContext } from "../../context/useThemeContext";
 
 export default function ToggleBtn() {
+  // toggle btn state
   const [state, setState] = useState("");
+  // ref to change state of toggle btn in DOM
   const inputRef = useRef();
+  // get prefered theme from theme context
   const [theme, setTheme] = useThemeContext();
+
+  useLayoutEffect(() => {
+    // localStorage.setItem("DINO_TV_THEME", theme);
+
+    const root = document.documentElement;
+    const currentTheme = root.getAttribute("class");
+    const themesArray = ["theme1", "theme2", "theme3"];
+
+    if (themesArray.includes(theme)) {
+      root.classList.remove(currentTheme);
+      root.classList.add(theme);
+    }
+  }, [theme]);
 
   function uncheckToggle() {
     if (state === "indeterminate") {

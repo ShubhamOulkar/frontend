@@ -4,6 +4,8 @@
   font-weight: 400;
 
   /* color-scheme: light dark; */
+  color: var(--text-color);
+  background-color: var(--calculator-background-color);
 
   box-sizing: border-box;
   margin: 0;
@@ -56,14 +58,13 @@
   --text-color-white: hsl(0, 0%, 100%);
 }
 
-.calc {
-  color: var(--text-color);
-  background-color: var(--calculator-background-color);
-}
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+a {
+  color: var(--text-color);
 }
 
 button {

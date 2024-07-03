@@ -93,7 +93,7 @@ const secoundRoot = ReactDOM.createRoot(
   }
 );
 
-secoundRoot.render(UseStateExamples());
+// secoundRoot.render(UseStateExamples());
 
 // Error : - Hydration failed because the initial UI does not match what was rendered on the server.
 // const root2 = hydrateRoot(

@@ -111,8 +111,33 @@ Note:-
 
 Cleanup function is run on after re-rendering of component as well as after component removed from DOM.
 
-# useReducer() <p id='useReducer'>
+# useRef(initialValue) <p id='useRef'>
 
-# useRef() <p id='useRef'>
+useRef is used for referencing a value of an element in the component. Also we use this ref to manipulate DOM element.
+
+InitialValue :- Initial value is the value of ref's object current property. It can be of any type null or undefined. This value is set as current value on initial render. This value is ignored by react after initial render.
+
+useRef returns object with single property current.
+
+- 1. mutation Vs rendering :- unlike state we can mutate current value but it will not re-render on mutation.
+     But if it holds some state value then we should not mutate it.
+- 2. do not read or write ref current during rendering, this will create unpredicable component.
+- 3. useRef are not mean to be store data that is shown on the screen, instead use useState.
+- 4. function components can not be given ref's. Encapsulate child component in `forwardRef()` then pass ref to children component.
+
+  ```js
+  //   initializing ref : initial value is null
+  const inputRef = useRef(null);
+  // do not read/write while rendering component because it's initial value is null while rendering
+  // then on next line its value is overwritten with 'hi'. This will make our component unpredicable.
+  // on each re-render we can not get updated value of current because value is overwritten.
+  inputRef.current = "hi";
+
+  const inputRef = useRef("string"); //initial value is primitive string type
+  inputRef.current.value = "hi"; //Error: can not set value property on 'string'
+  // if initial value is object {value:stirg} it will not throw error but still it will overwrite all updated ref current values with 'hi' on each re-render.
+  ```
+
+# useReducer() <p id='useReducer'>
 
 # custom hooks <p id='custom'>

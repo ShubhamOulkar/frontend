@@ -138,6 +138,28 @@ useRef returns object with single property current.
   // if initial value is object {value:stirg} it will not throw error but still it will overwrite all updated ref current values with 'hi' on each re-render.
   ```
 
-# useReducer() <p id='useReducer'>
+# useReducer(reducerFun, initialState) <p id='useReducer'>
+
+When state logic for a component become complex then we combine all state logic into a single function, this function is reducer() function.
+
+useReducer returns array of component state and dispatch function to update the state. This dispatch function is different from set functions. This function takes action as a argument.
+
+```js
+export function useReducer(reducer, initialState) {
+  const [state, setState] = useState(initialState);
+
+  function dispatch(action) {
+    const nextState = reducer(state, action);
+    setState(nextState);
+  }
+
+  // OR slightly more accurate, action is queued until the next render
+  const dispatch = (action) => {
+    setState((s) => reducer(s, action));
+  };
+
+  return [state, dispatch];
+}
+```
 
 # custom hooks <p id='custom'>

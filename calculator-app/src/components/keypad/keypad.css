@@ -1,25 +1,43 @@
 .keypad-container {
-  background-color: var(--keypad-toggle-backgroundcolor);
-  padding: 1rem;
+  background-color: var(--inputscreen-background-color);
+  padding: 2rem;
   border-radius: 10px;
 
   display: grid;
-  grid-template-columns: repeat(4, 80px);
-  grid-template-rows: repeat(5, 55px);
-  gap: 1rem;
+  grid-template-columns: repeat(4, 90px);
+  grid-template-rows: repeat(5, 60px);
+  gap: 1.5rem;
 
   & :nth-last-child(1) {
     grid-column: 3 / span 2;
-    width: 177px;
+    width: 204px;
+    background-color: var(--red-key);
+    box-shadow: var(--red-key-shadow) 0px 4px 0px 0px;
+    color: white;
+
+    &:hover {
+      background-color: var(--red-key-hover);
+    }
   }
 
   & :nth-last-child(2) {
     grid-column: 1 / span 2;
-    width: 177px;
+    width: 204px;
+  }
+
+  & :nth-child(4),
+  :nth-last-child(2) {
+    background-color: var(--dark-keys-background);
+    box-shadow: var(--dark-keys-shadow) 0px 4px 0px 0px;
+    color: white;
+
+    &:is(:hover, :focus) {
+      background-color: var(--dark-keys-hover);
+    }
   }
 }
 
-@media screen and (width > 550px) {
+/* @media screen and (width > 550px) {
   .keypad-container {
     grid-template-columns: repeat(4, 90px);
     grid-template-rows: repeat(5, 60px);
@@ -33,4 +51,4 @@
       width: 200px;
     }
   }
-}
+} */

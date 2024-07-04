@@ -1,0 +1,18 @@
+button {
+  width: 90px;
+  height: 60px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-color);
+  background-color: var(--light-keys-background);
+  outline: none;
+  border: none;
+  box-shadow: var(--light-keys-shadow) 0px 3px 0px 0px;
+}
+
+button:is(:hover, :focus) {
+  background-color: var(--light-keys-hover);
+  box-shadow: var(--dark-keys-shadow) 0px 3px 0px 0px;
+}

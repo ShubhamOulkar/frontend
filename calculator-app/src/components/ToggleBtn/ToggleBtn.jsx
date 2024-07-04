@@ -9,9 +9,20 @@ export default function ToggleBtn() {
   const inputRef = useRef();
   // get prefered theme from theme context
   const [theme, setTheme] = useThemeContext();
+  useEffect(() => {
+    document.querySelectorAll(".toggle-btns > span").forEach((span, i) => {
+      span.addEventListener("keydown", (e) => {
+        if (e.key === " ") {
+          if (i === 0) uncheckToggle();
+          if (i === 1) indeterminateToggle();
+          if (i === 2) checkedToggle();
+        }
+      });
+    });
+  });
   // check theme, if user is re-visiting then render correct toggle btn state
   useEffect(() => {
-    console.log("run useEffect");
+    console.log("run useEffect to find previous theme stored");
     if (theme === "theme1") uncheckToggle();
     if (theme === "theme2") indeterminateToggle();
     if (theme === "theme3") checkedToggle();
@@ -80,8 +91,8 @@ export default function ToggleBtn() {
 
   return (
     <div className="theme">
-      <h5>THEME</h5>
-      <div>
+      <label aria-labelledby="theme-toggler">THEME</label>
+      <div id="theme-toggler">
         <div className="theme-number">
           <span>1</span>
           <span>2</span>
@@ -91,9 +102,9 @@ export default function ToggleBtn() {
           <input ref={inputRef} type="checkbox" />
           <label></label>
           <div className="toggle-btns">
-            <span onClick={uncheckToggle}></span>
-            <span onClick={indeterminateToggle}></span>
-            <span onClick={checkedToggle}></span>
+            <span tabIndex="1" onClick={uncheckToggle}></span>
+            <span tabIndex="1" onClick={indeterminateToggle}></span>
+            <span tabIndex="1" onClick={checkedToggle}></span>
           </div>
         </div>
       </div>

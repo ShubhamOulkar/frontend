@@ -49,6 +49,8 @@ Users should be able to:
 - 1. I used createContext(), useContext(), useState() react hooks for designing three step theme toggler.
 - 2. localStorage to store and update theme.
 - 3. This toggle btn is a unique component which uses checkbox three states to toggle. (checked, unchecked, indeterminate)
+- 4. Calculation logic implemented by using useReducer() and eval() js function.
+- 5. Basic sanitation are performed on calculations.
 
 ### Continued development
 

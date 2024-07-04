@@ -1,12 +1,12 @@
 .theme {
   display: flex;
   height: 40px;
-  /* justify-content: center; */
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 
-  > h5 {
-    margin-bottom: 0px;
+  > label {
+    margin-top: 15px;
+    font-size: 12px;
   }
 }
 
@@ -21,13 +21,14 @@
   height: var(--toggle-height);
   background-color: var(--keypad-toggle-backgroundcolor);
   border-radius: var(--toggle-border-radius);
-  padding: 2px;
+  padding: 5px;
 }
 
 .theme-number {
   width: 65px;
   display: flex;
   justify-content: space-around;
+  font-size: 12px;
 }
 
 .toggle-container > input[type="checkbox"] {

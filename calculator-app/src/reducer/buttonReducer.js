@@ -1,34 +1,11 @@
-const numericBtn = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-const arithmaticeBtn = ["+", "-", "×", "/", "."];
+import sanitizeString from "./sanitizer";
+import { arithmaticeBtn } from "../utils/keypadLayout";
 
-function sanitizeString(state) {
-  // replace '×' with asteric and remove leading zeros.
-  const sanitizeValue = state.replace("×", "*").replace(/\b0+(?!\b|\.)/g, "");
-  //.replace(/[/*]/, ""); //1st occuarance of * and /
-  // remove last operator if exist
-  const lastOperatorChecker = /[+\-×/.]$/;
-  if (lastOperatorChecker.test(sanitizeValue)) {
-    const cleanValue = sanitizeValue.slice(0, -1);
-    return eval(cleanValue).toString();
-  }
-  return eval(sanitizeValue).toString();
-}
-
-export function findBtnType(buttonValue) {
-  let type;
-  if (numericBtn.includes(buttonValue)) type = "numeric";
-  if (arithmaticeBtn.includes(buttonValue)) type = "arith";
-  if (buttonValue === "RESET") type = "reset";
-  if (buttonValue === "« DEL") type = "backspace";
-  if (buttonValue === "=") type = "evaluate";
-
-  return type;
-}
-
-export function buttonReducer(state, action) {
+export default function buttonReducer(state, action) {
   switch (action.type) {
     case "numeric":
       return state === "0" ? action.buttonValue : state + action.buttonValue;
+    // : addComma(state.replace(/,/g, "") + action.buttonValue);
 
     case "arith":
       return state === "0"

@@ -16,3 +16,17 @@ button:is(:hover, :focus) {
   background-color: var(--light-keys-hover);
   box-shadow: var(--dark-keys-shadow) 0px 3px 0px 0px;
 }
+
+@media screen and (width < 550px) {
+  button {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media screen and (width < 380px) {
+  button {
+    width: 55px;
+    height: 55px;
+  }
+}

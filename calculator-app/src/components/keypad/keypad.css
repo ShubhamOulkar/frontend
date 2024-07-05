@@ -4,8 +4,8 @@
   border-radius: 10px;
 
   display: grid;
-  grid-template-columns: repeat(4, 90px);
-  grid-template-rows: repeat(5, 60px);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   gap: 1.5rem;
 
   & :nth-last-child(1) {
@@ -37,18 +37,36 @@
   }
 }
 
-/* @media screen and (width > 550px) {
+@media screen and (width < 550px) {
   .keypad-container {
-    grid-template-columns: repeat(4, 90px);
-    grid-template-rows: repeat(5, 60px);
-    gap: 1.5rem;
+    gap: 2rem;
 
     & :nth-last-child(2) {
-      width: 200px;
+      width: 150px;
     }
 
     & :nth-last-child(1) {
-      width: 200px;
+      width: 150px;
     }
   }
-} */
+}
+
+@media screen and (width < 380px) {
+  .keypad-container {
+    gap: 1rem;
+    padding: 1rem;
+
+    & :nth-last-child(2) {
+      width: 125px;
+      font-size: 20px;
+    }
+
+    & :nth-last-child(1) {
+      width: 125px;
+    }
+
+    & :nth-child(4) {
+      font-size: 12px;
+    }
+  }
+}

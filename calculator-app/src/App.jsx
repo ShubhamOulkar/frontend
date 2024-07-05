@@ -4,8 +4,8 @@ import Screen from "./components/screen/Screen";
 import KeyPad from "./components/keypad/KeyPad";
 import { useEffect, useReducer } from "react";
 import { keyMap } from "./utils/keysMap";
-import { buttonReducer } from "./reducer/buttonReducer";
-import { findBtnType } from "./reducer/buttonReducer";
+import buttonReducer from "./reducer/buttonReducer";
+import findBtnType from "./reducer/findActionType";
 
 function App() {
   const [value, dispatchValue] = useReducer(buttonReducer, "0");
@@ -51,7 +51,6 @@ function App() {
     //   type: type,
     //   buttonValue: buttonValue,
     // });
-    // setExpression(newExpression);
   };
 
   return (

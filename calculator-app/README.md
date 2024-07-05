@@ -51,11 +51,19 @@ Users should be able to:
 - 3. This toggle btn is a unique component which uses checkbox three states to toggle. (checked, unchecked, indeterminate)
 - 4. Calculation logic implemented by using useReducer() and eval() js function.
 - 5. Basic sanitation are performed on calculations.
+     - remove sequential repeating arithmatic operators (logic written in reducer)
+     - remove '×' with asterics '\*' (sanitization function)
+     - removing operators if they are present in last position
+     - removing '\*' and '/' operators if they are present at start
+     - removing ',' commans while evaluation
+- 6. Writing calculation logic using useReducer, help me writing modular code structure and easy to maintain.
+     Adding commas function after evaluation was easy because of useReducer logic.
 
 ### Continued development
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- GitHub -[@ShubhamOulkar](https://github.com/ShubhamOulkar)
+- Frontend Mentor - [@ShubhamOulkar](https://www.frontendmentor.io/profile/ShubhamOulkar)
+- Twitter - [@shubhuoulkar](https://twitter.com/shubhuoulkar)
+- LinkedIn - [Shubham oulkar](https://www.linkedin.com/in/shubham-oulkar-372797217/)

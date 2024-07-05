@@ -3,6 +3,7 @@
   height: 40px;
   align-items: center;
   gap: 2rem;
+  margin-right: 4px;
 
   > label {
     margin-top: 15px;

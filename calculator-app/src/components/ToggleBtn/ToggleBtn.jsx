@@ -10,16 +10,27 @@ export default function ToggleBtn() {
   // get prefered theme from theme context
   const [theme, setTheme] = useThemeContext();
   useEffect(() => {
-    document.querySelectorAll(".toggle-btns > span").forEach((span, i) => {
-      span.addEventListener("keydown", (e) => {
-        if (e.key === " ") {
-          if (i === 0) uncheckToggle();
-          if (i === 1) indeterminateToggle();
-          if (i === 2) checkedToggle();
-        }
-      });
+    const handleKeyDown = (e, i) => {
+      if (e.key === " ") {
+        if (i === 0) uncheckToggle();
+        if (i === 1) indeterminateToggle();
+        if (i === 2) checkedToggle();
+      }
+    };
+
+    const spans = document.querySelectorAll(".toggle-btns > span");
+
+    spans.forEach((span, i) => {
+      span.addEventListener("keydown", (e) => handleKeyDown(e, i));
     });
-  });
+
+    // Cleanup event listeners on component unmount
+    return () => {
+      spans.forEach((span, i) => {
+        span.removeEventListener("keydown", (e) => handleKeyDown(e, i));
+      });
+    };
+  }); // removing depenedency array because toggle show  position on each render.
   // check theme, if user is re-visiting then render correct toggle btn state
   useEffect(() => {
     console.log("run useEffect to find previous theme stored");
@@ -52,7 +63,7 @@ export default function ToggleBtn() {
   // on state change in checkbox (checked, indeterminate, unchecked) element,
   // checkbox renders corresponding style to that state.
   function uncheckToggle() {
-    if (state === "indeterminate") {
+    if (state === "") {
       inputRef.current.indeterminate = false;
     }
 
@@ -102,9 +113,9 @@ export default function ToggleBtn() {
           <input ref={inputRef} type="checkbox" />
           <label></label>
           <div className="toggle-btns">
-            <span tabIndex="1" onClick={uncheckToggle}></span>
-            <span tabIndex="1" onClick={indeterminateToggle}></span>
-            <span tabIndex="1" onClick={checkedToggle}></span>
+            <span tabIndex="0" onClick={uncheckToggle}></span>
+            <span tabIndex="0" onClick={indeterminateToggle}></span>
+            <span tabIndex="0" onClick={checkedToggle}></span>
           </div>
         </div>
       </div>

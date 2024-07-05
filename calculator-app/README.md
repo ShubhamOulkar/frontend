@@ -27,12 +27,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./public/mobileView.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [live](https://deluxe-melba-839030.netlify.app/)
+- Live Site URL: [github](https://github.com/ShubhamOulkar/frontend/tree/main/calculator-app)
 
 ## My process
 

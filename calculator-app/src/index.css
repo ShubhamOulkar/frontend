@@ -1,0 +1,115 @@
+:root {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  /* color-scheme: light dark; */
+  color: var(--text-color);
+  background-color: var(--calculator-background-color);
+
+  box-sizing: border-box;
+  margin: 0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.theme1 {
+  --calculator-background-color: hsl(222, 26%, 31%);
+  --inputscreen-background-color: hsl(224, 36%, 15%);
+  --keypad-toggle-backgroundcolor: hsl(223, 31%, 20%);
+  --dark-keys-background: hsl(225, 21%, 49%);
+  --dark-keys-shadow: hsl(224, 28%, 35%);
+  --dark-keys-hover: hsl(226, 19%, 63%);
+  --red-key: hsl(6, 63%, 50%);
+  --red-key-shadow: hsl(6, 70%, 34%);
+  --red-key-hover: hsl(6, 61%, 56%);
+  --light-keys-background: hsl(30, 25%, 89%);
+  --light-keys-shadow: hsl(28, 16%, 65%);
+  --text-color: hsl(221, 14%, 31%);
+  --text-color-white: hsl(0, 0%, 100%);
+  --light-keys-hover: white;
+}
+
+.theme2 {
+  --calculator-background-color: hsl(45, 7%, 89%);
+  --inputscreen-background-color: hsl(60, 2%, 79%);
+  --keypad-toggle-backgroundcolor: hsl(0, 5%, 81%);
+  --dark-keys-background: hsl(185, 42%, 37%);
+  --dark-keys-shadow: hsl(185, 58%, 25%);
+  --dark-keys-hover: hsl(185, 24%, 48%);
+  --red-key: hsl(25, 98%, 40%);
+  --red-key-shadow: hsl(25, 99%, 27%);
+  --red-key-hover: rgb(202, 114, 51);
+  --light-keys-background: hsl(0, 0%, 93%);
+  --light-keys-shadow: hsl(0, 3%, 58%);
+  --light-keys-hover: white;
+  --text-color: hsl(60, 10%, 19%);
+  --text-color-white: hsl(60, 10%, 19%);
+}
+
+.theme3 {
+  --calculator-background-color: hsl(268, 75%, 9%);
+  --inputscreen-background-color: hsl(268, 71%, 12%);
+  --keypad-toggle-backgroundcolor: hsl(269, 51%, 31%);
+  --dark-keys-background: hsl(281, 89%, 26%);
+  --dark-keys-shadow: hsl(285, 91%, 52%);
+  --dark-keys-hover: hsl(281, 54%, 38%);
+  --red-key: hsl(176, 100%, 44%);
+  --red-key-shadow: hsl(177, 92%, 70%);
+  --red-key-hover: hsl(176, 86%, 56%);
+  --light-keys-background: hsl(268, 47%, 21%);
+  --light-keys-shadow: hsl(290, 57%, 36%);
+  --text-color-gray: hsl(198, 20%, 13%);
+  --text-color: hsl(52, 100%, 62%);
+  --text-color-white: hsl(52, 100%, 62%);
+  --light-keys-hover: hsl(290, 56%, 39%);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+#root,
+.attribution {
+  width: 500px;
+}
+
+.attribution {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-color-white);
+}
+
+a {
+  color: var(--text-color-white);
+}
+
+@media screen and (width < 550px) {
+  #root,
+  .attribution {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */

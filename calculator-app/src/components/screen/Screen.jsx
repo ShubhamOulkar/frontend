@@ -4,7 +4,10 @@ export default function Screen({ value }) {
   return (
     <div className="screen">
       {/* <p>{expression}</p> */}
-      <input type="text" value={value} tabIndex="-1" readOnly />
+      <label htmlFor="screen" hidden>
+        Calculator screen
+      </label>
+      <input id="screen" type="text" value={value} tabIndex="-1" readOnly />
     </div>
   );
 }

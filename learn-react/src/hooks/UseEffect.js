@@ -4,12 +4,22 @@ export default function EffectHook() {
   const [title, setTitle] = useState("Home");
   const [state, setState] = useState("");
 
-  useEffect(() => {
+  function cleanup() {
+    console.log("cleanup function undoing all set by setup function.");
+  }
+
+  const returnUseEffect = useEffect(() => {
     console.log(
       "useEffect performs side effect on re-render or on dependency array."
     );
     document.title = title;
+
+    return () => {
+      cleanup();
+    };
   }, [title]);
+
+  console.log("returnUseEffect", returnUseEffect);
 
   function changeTabTitle() {
     setTitle(title === "Home" ? "New tab title" : "Home");

@@ -55,5 +55,5 @@ root.render(<App />);
 # createPortal(children, domNode, key?)
 
 - childern node is placed inside DOM node, it teleport children component to domNode given.
-- A portal only cj=hanges the physical placement of the DOM mode.
+- A portal only changes the physical placement of the DOM mode.
 -

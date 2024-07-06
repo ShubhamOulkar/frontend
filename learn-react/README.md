@@ -112,10 +112,50 @@ export default function useConsoleLog(value) {
   - functions
   - null, undefined, false, true are all valid childrens but do not render anything. (except zero '0') (these are useful while conditional rendering)
 
-- Following children render same output
+- Following children render same output in react
   `<div />`
   `<div></div>`
   `<div>{false}</div>`
   `<div>{null}</div>`
   `<div>{undefined}</div>`
   `<div>{true}</div>`
+
+- 23. Elements tree in react :- Elements tree is plain object in react which is representation of react component and DOM.
+
+```js
+const Logout = ()={
+  <div>
+    <p>DomElement</p>
+    <SubmitButtom color='blue' />
+  </div>
+}
+```
+
+Element tree of above JSX will be
+
+```
+{
+  type : 'div',
+  props: {
+    children: [
+                {
+                  type: 'p',
+                  props: {
+                    children: 'DomElement',
+                  },
+                },
+                {
+                  type: 'SubmitButton',
+                  props: {
+                    color: 'blue',
+                  },
+                },
+    ],
+  }
+}
+```
+
+- 24. Manipulation children dynamically in JSX. [See details on Children and cloneElement api.](./src/manipulateChildren/readme.md)
+      Use Top level API: React.cloneElement, React.Children (note: it is cap C)
+
+      `Children()` api is used to manipulate children received from 'children' prop.

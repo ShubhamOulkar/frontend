@@ -1677,6 +1677,174 @@ export default function App() {
   },
   {
     type: "mcq",
+    ques: `Assume: In the RadioGroup component, when cloning each child element (RadioOption), what’s the condition that determines the value of the new checked prop that gets merged into the existing props of each RadioOption component? Know that the RadioGroup component has three props - onChange, selected and children - and that each RadioOption component receives two props - value and children.
+
+`,
+    options: {
+      1: `React.cloneElement(child, {
+  onChange,
+  checked: child.checked === true,
+});`,
+      2: `React.cloneElement(child, {
+  onChange,
+  checked: child.props.value === selected,
+});`,
+      3: `React.cloneElement(child, {
+  onChange,
+  checked: child.props.selected,
+});`,
+    },
+    ans: 2,
+  },
+  {
+    type: "mcq",
+    ques: `Inside the RadioOption component, what should be the value of the onChange prop from the radio input element? Recall that the RadioOption component receives four props - value, checked, onChange and children.`,
+    options: {
+      1: `<input type="radio" onChange={() => onChange(props.value)}`,
+      2: `<input type="radio" onChange={e => onChange(e.target.value)} />`,
+      3: `<input type="radio" onChange={props.onChange} /> `,
+    },
+    ans: 2,
+  },
+  {
+    type: "mcq",
+    ques: `Question 3
+What are the arguments that the React.Children.map function receives?`,
+    options: {
+      1: `The first argument is the children prop, and there is no second argument.`,
+      2: `The first argument is the children prop, and the second argument is a transformation function that returns a new React element.`,
+      3: `The first argument is the children prop, and the second argument is a predicate function that returns a boolean.`,
+    },
+    ans: 2,
+  },
+  {
+    type: "mcq",
+    ques: `A simple welcome screen for restaurant has been built, where users are able to sign up or login, depending on whether they have an account or not. The App component renders two buttons and uses the Button component for the sign up and the LoginButton component for log in.  
+
+Both buttons make use of the onClick handler, to show an alert about the intended action when they are pressed. 
+
+The same alert message that has been provided for Sign up, is used on the LoginButton component, hence overriding the onClick handler that the LoginButton already defines internally. 
+
+What would the message of the alert be when the Sign up button is clicked? `,
+    options: {
+      1: `Signing up`,
+      2: `Logging in`,
+      3: `Depends on order of spread operator or props`,
+      4: `Defining same prop is invalid`,
+    },
+    ans: [3, 4],
+  },
+  {
+    type: "mcq",
+    ques: `Let’s suppose you have the below JSX that gets returned from a component, what would be the equivalent object representation (Element) that React will create internally?
+     <button className='button-primary'>
+      <div>
+          Submit
+      </div>
+    </button>
+    `,
+    options: {
+      1: ` {
+    type: Button,
+    props: {
+        className: "button-primary",
+        children: "div",
+    },
+}`,
+      2: `{
+    type: "button",
+    props: {
+        className: "button-primary",
+        children: {
+            type: "div",
+            props: {
+                children: "Submit",
+            } 
+        },
+    },
+}`,
+      3: `{
+    type: "button",
+    props: {
+        className: "button-primary",
+        children: {
+            type: "div",
+            children: "Submit"
+        },
+    },
+}`,
+    },
+    ans: 2,
+  },
+  {
+    type: "mcq",
+    ques: `What is the concept of component specialization?`,
+    options: {
+      1: `A component defined as a special case of another more generic component. `,
+      2: `A component that is designed to fulfill one specific purpose and nothing else.`,
+      3: `A component that doesn’t know its children ahead of time and acts as a generic box.`,
+    },
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: `You would like to clone a React element by using the React.cloneElement API, where the particular element has the below structure:
+    const buttonElement = {
+          type: SubmitButton,
+          props: {
+            color: "green",
+            children: "Submit!",
+          },
+    };
+    What would be the value of the variable output when using the API with the following parameters?
+    const output = React.cloneElement(buttonElement, {disabled: true, color: “blue” });
+    `,
+    options: {
+      1: `const output = React.cloneElement(buttonElement, {disabled: true, color: “blue” });`,
+      2: `{
+  type: SubmitButton,
+  props: {
+    disabled: true,
+    color: "blue",
+  },
+};`,
+      3: `{
+  type: SubmitButton,
+  props: {
+    color: "green",
+    children: "Submit!",
+    disabled: true,
+  },
+};`,
+    },
+    ans: 1,
+  },
+  {
+    type: "mcq",
+    ques: `Imagine you are using the spread operator in the below component as follows:
+    const props = { title: "tiramisu", cal: 400 };
+    const element = <Component title="cake" {...props} cal={500} />;
+    What would be the value of element.props?`,
+    options: {
+      1: `{ title: "tiramisu", cal: 400 } `,
+      2: `{ title: "cake", cal: 400 }`,
+      3: `{ title: "tiramisu", cal: 500 }`,
+    },
+    ans: 3,
+  },
+  {
+    type: "mcq",
+    ques: `Amongst the below expressions, select all that will not render anything on the screen when being used in JSX.`,
+    options: {
+      1: `<div>{false}</div>`,
+      2: `<div>{null}</div>`,
+      3: `<div>{(() => true)()}</div>`,
+      4: `<div>{undefined}</div>`,
+    },
+    ans: [1, 2, 3, 4],
+  },
+  {
+    type: "mcq",
     ques: ``,
     options: {
       1: ``,

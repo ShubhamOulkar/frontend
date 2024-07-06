@@ -123,7 +123,7 @@ useRef returns object with single property current.
      But if it holds some state value then we should not mutate it.
 - 2. do not read or write ref current during rendering, this will create unpredicable component.
 - 3. useRef are not mean to be store data that is shown on the screen, instead use useState.
-- 4. function components can not be given ref's. Encapsulate child component in `forwardRef()` then pass ref to children component.
+- 4. we can not pass ref's as props Encapsulate child component in `forwardRef()` then pass ref to children component.
 
   ```js
   //   initializing ref : initial value is null

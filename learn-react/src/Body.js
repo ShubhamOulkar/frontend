@@ -10,6 +10,7 @@ import Test from "./components/test";
 import Footer from "./components/Footer";
 import { ThemeContext } from "./components/ThemeToggle";
 import { useContext } from "react";
+import RadioComponent from "./components/radioGroup/radio";
 
 const todayMeals = ["roti", "curry", "rice", "papad"];
 
@@ -56,6 +57,8 @@ export default function Body() {
   }
   return (
     <div id="body" className={theme}>
+      <RadioComponent />
+
       <button className={theme} onClick={() => fun()}>
         Theme {theme}
       </button>

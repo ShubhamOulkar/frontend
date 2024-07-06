@@ -1,5 +1,5 @@
 import "./ToggleBtn.css";
-import { useRef, useLayoutEffect, useEffect } from "react";
+import { useRef, useLayoutEffect, useEffect, useCallback } from "react";
 import { useThemeContext } from "../../context/useThemeContext";
 
 export default function ToggleBtn() {
@@ -7,6 +7,44 @@ export default function ToggleBtn() {
   const inputRef = useRef();
   // get prefered theme from theme context
   const [theme, setTheme] = useThemeContext();
+
+  const uncheckToggle = useCallback(() => {
+    if (theme === "theme2") {
+      inputRef.current.indeterminate = false;
+    }
+
+    if (theme === "theme3") {
+      inputRef.current.checked = false;
+    }
+
+    setTheme("theme1");
+  }, [setTheme, theme]);
+
+  const indeterminateToggle = useCallback(() => {
+    if (theme === "theme1") {
+      inputRef.current.indeterminate = true;
+    }
+
+    if (theme === "theme3") {
+      inputRef.current.checked = false;
+      inputRef.current.indeterminate = true;
+    }
+
+    setTheme("theme2");
+  }, [setTheme, theme]);
+
+  const checkedToggle = useCallback(() => {
+    if (theme === "theme2") {
+      inputRef.current.indeterminate = false;
+      inputRef.current.checked = true;
+    }
+
+    if (theme === "theme1") {
+      inputRef.current.checked = true;
+    }
+
+    setTheme("theme3");
+  }, [setTheme, theme]);
 
   // add keyboard events on toggle btn
   useEffect(() => {
@@ -75,43 +113,43 @@ export default function ToggleBtn() {
   // on state change in checkbox (checked, indeterminate, unchecked) element,
   // checkbox renders corresponding style to that state.
 
-  function uncheckToggle() {
-    if (theme === "theme2") {
-      inputRef.current.indeterminate = false;
-    }
+  // function uncheckToggle() {
+  //   if (theme === "theme2") {
+  //     inputRef.current.indeterminate = false;
+  //   }
 
-    if (theme === "theme3") {
-      inputRef.current.checked = false;
-    }
+  //   if (theme === "theme3") {
+  //     inputRef.current.checked = false;
+  //   }
 
-    setTheme("theme1");
-  }
+  //   setTheme("theme1");
+  // }
 
-  function indeterminateToggle() {
-    if (theme === "theme1") {
-      inputRef.current.indeterminate = true;
-    }
+  // function indeterminateToggle() {
+  //   if (theme === "theme1") {
+  //     inputRef.current.indeterminate = true;
+  //   }
 
-    if (theme === "theme3") {
-      inputRef.current.checked = false;
-      inputRef.current.indeterminate = true;
-    }
+  //   if (theme === "theme3") {
+  //     inputRef.current.checked = false;
+  //     inputRef.current.indeterminate = true;
+  //   }
 
-    setTheme("theme2");
-  }
+  //   setTheme("theme2");
+  // }
 
-  function checkedToggle() {
-    if (theme === "theme2") {
-      inputRef.current.indeterminate = false;
-      inputRef.current.checked = true;
-    }
+  // function checkedToggle() {
+  //   if (theme === "theme2") {
+  //     inputRef.current.indeterminate = false;
+  //     inputRef.current.checked = true;
+  //   }
 
-    if (theme === "theme1") {
-      inputRef.current.checked = true;
-    }
+  //   if (theme === "theme1") {
+  //     inputRef.current.checked = true;
+  //   }
 
-    setTheme("theme3");
-  }
+  //   setTheme("theme3");
+  // }
 
   return (
     <div className="theme">

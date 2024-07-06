@@ -1,17 +1,75 @@
 import "./ToggleBtn.css";
-import { useRef, useState, useLayoutEffect, useEffect } from "react";
+import {
+  useRef,
+  useLayoutEffect,
+  useEffect,
+  useCallback,
+  useReducer,
+} from "react";
 import { useThemeContext } from "../../context/useThemeContext";
 
+function themeReducer(state, action) {
+  switch (action.type) {
+    case "theme1":
+      return "theme1";
+    case "theme2":
+      return "theme2";
+    case "theme3":
+      return "theme3";
+    default:
+      throw Error("this is invalid theme:", action.type);
+  }
+}
+
 export default function ToggleBtn() {
-  // toggle btn state
-  const [state, setState] = useState("");
   // ref to change state of toggle btn in DOM
   const inputRef = useRef();
   // get prefered theme from theme context
-  const [theme, setTheme] = useThemeContext();
+  //const [theme, setTheme] = useThemeContext();
+  const [theme, dispatchTheme] = useReducer(themeReducer, null);
+
+  const uncheckToggle = useCallback(() => {
+    if (theme === "theme2") {
+      inputRef.current.indeterminate = false;
+    }
+
+    if (theme === "theme3") {
+      inputRef.current.checked = false;
+    }
+    dispatchTheme({ type: "theme1" });
+    // setTheme("theme1");
+  }, [theme]);
+
+  const indeterminateToggle = useCallback(() => {
+    if (theme === "theme1") {
+      inputRef.current.indeterminate = true;
+    }
+
+    if (theme === "theme3") {
+      inputRef.current.checked = false;
+      inputRef.current.indeterminate = true;
+    }
+    dispatchTheme({ type: "theme2" });
+    // setTheme("theme2");
+  }, [theme]);
+
+  const checkedToggle = useCallback(() => {
+    if (theme === "theme2") {
+      inputRef.current.indeterminate = false;
+      inputRef.current.checked = true;
+    }
+
+    if (theme === "theme1") {
+      inputRef.current.checked = true;
+    }
+    dispatchTheme({ type: "theme3" });
+    // setTheme("theme3");
+  }, [theme]);
+
+  // add keyboard events on toggle btn
   useEffect(() => {
     const handleKeyDown = (e, i) => {
-      if (e.key === " ") {
+      if (e.key === "Enter") {
         if (i === 0) uncheckToggle();
         if (i === 1) indeterminateToggle();
         if (i === 2) checkedToggle();
@@ -30,18 +88,38 @@ export default function ToggleBtn() {
         span.removeEventListener("keydown", (e) => handleKeyDown(e, i));
       });
     };
-  }); // removing depenedency array because toggle show  position on each render.
-  // check theme, if user is re-visiting then render correct toggle btn state
+  }, [uncheckToggle, indeterminateToggle, checkedToggle]);
+
+  // this side effect only run once
   useEffect(() => {
-    console.log("run useEffect to find previous theme stored");
-    if (theme === "theme1") uncheckToggle();
-    if (theme === "theme2") indeterminateToggle();
-    if (theme === "theme3") checkedToggle();
+    // get theme from local storage on revisite
+    const themeLocal = localStorage.getItem("calculator_theme");
+
+    if (!themeLocal) dispatchTheme({ type: "theme1" });
+
+    // toggle btn position unchecked on revisiting
+    if (themeLocal === "theme1") {
+      dispatchTheme({ type: "theme1" });
+      inputRef.current.checked = false;
+      inputRef.current.indeterminate = false;
+    }
+    // toggle btn position indeterministic on revisiting
+    if (themeLocal === "theme2") {
+      dispatchTheme({ type: "theme2" });
+      inputRef.current.checked = false;
+      inputRef.current.indeterminate = true;
+    }
+    // toggle btn position checked on revisiting
+    if (themeLocal === "theme3") {
+      dispatchTheme({ type: "theme3" });
+      inputRef.current.checked = true;
+      inputRef.current.indeterminate = false;
+    }
   }, []);
-  // using layout effect hook because DOM re-renders on theme change
+
   useLayoutEffect(() => {
     // set theme in local storage
-    localStorage.setItem("calculator_theme", theme);
+    theme && localStorage.setItem("calculator_theme", theme);
     // get html element
     const root = document.documentElement;
     // get current theme from html element
@@ -62,43 +140,44 @@ export default function ToggleBtn() {
   // Theme btn use three states of type='checkbox' DOM element
   // on state change in checkbox (checked, indeterminate, unchecked) element,
   // checkbox renders corresponding style to that state.
-  function uncheckToggle() {
-    if (state === "") {
-      inputRef.current.indeterminate = false;
-    }
 
-    if (state === "checked") {
-      inputRef.current.checked = false;
-    }
-    setState("");
-    setTheme("theme1");
-  }
+  // function uncheckToggle() {
+  //   if (theme === "theme2") {
+  //     inputRef.current.indeterminate = false;
+  //   }
 
-  function indeterminateToggle() {
-    if (state === "") {
-      inputRef.current.indeterminate = true;
-    }
+  //   if (theme === "theme3") {
+  //     inputRef.current.checked = false;
+  //   }
 
-    if (state === "checked") {
-      inputRef.current.checked = false;
-      inputRef.current.indeterminate = true;
-    }
-    setState("indeterminate");
-    setTheme("theme2");
-  }
+  //   setTheme("theme1");
+  // }
 
-  function checkedToggle() {
-    if (state === "indeterminate") {
-      inputRef.current.indeterminate = false;
-      inputRef.current.checked = true;
-    }
+  // function indeterminateToggle() {
+  //   if (theme === "theme1") {
+  //     inputRef.current.indeterminate = true;
+  //   }
 
-    if (state === "") {
-      inputRef.current.checked = true;
-    }
-    setState("checked");
-    setTheme("theme3");
-  }
+  //   if (theme === "theme3") {
+  //     inputRef.current.checked = false;
+  //     inputRef.current.indeterminate = true;
+  //   }
+
+  //   setTheme("theme2");
+  // }
+
+  // function checkedToggle() {
+  //   if (theme === "theme2") {
+  //     inputRef.current.indeterminate = false;
+  //     inputRef.current.checked = true;
+  //   }
+
+  //   if (theme === "theme1") {
+  //     inputRef.current.checked = true;
+  //   }
+
+  //   setTheme("theme3");
+  // }
 
   return (
     <div className="theme">

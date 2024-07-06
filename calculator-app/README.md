@@ -59,6 +59,8 @@ Users should be able to:
 - 6. Writing calculation logic using useReducer, help me writing modular code structure and easy to maintain.
      Adding commas function after evaluation was easy because of useReducer logic.
 
+- 7. Three step Toggle theme also implemented with useReducer() and useCallback() (because some functions are called again and again to I decided to memoise them). This design will improve our redability and maintainability of component. It will be easier to add more toggle steps.
+
 ### Continued development
 
 ## Author

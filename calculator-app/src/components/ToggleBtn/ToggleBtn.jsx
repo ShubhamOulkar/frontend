@@ -1,12 +1,32 @@
 import "./ToggleBtn.css";
-import { useRef, useLayoutEffect, useEffect, useCallback } from "react";
+import {
+  useRef,
+  useLayoutEffect,
+  useEffect,
+  useCallback,
+  useReducer,
+} from "react";
 import { useThemeContext } from "../../context/useThemeContext";
+
+function themeReducer(state, action) {
+  switch (action.type) {
+    case "theme1":
+      return "theme1";
+    case "theme2":
+      return "theme2";
+    case "theme3":
+      return "theme3";
+    default:
+      throw Error("this is invalid theme:", action.type);
+  }
+}
 
 export default function ToggleBtn() {
   // ref to change state of toggle btn in DOM
   const inputRef = useRef();
   // get prefered theme from theme context
-  const [theme, setTheme] = useThemeContext();
+  //const [theme, setTheme] = useThemeContext();
+  const [theme, dispatchTheme] = useReducer(themeReducer, null);
 
   const uncheckToggle = useCallback(() => {
     if (theme === "theme2") {
@@ -16,9 +36,9 @@ export default function ToggleBtn() {
     if (theme === "theme3") {
       inputRef.current.checked = false;
     }
-
-    setTheme("theme1");
-  }, [setTheme, theme]);
+    dispatchTheme({ type: "theme1" });
+    // setTheme("theme1");
+  }, [theme]);
 
   const indeterminateToggle = useCallback(() => {
     if (theme === "theme1") {
@@ -29,9 +49,9 @@ export default function ToggleBtn() {
       inputRef.current.checked = false;
       inputRef.current.indeterminate = true;
     }
-
-    setTheme("theme2");
-  }, [setTheme, theme]);
+    dispatchTheme({ type: "theme2" });
+    // setTheme("theme2");
+  }, [theme]);
 
   const checkedToggle = useCallback(() => {
     if (theme === "theme2") {
@@ -42,9 +62,9 @@ export default function ToggleBtn() {
     if (theme === "theme1") {
       inputRef.current.checked = true;
     }
-
-    setTheme("theme3");
-  }, [setTheme, theme]);
+    dispatchTheme({ type: "theme3" });
+    // setTheme("theme3");
+  }, [theme]);
 
   // add keyboard events on toggle btn
   useEffect(() => {
@@ -72,18 +92,26 @@ export default function ToggleBtn() {
 
   // this side effect only run once
   useEffect(() => {
+    // get theme from local storage on revisite
+    const themeLocal = localStorage.getItem("calculator_theme");
+
+    if (!themeLocal) dispatchTheme({ type: "theme1" });
+
     // toggle btn position unchecked on revisiting
-    if (theme === "theme1") {
+    if (themeLocal === "theme1") {
+      dispatchTheme({ type: "theme1" });
       inputRef.current.checked = false;
       inputRef.current.indeterminate = false;
     }
     // toggle btn position indeterministic on revisiting
-    if (theme === "theme2") {
+    if (themeLocal === "theme2") {
+      dispatchTheme({ type: "theme2" });
       inputRef.current.checked = false;
       inputRef.current.indeterminate = true;
     }
     // toggle btn position checked on revisiting
-    if (theme === "theme3") {
+    if (themeLocal === "theme3") {
+      dispatchTheme({ type: "theme3" });
       inputRef.current.checked = true;
       inputRef.current.indeterminate = false;
     }
@@ -91,7 +119,7 @@ export default function ToggleBtn() {
 
   useLayoutEffect(() => {
     // set theme in local storage
-    localStorage.setItem("calculator_theme", theme);
+    theme && localStorage.setItem("calculator_theme", theme);
     // get html element
     const root = document.documentElement;
     // get current theme from html element

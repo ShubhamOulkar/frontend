@@ -1,17 +1,17 @@
 import "./ToggleBtn.css";
-import { useRef, useState, useLayoutEffect, useEffect } from "react";
+import { useRef, useLayoutEffect, useEffect } from "react";
 import { useThemeContext } from "../../context/useThemeContext";
 
 export default function ToggleBtn() {
-  // toggle btn state
-  const [state, setState] = useState("");
   // ref to change state of toggle btn in DOM
   const inputRef = useRef();
   // get prefered theme from theme context
   const [theme, setTheme] = useThemeContext();
+
+  // add keyboard events on toggle btn
   useEffect(() => {
     const handleKeyDown = (e, i) => {
-      if (e.key === " ") {
+      if (e.key === "Enter") {
         if (i === 0) uncheckToggle();
         if (i === 1) indeterminateToggle();
         if (i === 2) checkedToggle();
@@ -30,15 +30,27 @@ export default function ToggleBtn() {
         span.removeEventListener("keydown", (e) => handleKeyDown(e, i));
       });
     };
-  }); // removing depenedency array because toggle show  position on each render.
-  // check theme, if user is re-visiting then render correct toggle btn state
+  }, [uncheckToggle, indeterminateToggle, checkedToggle]);
+
+  // this side effect only run once
   useEffect(() => {
-    console.log("run useEffect to find previous theme stored");
-    if (theme === "theme1") uncheckToggle();
-    if (theme === "theme2") indeterminateToggle();
-    if (theme === "theme3") checkedToggle();
+    // toggle btn position unchecked on revisiting
+    if (theme === "theme1") {
+      inputRef.current.checked = false;
+      inputRef.current.indeterminate = false;
+    }
+    // toggle btn position indeterministic on revisiting
+    if (theme === "theme2") {
+      inputRef.current.checked = false;
+      inputRef.current.indeterminate = true;
+    }
+    // toggle btn position checked on revisiting
+    if (theme === "theme3") {
+      inputRef.current.checked = true;
+      inputRef.current.indeterminate = false;
+    }
   }, []);
-  // using layout effect hook because DOM re-renders on theme change
+
   useLayoutEffect(() => {
     // set theme in local storage
     localStorage.setItem("calculator_theme", theme);
@@ -62,41 +74,42 @@ export default function ToggleBtn() {
   // Theme btn use three states of type='checkbox' DOM element
   // on state change in checkbox (checked, indeterminate, unchecked) element,
   // checkbox renders corresponding style to that state.
+
   function uncheckToggle() {
-    if (state === "") {
+    if (theme === "theme2") {
       inputRef.current.indeterminate = false;
     }
 
-    if (state === "checked") {
+    if (theme === "theme3") {
       inputRef.current.checked = false;
     }
-    setState("");
+
     setTheme("theme1");
   }
 
   function indeterminateToggle() {
-    if (state === "") {
+    if (theme === "theme1") {
       inputRef.current.indeterminate = true;
     }
 
-    if (state === "checked") {
+    if (theme === "theme3") {
       inputRef.current.checked = false;
       inputRef.current.indeterminate = true;
     }
-    setState("indeterminate");
+
     setTheme("theme2");
   }
 
   function checkedToggle() {
-    if (state === "indeterminate") {
+    if (theme === "theme2") {
       inputRef.current.indeterminate = false;
       inputRef.current.checked = true;
     }
 
-    if (state === "") {
+    if (theme === "theme1") {
       inputRef.current.checked = true;
     }
-    setState("checked");
+
     setTheme("theme3");
   }
 

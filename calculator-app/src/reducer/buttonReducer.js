@@ -1,11 +1,13 @@
 import sanitizeString from "./sanitizer";
 import { arithmaticeBtn } from "../utils/keypadLayout";
+import addComma from "../utils/addComma";
 
 export default function buttonReducer(state, action) {
   switch (action.type) {
     case "numeric":
-      return state === "0" ? action.buttonValue : state + action.buttonValue;
-    // : addComma(state.replace(/,/g, "") + action.buttonValue);
+      return state === "0"
+        ? action.buttonValue
+        : addComma(state.replace(/,/g, "") + action.buttonValue);
 
     case "arith":
       return state === "0"

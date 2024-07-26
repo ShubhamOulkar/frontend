@@ -6,10 +6,12 @@ export default defineConfig({
   plugins: [react()],
   test: {
     environment: "jsdom",
+    globals: true,
     reporters: ["default", "html"],
     outputFile: {
       html: "./test-report/report.html",
     },
+    setupFiles: "test/setup.js",
     coverage: {
       provider: "v8",
       enabled: true,
@@ -24,6 +26,5 @@ export default defineConfig({
       },
     },
     reportOnFailure: true,
-    globals: true,
   },
 });

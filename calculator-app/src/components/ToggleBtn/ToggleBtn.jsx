@@ -7,6 +7,7 @@ import {
   useReducer,
 } from "react";
 import { useThemeContext } from "../../context/useThemeContext";
+import { themesArray } from "../../utils/ThemesArray";
 
 function themeReducer(state, action) {
   switch (action.type) {
@@ -77,7 +78,7 @@ export default function ToggleBtn() {
     };
 
     const spans = document.querySelectorAll(".toggle-btns > span");
-
+    // register event listerners by span index
     spans.forEach((span, i) => {
       span.addEventListener("keydown", (e) => handleKeyDown(e, i));
     });
@@ -125,7 +126,6 @@ export default function ToggleBtn() {
     // get current theme from html element
     const currentTheme = root.getAttribute("class");
     // use array of themes to simplify logic
-    const themesArray = ["theme1", "theme2", "theme3"];
     // change theme if it is valid from array of themes
     if (themesArray.includes(theme)) {
       // on 1st visit currentTheme is null
@@ -192,9 +192,13 @@ export default function ToggleBtn() {
           <input ref={inputRef} type="checkbox" />
           <label></label>
           <div className="toggle-btns">
-            <span tabIndex="0" onClick={uncheckToggle}></span>
-            <span tabIndex="0" onClick={indeterminateToggle}></span>
-            <span tabIndex="0" onClick={checkedToggle}></span>
+            <span role="button" tabIndex="0" onClick={uncheckToggle}></span>
+            <span
+              role="button"
+              tabIndex="0"
+              onClick={indeterminateToggle}
+            ></span>
+            <span role="button" tabIndex="0" onClick={checkedToggle}></span>
           </div>
         </div>
       </div>

@@ -16,3 +16,4 @@
 14. [Authentication, session management, Authorization in nextjs (full
     stack web app) (signin, login, logout)](https://fullstackdemoes.vercel.app/nextjs-auth)
 15. [Calculator app](https://deluxe-melba-839030.netlify.app/)
+16. [Responsive layout](/responsive-layout/index.html)

@@ -30,6 +30,17 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+export function meta() {
+  return [
+    { title: "Space travel website demo" },
+    {
+      name: "description",
+      content: "This demo uses react router ssr mode",
+    },
+  ];
+}
+
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return <html lang="en">
             <head>
